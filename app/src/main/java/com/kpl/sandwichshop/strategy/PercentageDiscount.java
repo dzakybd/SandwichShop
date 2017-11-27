@@ -7,8 +7,8 @@ package com.kpl.sandwichshop.strategy;
 public class PercentageDiscount implements DiscountType {
 
     @Override
-    public int getDiscountedPrice(int price, int value) {
-        int discountedPrice = price * (100 - value) / 100;
-        return discountedPrice;
+    public int getFinalPrice(int price, int value) {
+        int finalPrice = price * (100 - value) / 100;
+        return finalPrice;
     }
 }

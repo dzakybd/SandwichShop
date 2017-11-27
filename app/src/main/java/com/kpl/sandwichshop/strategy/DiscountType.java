@@ -6,6 +6,6 @@ package com.kpl.sandwichshop.strategy;
 
 public interface DiscountType {
 
-    public int getDiscountedPrice(int price, int value);
+    public int getFinalPrice(int price, int value);
 
 }
