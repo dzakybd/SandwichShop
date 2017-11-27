@@ -24,7 +24,7 @@ public class Discount {
         return ourInstance;
     }
 
-    public void setSandwich(Sandwich sandwich){
+    public void setSandwich(Sandwich sandwich) {
         this.price = sandwich.getPrice();
     }
 
@@ -34,13 +34,13 @@ public class Discount {
         //this.value =
     }
 
-    public void removeVoucherCode(){
+    public void removeVoucherCode() {
         this.voucherCode = "";
         this.type = new NoDiscount();
         this.value = 0;
     }
 
-    public int getFinalPrice(){
+    public int getFinalPrice() {
         return type.getFinalPrice(price, value);
     }
 

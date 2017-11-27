@@ -1,6 +1,8 @@
-package com.kpl.sandwichshop.strategy;
+package com.kpl.sandwichshop;
 
 import com.kpl.sandwichshop.builder.Sandwich;
+import com.kpl.sandwichshop.strategy.CashPayment;
+import com.kpl.sandwichshop.strategy.PaymentMethod;
 
 /**
  * Created by Ilham Aulia Majid on 28-Nov-17.
@@ -25,7 +27,7 @@ public class Payment {
         this.value = value;
     }
 
-    public void pay(){
+    public void pay() {
         paymentMethod.processPayment(price, value);
     }
 }

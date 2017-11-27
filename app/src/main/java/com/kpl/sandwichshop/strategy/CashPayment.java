@@ -3,8 +3,6 @@ package com.kpl.sandwichshop.strategy;
 
 import android.util.Log;
 
-import com.kpl.sandwichshop.builder.Sandwich;
-
 /**
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
@@ -16,10 +14,9 @@ public class CashPayment implements PaymentMethod {
     @Override
     public void processPayment(int price, int value) {
         int cash = value;
-        if(cash > price) {
+        if (cash > price) {
             Log.d(TAG, "Return = " + (cash - price));
-        }
-        else {
+        } else {
             Log.d(TAG, "Failed");
         }
     }

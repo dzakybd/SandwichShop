@@ -2,8 +2,6 @@ package com.kpl.sandwichshop.strategy;
 
 import android.util.Log;
 
-import com.kpl.sandwichshop.builder.Sandwich;
-
 /**
  * Created by Ilham Aulia Majid on 28-Nov-17.
  */
