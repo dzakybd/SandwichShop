@@ -1,4 +1,7 @@
-package com.kpl.sandwichshop.models;
+package com.kpl.sandwichshop.builder;
+
+import com.kpl.sandwichshop.models.Bread;
+import com.kpl.sandwichshop.models.Filling;
 
 import java.util.List;
 
@@ -10,6 +13,9 @@ public class Sandwich {
 
     private Bread bread;
     private List<Filling> fillings;
+
+    protected Sandwich() {
+    }
 
     public Bread getBread() {
         return bread;

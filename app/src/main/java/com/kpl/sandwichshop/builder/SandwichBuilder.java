@@ -2,7 +2,6 @@ package com.kpl.sandwichshop.builder;
 
 import com.kpl.sandwichshop.models.Bread;
 import com.kpl.sandwichshop.models.Filling;
-import com.kpl.sandwichshop.models.Sandwich;
 
 import java.util.ArrayList;
 import java.util.List;
