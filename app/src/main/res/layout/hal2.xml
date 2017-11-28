@@ -33,13 +33,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_bahan"
         android:scrollbars="vertical" />
+    <EditText
+        android:id="@+id/edit_kupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan kode kupon"
+        android:textSize="16sp"
+        android:layout_below="@+id/recycler_bahan"
+        android:layout_centerHorizontal="true" />
     <TextView
         android:id="@+id/text_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Harga: Rp 20000"
         android:textSize="16sp"
-        android:layout_below="@id/recycler_bahan"
+        android:layout_below="@+id/edit_kupon"
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/button_lanjutkan"
