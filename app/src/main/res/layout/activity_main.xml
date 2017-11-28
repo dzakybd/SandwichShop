@@ -5,24 +5,24 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/text_pesanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Pesanan Anda"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/list_pesanan"
+        android:id="@+id/recycler_pesanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
+        android:layout_below="@id/text_pesanan"
         android:scrollbars="vertical" />
     <Button
-        android:id="@+id/pesan"
+        android:id="@+id/button_pesan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/list_pesanan"
+        android:layout_below="@id/recycler_pesanan"
         android:text="Pesan"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
