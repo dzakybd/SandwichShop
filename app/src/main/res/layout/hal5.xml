@@ -5,47 +5,42 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
     <TextView
-        android:id="@+id/text_susunan"
+        android:id="@+id/text_pembayaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Susunan"
+        android:text="Pembayaran"
         android:textSize="20sp"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_susunan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_susunan"
-        android:scrollbars="vertical" />
-    <TextView
-        android:id="@+id/text_bahan"
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bahan"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
-        android:layout_below="@id/recycler_susunan"
-        android:layout_centerHorizontal="true" />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_bahan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_bahan"
-        android:scrollbars="vertical" />
+        android:id="@+id/radiogroup_metode_bayar"
+        android:layout_below="@id/text_pembayaran">
+        <RadioButton
+            android:id="@+id/check_cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash" />
+        <RadioButton
+            android:id="@+id/check_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transfer" />
+    </RadioGroup>
     <TextView
         android:id="@+id/text_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Harga: Rp 20000"
         android:textSize="16sp"
-        android:layout_below="@id/recycler_bahan"
+        android:layout_below="@id/radiogroup_metode_bayar"
         android:layout_centerHorizontal="true" />
     <Button
-        android:id="@+id/button_lanjutkan"
+        android:id="@+id/button_selesai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_harga"
-        android:text="Lanjutkan"
+        android:text="Selesai"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
