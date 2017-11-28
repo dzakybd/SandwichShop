@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+    <TextView
+        android:id="@+id/text_susunan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Susunan"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_susunan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_susunan"
+        android:scrollbars="vertical" />
+    <TextView
+        android:id="@+id/text_bahan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Bahan"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/recycler_susunan"
+        android:layout_centerHorizontal="true" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_bahan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_bahan"
+        android:scrollbars="vertical" />
+    <Button
+        android:id="@+id/button_lanjutkan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycler_bahan"
+        android:text="Lanjutkan"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
