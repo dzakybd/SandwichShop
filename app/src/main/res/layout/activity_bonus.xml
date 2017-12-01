@@ -3,44 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
+
     <TextView
-        android:id="@+id/text_pembayaran"
+        android:id="@+id/text_sajian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pembayaran"
-        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:layout_centerHorizontal="true" />
+        android:text="Sajian"
+        android:textSize="20sp" />
+
     <RadioGroup
+        android:id="@+id/radiogroup_list_bonus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radiogroup_metode_bayar"
-        android:layout_below="@id/text_pembayaran">
+        android:layout_below="@id/text_sajian">
+
         <RadioButton
-            android:id="@+id/check_cash"
+            android:id="@+id/check_mayones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cash" />
+            android:text="Mayones" />
+
         <RadioButton
-            android:id="@+id/check_transfer"
+            android:id="@+id/check_bakar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Transfer" />
+            android:text="Bakar" />
     </RadioGroup>
+
     <TextView
         android:id="@+id/text_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/radiogroup_list_bonus"
+        android:layout_centerHorizontal="true"
         android:text="Harga: Rp 20000"
-        android:textSize="16sp"
-        android:layout_below="@id/radiogroup_metode_bayar"
-        android:layout_centerHorizontal="true" />
+        android:textSize="16sp" />
+
     <Button
-        android:id="@+id/button_selesai"
+        android:id="@+id/button_lanjutkan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_harga"
-        android:text="Selesai"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Lanjutkan" />
 </RelativeLayout>

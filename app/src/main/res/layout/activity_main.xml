@@ -3,26 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp">
+
     <TextView
         android:id="@+id/text_pesanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pesanan Anda"
-        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:layout_centerHorizontal="true" />
+        android:text="Pesanan Anda"
+        android:textSize="20sp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_pesanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_pesanan"
         android:scrollbars="vertical" />
+
     <Button
         android:id="@+id/button_pesan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/recycler_pesanan"
-        android:text="Pesan"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Pesan" />
+    
 </RelativeLayout>
