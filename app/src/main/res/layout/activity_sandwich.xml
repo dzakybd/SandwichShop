@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
@@ -9,7 +11,6 @@
         android:id="@+id/text_susunan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text="Susunan"
         android:textSize="20sp" />
@@ -18,15 +19,12 @@
         android:id="@+id/recycler_susunan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_susunan"
         android:scrollbars="vertical" />
 
     <TextView
         android:id="@+id/text_bahan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/recycler_susunan"
-        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text="Bahan"
         android:textSize="20sp" />
@@ -35,15 +33,12 @@
         android:id="@+id/recycler_bahan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_bahan"
         android:scrollbars="vertical" />
 
     <EditText
         android:id="@+id/edit_kupon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recycler_bahan"
-        android:layout_centerHorizontal="true"
         android:hint="Masukkan kode kupon"
         android:textSize="16sp" />
 
@@ -51,8 +46,6 @@
         android:id="@+id/text_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_kupon"
-        android:layout_centerHorizontal="true"
         android:text="Harga: Rp 20000"
         android:textSize="16sp" />
 
@@ -60,7 +53,5 @@
         android:id="@+id/button_lanjutkan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_harga"
-        android:layout_centerHorizontal="true"
         android:text="Lanjutkan" />
-</RelativeLayout>
+</LinearLayout>
