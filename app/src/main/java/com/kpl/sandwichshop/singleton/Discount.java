@@ -10,38 +10,32 @@ import com.kpl.sandwichshop.strategy.NoDiscount;
 
 public class Discount {
 
-    private static final Discount ourInstance = new Discount();
-
     private int price;
-    private String voucherCode;
-    private DiscountType type;
-    private int value;
+    private String code;
 
     private Discount() {
     }
 
-    public static Discount getInstance() {
-        return ourInstance;
+    private static Discount discount = new Discount();
+
+    public static Discount getDiscount() {
+        return discount;
     }
 
-    public void setSandwich(Sandwich sandwich) {
-        this.price = sandwich.getPrice();
+    public int getPrice() {
+        return price;
     }
 
-    public void setVoucherCode(String voucherCode) {
-        this.voucherCode = voucherCode;
-        //this.type =
-        //this.value =
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void removeVoucherCode() {
-        this.voucherCode = "";
-        this.type = new NoDiscount();
-        this.value = 0;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public int getFinalPrice() {
-        return type.getFinalPrice(price, value);
+    public String getCode() {
+        return code;
     }
-
 }
