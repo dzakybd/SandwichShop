@@ -1,4 +1,4 @@
-package com.kpl.sandwichshop.models;
+package com.kpl.sandwichshop.models.Bread;
 
 import com.kpl.sandwichshop.R;
 
@@ -6,15 +6,15 @@ import com.kpl.sandwichshop.R;
  * Created by zaki on 4/12/17.
  */
 
-public class BreadLong extends Bread {
+public class Bun extends Bread {
     @Override
     public String getName() {
-        return "Long bread";
+        return "Bun bread";
     }
 
     @Override
     public int getPrice() {
-        return 2500;
+        return 2000;
     }
 
     @Override
