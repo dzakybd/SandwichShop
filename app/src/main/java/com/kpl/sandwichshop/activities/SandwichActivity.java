@@ -42,19 +42,34 @@ public class SandwichActivity extends AppCompatActivity {
         Filling filling = new Filling("Roti tawar", 750, "roti");
         fillingList.add(filling);
 
-        filling = new Filling("Selada", 250, "lapisan");
+        filling = new Filling("Selada", 250, "sayur");
         fillingList.add(filling);
 
-        filling = new Filling("Margarin", 500, "pasta");
+        filling = new Filling("Tomat", 250, "sayur");
         fillingList.add(filling);
 
-        filling = new Filling("Keju", 320, "lapisan");
+        filling = new Filling("Jamur", 550, "sayur");
         fillingList.add(filling);
 
-        filling = new Filling("Kornet", 1900, "lapisan");
+        filling = new Filling("Margarin", 500, "isian");
         fillingList.add(filling);
 
-        filling = new Filling("Mayones", 750, "pasta");
+        filling = new Filling("Keju", 550, "isian");
+        fillingList.add(filling);
+
+        filling = new Filling("Mayones", 750, "isian");
+        fillingList.add(filling);
+
+        filling = new Filling("Telur", 2250, "isian");
+        fillingList.add(filling);
+
+        filling = new Filling("Ayam", 2250, "daging");
+        fillingList.add(filling);
+
+        filling = new Filling("Ikan", 2250, "daging");
+        fillingList.add(filling);
+
+        filling = new Filling("Sapi", 2250, "daging");
         fillingList.add(filling);
 
         fAdapter.notifyDataSetChanged();
