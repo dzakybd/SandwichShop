@@ -1,57 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:gravity="center"
+    android:layout_margin="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_susunan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Susunan"
+        android:text="Bread"
         android:textSize="20sp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_susunan"
+    <Spinner
+        android:id="@+id/spinner_bread"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+        android:layout_height="wrap_content"></Spinner>
 
-    <TextView
-        android:id="@+id/text_bahan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Bahan"
-        android:textSize="20sp" />
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Filling"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/button_add_filling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Add" />
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_bahan"
+        android:id="@+id/recycler_filling"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+        android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/edit_kupon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan kode kupon"
-        android:textSize="16sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_harga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Harga: Rp 20000"
-        android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/button_lanjutkan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lanjutkan" />
+        <LinearLayout
+            android:layout_above="@+id/text_harga"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edittext_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/textview_price"
+                android:layout_centerHorizontal="true"
+                android:hint="Coupon code"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/button_add_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Add"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textview_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button_grab"
+            android:layout_centerHorizontal="true"
+            android:text="Total price : 0"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_grab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Grab"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
 </LinearLayout>

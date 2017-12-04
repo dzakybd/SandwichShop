@@ -5,7 +5,7 @@ import com.kpl.sandwichshop.strategy.DiscountType;
 import com.kpl.sandwichshop.strategy.NoDiscount;
 
 /**
- * Created by Ilham Aulia Majid on 28-Nov-17.
+ * Created by zaki on 4/12/17.
  */
 
 public class Discount {
