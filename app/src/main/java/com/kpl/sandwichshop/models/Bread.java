@@ -6,14 +6,7 @@ package com.kpl.sandwichshop.models;
 
 public abstract class Bread {
 
-    public String name;
-    public int price;
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
+    public abstract String getName();
+    public abstract int getPrice();
+    public abstract int getDrawable();
 }

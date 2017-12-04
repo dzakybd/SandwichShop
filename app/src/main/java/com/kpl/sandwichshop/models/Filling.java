@@ -6,14 +6,16 @@ package com.kpl.sandwichshop.models;
 
 public class Filling {
 
-    public String name;
-    public int price;
-    public String category;
+    String name;
+    int price;
+    int drawable;
+    String category;
 
-    public Filling(String name, int price, String category){
+    public Filling(String name, int price, String category, int drawable){
         this.name = name;
         this.price = price;
         this.category = category;
+        this.drawable=drawable;
     }
 
     public String getName() {
@@ -26,5 +28,25 @@ public class Filling {
 
     public String getCategory() {
         return category;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getDrawable() {
+        return drawable;
+    }
+
+    public void setDrawable(int drawable) {
+        this.drawable = drawable;
     }
 }
