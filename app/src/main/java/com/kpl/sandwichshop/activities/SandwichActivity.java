@@ -27,7 +27,7 @@ public class SandwichActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sandwich);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_bahan);
+        recyclerView = findViewById(R.id.recycler_bahan);
 
         fAdapter = new FillingsAdapter(fillingList);
         RecyclerView.LayoutManager fLayoutManager = new LinearLayoutManager(getApplicationContext());
