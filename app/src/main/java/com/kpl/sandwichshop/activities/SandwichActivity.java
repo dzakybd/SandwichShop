@@ -30,8 +30,8 @@ public class SandwichActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_bahan);
 
         fAdapter = new FillingsAdapter(fillingList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        RecyclerView.LayoutManager fLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(fLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(fAdapter);
 
