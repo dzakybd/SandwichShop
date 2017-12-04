@@ -24,6 +24,8 @@
         android:layout_height="wrap_content">
 
         <CheckBox
+            android:onClick="checkCategory"
+            android:checked="true"
             android:id="@+id/checkbox_meat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +33,8 @@
             android:text="Meat" />
 
         <CheckBox
+            android:onClick="checkCategory"
+            android:checked="true"
             android:id="@+id/checkbox_vegetable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,6 +42,8 @@
             android:text="Vegetable" />
 
         <CheckBox
+            android:onClick="checkCategory"
+            android:checked="true"
             android:id="@+id/checkbox_condiment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +52,7 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:layout_above="@+id/button_add_filling"
         android:layout_below="@+id/container"
         android:layout_marginTop="10dp"
         android:id="@+id/recycler_filling"
@@ -53,6 +60,7 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:onClick="addFilling"
         android:id="@+id/button_add_filling"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

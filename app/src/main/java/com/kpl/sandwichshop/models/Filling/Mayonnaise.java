@@ -1,6 +1,6 @@
 package com.kpl.sandwichshop.models.Filling;
 
-import com.kpl.sandwichshop.FillingCategory;
+import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.R;
 
 /**
@@ -25,6 +25,6 @@ public class Mayonnaise extends Filling {
 
     @Override
     public String getCategory() {
-        return FillingCategory.condiment;
+        return StaticKeys.categoryCondiment;
     }
 }

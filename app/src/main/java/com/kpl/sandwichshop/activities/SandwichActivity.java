@@ -2,6 +2,7 @@ package com.kpl.sandwichshop.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.adapters.SpinnerIconAdapter;
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Bread.Bun;
@@ -64,6 +66,8 @@ public class SandwichActivity extends AppCompatActivity {
     }
 
     public void addFilling(View view) {
+        Intent i = new Intent(this, AddFillingActivity.class);
+        startActivityForResult(i, StaticKeys.addFillingRequest);
     }
 
     public void addCoupon(View view) {
@@ -72,5 +76,14 @@ public class SandwichActivity extends AppCompatActivity {
     public void grabSandwich(View view) {
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == StaticKeys.addFillingRequest) {
+
+            }
+        }
+    }
 
 }

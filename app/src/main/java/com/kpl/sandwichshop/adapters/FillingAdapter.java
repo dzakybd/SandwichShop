@@ -43,7 +43,7 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
         //get the context
         Context ctx = viewHolder.itemView.getContext();
         //define our data for the view
-        viewHolder.tvPrice.setText(filling.getPrice());
+        viewHolder.tvPrice.setText(String.valueOf(filling.getPrice()));
         viewHolder.tvName.setText(filling.getName());
         viewHolder.imageDrawable.setImageDrawable(ctx.getResources().getDrawable(filling.getDrawable()));
 

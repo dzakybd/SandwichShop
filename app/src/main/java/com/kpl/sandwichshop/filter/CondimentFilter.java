@@ -1,6 +1,6 @@
 package com.kpl.sandwichshop.filter;
 
-import com.kpl.sandwichshop.FillingCategory;
+import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.models.Filling.Filling;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class CondimentFilter implements FilterFilling {
     public List<Filling> meetCriteria(List<Filling> fillings) {
         List<Filling> condiment = new ArrayList<>();
         for (Filling filling : fillings) {
-            if (filling.getCategory().contentEquals(FillingCategory.condiment)) {
+            if (filling.getCategory().contentEquals(StaticKeys.categoryCondiment)) {
                 condiment.add(filling);
             }
         }
