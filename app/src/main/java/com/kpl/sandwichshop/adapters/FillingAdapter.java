@@ -3,11 +3,13 @@ package com.kpl.sandwichshop.adapters;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.models.Filling.Filling;
+import com.mikepenz.fastadapter.commons.utils.FastAdapterUIUtils;
 import com.mikepenz.fastadapter.items.AbstractItem;
 
 import java.util.List;
@@ -40,9 +42,10 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
     public void bindView(FillingAdapter.ViewHolder viewHolder, List<Object> payloads) {
         super.bindView(viewHolder, payloads);
 
-        //get the context
         Context ctx = viewHolder.itemView.getContext();
-        //define our data for the view
+        //set the background for the item
+        viewHolder.view.setForeground(FastAdapterUIUtils.getSelectablePressedBackground(ctx, FastAdapterUIUtils.adjustAlpha(ctx.getResources().getColor(R.color.colorPrimary), 100), 50, true));
+
         viewHolder.tvPrice.setText(String.valueOf(filling.getPrice()));
         viewHolder.tvName.setText(filling.getName());
         viewHolder.imageDrawable.setImageDrawable(ctx.getResources().getDrawable(filling.getDrawable()));
@@ -68,9 +71,11 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected ImageView imageDrawable;
         protected TextView tvName,tvPrice;
+        protected FrameLayout view;
 
         public ViewHolder(View view) {
             super(view);
+            this.view = (FrameLayout) view;
             tvName=view.findViewById(R.id.textview_name);
             tvPrice=view.findViewById(R.id.textview_price);
             imageDrawable=view.findViewById(R.id.imageview_drawable);

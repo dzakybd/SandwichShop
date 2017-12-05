@@ -9,4 +9,5 @@ public class StaticKeys {
     public final static String categoryMeat="meat";
     public final static String categoryCondiment="condiment";
     public final static int addFillingRequest=110;
+    public final static String addFillingResult="addFillingResult";
 }

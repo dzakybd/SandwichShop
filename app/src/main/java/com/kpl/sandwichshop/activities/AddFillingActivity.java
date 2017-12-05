@@ -2,6 +2,7 @@ package com.kpl.sandwichshop.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.adapters.FillingAdapter;
 import com.kpl.sandwichshop.filter.CondimentFilter;
 import com.kpl.sandwichshop.filter.FilterFilling;
@@ -29,18 +31,22 @@ import com.kpl.sandwichshop.models.Filling.Filling;
 import com.kpl.sandwichshop.models.Filling.Lettuce;
 import com.kpl.sandwichshop.models.Filling.Mayonnaise;
 import com.kpl.sandwichshop.models.Filling.Tomato;
+import com.mikepenz.fastadapter.FastAdapter;
+import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddFillingActivity extends AppCompatActivity {
+public class AddFillingActivity extends AppCompatActivity  {
 
     RecyclerView recyclerfilling;
-    List<FillingAdapter> items;
-    FastItemAdapter<FillingAdapter> mFastAdapter;
+    FastAdapter<FillingAdapter> mFastAdapter;
+    ItemAdapter<FillingAdapter> mItemAdapter;
     CheckBox checkboxmeat;
     CheckBox checkboxvegetable;
     CheckBox checkboxcondiment;
@@ -56,32 +62,41 @@ public class AddFillingActivity extends AppCompatActivity {
         checkboxvegetable = findViewById(R.id.checkbox_vegetable);
         checkboxmeat = findViewById(R.id.checkbox_meat);
         recyclerfilling = findViewById(R.id.recycler_filling);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         fillingSetup();
         fillingData(allfilling);
     }
 
     private void fillingData(List<Filling> fillings) {
-        items.clear();
-        mFastAdapter.clear();
+        mItemAdapter.clear();
         for (Filling filling : fillings) {
-            items.add(new FillingAdapter().create(filling));
+            mItemAdapter.add(new FillingAdapter().create(filling));
         }
-        mFastAdapter.add(items);
     }
 
 
     private void fillingSetup() {
+        mItemAdapter = new ItemAdapter<>();
+        mFastAdapter = FastAdapter.with(Arrays.asList(mItemAdapter));
+        mFastAdapter.withSelectable(true);
+        mFastAdapter.withSelectOnLongClick(false);
         recyclerfilling.setLayoutManager(new LinearLayoutManager(this));
+        recyclerfilling.setAdapter(mFastAdapter);
         recyclerfilling.setItemAnimator(new SlideDownAlphaAnimator());
         recyclerfilling.getItemAnimator().setAddDuration(500);
         recyclerfilling.getItemAnimator().setRemoveDuration(500);
-        items = new ArrayList<>();
-        mFastAdapter = new FastItemAdapter<>();
-        recyclerfilling.setAdapter(mFastAdapter);
+
     }
 
     public void addFilling(View view) {
+        Filling filling = null;
+        for (Integer pos : mFastAdapter.getSelections()) {
+            filling=mItemAdapter.getAdapterItem(pos).filling;
+        }
         Intent i = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(StaticKeys.addFillingResult, Parcels.wrap(Filling.class, filling));
+        i.putExtras(bundle);
         setResult(RESULT_OK, i);
         finish();
     }
@@ -138,8 +153,7 @@ public class AddFillingActivity extends AppCompatActivity {
             FilterFilling vegetableFilter = new VegetableFilter();
             fillingData(vegetableFilter.meetCriteria(allfilling));
         }else{
-            items.clear();
-            mFastAdapter.clear();
+            mItemAdapter.clear();
         }
     }
 }
