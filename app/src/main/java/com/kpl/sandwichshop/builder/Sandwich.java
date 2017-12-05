@@ -16,7 +16,7 @@ public class Sandwich implements Observable{
 
     public boolean ready;
 
-    private Sandwich() {
+    public Sandwich() {
     }
 
     private static Sandwich sandwich = new Sandwich();

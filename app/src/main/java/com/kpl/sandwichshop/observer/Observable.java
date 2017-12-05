@@ -8,7 +8,7 @@ public interface Observable {
 
     void register (Observer observer);
     void unregister (Observer observer);
-    boolean getReady();
-    void setReady(boolean ready);
     void notifyObserver();
+    void setReady(boolean ready);
+    boolean getReady();
 }
