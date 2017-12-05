@@ -15,7 +15,7 @@ public class Payment {
     int value;
 
     public Payment(Sandwich sandwich) {
-        this.price = sandwich.getPrice();
+//        this.price = sandwich.getPrice();
         this.paymentMethod = new CashPayment();
     }
 
