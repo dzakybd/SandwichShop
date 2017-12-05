@@ -13,5 +13,6 @@ public class MayoDecorator extends Decorator {
     public MayoDecorator(Decorator decorator) {
         super(decorator);
         setName("Mayonnaise");
+        setPrice(150);
     }
 }

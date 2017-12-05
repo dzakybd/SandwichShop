@@ -11,6 +11,7 @@ import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
 import com.kpl.sandwichshop.decorator.Decorator;
 import com.kpl.sandwichshop.decorator.MayoDecorator;
+import com.kpl.sandwichshop.decorator.SauceDecorator;
 
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
@@ -29,8 +30,9 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         button_pesan = findViewById(R.id.button_pesan);
         button_pesan.setOnClickListener(this);
 
-        Decorator decorator = new CheeseDecorator(new MayoDecorator());
-        Log.d(TAG, "onCreate: " + decorator.getDecorators());
+        Decorator decorator = new CheeseDecorator(new MayoDecorator(new SauceDecorator()));
+        Log.d(TAG, "onCreate: " + decorator.getName());
+        Log.d(TAG, "onCreate: " + decorator.getPrice());
     }
 
     @Override

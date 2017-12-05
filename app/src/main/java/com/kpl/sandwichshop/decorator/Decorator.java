@@ -7,6 +7,7 @@ package com.kpl.sandwichshop.decorator;
 public abstract class Decorator {
 
     private String name;
+    private int price;
     private Decorator decorator;
 
     public Decorator(Decorator decorator) {
@@ -17,13 +18,24 @@ public abstract class Decorator {
         this.name = name;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-    public String getDecorators() {
-        String decoratorsName = " + " + this.name;
+    public String getName() {
+        String decoratorsName = " + " + name;
         if (decorator != null) {
-            decoratorsName += decorator.getDecorators();
+            decoratorsName += decorator.getName();
         }
         return decoratorsName;
+    }
+
+    public int getPrice(){
+        int decoratorsPrice = price;
+        if(decorator != null) {
+            decoratorsPrice += decorator.getPrice();
+        }
+        return decoratorsPrice;
     }
 
 
