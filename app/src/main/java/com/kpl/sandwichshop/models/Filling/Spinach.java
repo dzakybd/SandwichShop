@@ -1,28 +1,27 @@
 package com.kpl.sandwichshop.models.Filling;
 
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.R;
 
 /**
- * Created by zaki on 4/12/17.
+ * Created by Hendry on 12/5/2017.
  */
 
-public class Chicken extends Filling {
+public class Spinach extends Filling {
     @Override
     public String getName() {
-        return "Chicken meat";
+        return "Spinach";
     }
 
     @Override
     public int getPrice() {
-        return 1500;
+        return 500;
     }
 
     @Override
     public int getDrawable() {
-        return R.drawable.ayam;
+        return 0;
     }
 
     @Override
-    public String getCategory() { return StaticKeys.categoryMeat; }
+    public String getCategory() { return StaticKeys.categoryVegetable; }
 }

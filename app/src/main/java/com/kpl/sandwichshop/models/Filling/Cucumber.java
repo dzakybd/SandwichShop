@@ -1,16 +1,16 @@
 package com.kpl.sandwichshop.models.Filling;
 
-import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 
 /**
- * Created by zaki on 4/12/17.
+ * Created by Hendry on 12/5/2017.
  */
 
-public class Lettuce extends Filling {
+public class Cucumber extends Filling {
     @Override
     public String getName() {
-        return "Lettuce";
+        return "Cucumber";
     }
 
     @Override
@@ -20,9 +20,11 @@ public class Lettuce extends Filling {
 
     @Override
     public int getDrawable() {
-        return R.drawable.selada;
+        return 0;
     }
 
     @Override
-    public String getCategory() { return StaticKeys.categoryVegetable; }
+    public String getCategory() {
+        return StaticKeys.categoryVegetable;
+    }
 }
