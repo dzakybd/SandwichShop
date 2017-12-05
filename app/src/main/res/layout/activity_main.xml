@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:padding="16dp"
     tools:context="com.kpl.sandwichshop.activities.MainActivity">
 
     <TextView
-        android:id="@+id/text_pesanan"
+        android:id="@+id/text_order_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:text="Pesanan Anda"
+        android:text="Your Order History"
         android:textSize="20sp" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_pesanan"
+        android:id="@+id/recycler_order_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_pesanan"
+        android:layout_below="@id/text_order_history"
         android:scrollbars="vertical" />
 
     <Button
         android:onClick="orderSandwich"
-        android:id="@+id/button_pesan"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_order"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/recycler_pesanan"
-        android:layout_centerHorizontal="true"
-        android:text="Pesan" />
-    
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:text="Order"
+        android:textColor="@android:color/white"/>
+
 </RelativeLayout>
