@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.SandwichActivity"
-            android:label="Build sandwich"></activity>
+            android:label="@string/title_activity_sandwich"></activity>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         <activity android:name=".activities.PaymentActivity" />
         <activity
             android:name=".activities.AddFillingActivity"
-            android:label="Add filling" />
+            android:label="@string/title_activity_add_filling" />
         <activity
             android:name=".activities.OrderActivity"
             android:label="@string/title_activity_order"
