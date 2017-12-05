@@ -8,7 +8,7 @@ import com.kpl.sandwichshop.builder.Sandwich;
 
 public class DiscountList {
 
-    public static Discount checkDiscount(String code) {
+    public static void checkDiscount(String code) {
         Discount discount = Discount.getDiscount();
         if(code.contentEquals("SHOP1")){
             discount.setCode("SHOP1");
@@ -21,7 +21,6 @@ public class DiscountList {
             discount.setCode("");
             discount.setPrice(0);
         }
-        return discount;
     }
 
 }

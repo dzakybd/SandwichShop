@@ -27,11 +27,14 @@ import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.adapters.FillingAdapter;
 import com.kpl.sandwichshop.adapters.SpinnerIconAdapter;
+import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Bread.Bun;
 import com.kpl.sandwichshop.models.Bread.Flat;
 import com.kpl.sandwichshop.models.Bread.Long;
 import com.kpl.sandwichshop.models.Filling.Filling;
+import com.kpl.sandwichshop.singleton.Discount;
+import com.kpl.sandwichshop.singleton.DiscountList;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.fastadapter_extensions.drag.ItemTouchCallback;
@@ -55,17 +58,19 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     private Spinner spinnerbread;
     private RecyclerView recyclerfilling;
     private EditText edittextcoupon;
-    private TextView textviewprice;
+    private TextView textviewprice,textviewdiscount;
     FastAdapter<FillingAdapter> mFastAdapter;
     ItemAdapter<FillingAdapter> mItemAdapter;
     private SimpleDragCallback touchCallback;
     private ItemTouchHelper touchHelper;
+    ArrayList<Bread> breads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sandwich);
         textviewprice = findViewById(R.id.textview_price);
+        textviewdiscount= findViewById(R.id.textview_discount);
         edittextcoupon = findViewById(R.id.edittext_coupon);
         recyclerfilling = findViewById(R.id.recycler_filling);
         spinnerbread = findViewById(R.id.spinner_bread);
@@ -74,11 +79,6 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         fillingSetup();
     }
 
-    private void fillingData(List<Filling> fillings) {
-        for (Filling filling : fillings) {
-            mItemAdapter.add(new FillingAdapter().create(filling));
-        }
-    }
 
 
     private void fillingSetup() {
@@ -115,7 +115,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     }
 
     private void spinnerSetup() {
-        ArrayList<Bread> breads=new ArrayList<>();
+        breads=new ArrayList<>();
         breads.add(new Flat());
         breads.add(new Bun());
         breads.add(new Long());
@@ -133,9 +133,20 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     }
 
     public void addCoupon(View view) {
+        DiscountList.checkDiscount(edittextcoupon.getText().toString());
+        calculatePrice();
     }
 
+
     public void grabSandwich(View view) {
+        Sandwich sandwich = Sandwich.getSandwich();
+        sandwich.setBread(breads.get(spinnerbread.getSelectedItemPosition()));
+        List<Filling> fillings = new ArrayList<>();
+        for (FillingAdapter fillingAdapter:mItemAdapter.getAdapterItems()) {
+            fillings.add(fillingAdapter.filling);
+        }
+        sandwich.setFillings(fillings);
+        startActivity(new Intent(this,AdditionalActivity.class));
     }
 
     @Override
@@ -145,11 +156,24 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
             if (requestCode == StaticKeys.addFillingRequest) {
                 if(data.hasExtra(StaticKeys.addFillingResult)) {
                     Filling filling = Parcels.unwrap(data.getParcelableExtra(StaticKeys.addFillingResult));
-                    Toast.makeText(this, filling.getName() + filling.getPrice() + filling.getCategory(), Toast.LENGTH_SHORT).show();
                     mItemAdapter.add(new FillingAdapter().create(filling));
+                    calculatePrice();
                 }
             }
         }
+    }
+
+    private void calculatePrice() {
+        int total=0;
+        for (FillingAdapter fillingAdapter: mItemAdapter.getAdapterItems()) {
+            total+=fillingAdapter.filling.getPrice();
+        }
+        Discount discount = Discount.getDiscount();
+        if(total>discount.getPrice()){
+            total-=discount.getPrice();
+            textviewdiscount.setText("Discount : " + discount.getPrice());
+        }else textviewdiscount.setText("Discount : need more items");
+        textviewprice.setText("Total : " + total);
     }
 
     @Override
