@@ -23,6 +23,8 @@ public abstract class Filling {
     public static Filling create(String getName) {
         if(getName.contentEquals("Beef")) return new Beef();
         else if(getName.contentEquals("Chicken meat")) return new Chicken();
+        else if(getName.contentEquals("Fish")) return new Fish();
+        else if(getName.contentEquals("Egg")) return new Egg();
         else if(getName.contentEquals("Lettuce")) return new Lettuce();
         else if(getName.contentEquals("Tomato")) return new Tomato();
         else if(getName.contentEquals("Cheese")) return new Cheese();

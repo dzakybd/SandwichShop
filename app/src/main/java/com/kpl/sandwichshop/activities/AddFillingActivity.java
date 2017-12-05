@@ -20,7 +20,9 @@ import com.kpl.sandwichshop.filter.VegetableFilter;
 import com.kpl.sandwichshop.models.Filling.Beef;
 import com.kpl.sandwichshop.models.Filling.Cheese;
 import com.kpl.sandwichshop.models.Filling.Chicken;
+import com.kpl.sandwichshop.models.Filling.Egg;
 import com.kpl.sandwichshop.models.Filling.Filling;
+import com.kpl.sandwichshop.models.Filling.Fish;
 import com.kpl.sandwichshop.models.Filling.Lettuce;
 import com.kpl.sandwichshop.models.Filling.Mayonnaise;
 import com.kpl.sandwichshop.models.Filling.Tomato;
@@ -42,7 +44,7 @@ public class AddFillingActivity extends AppCompatActivity  {
     CheckBox checkboxvegetable;
     CheckBox checkboxcondiment;
     static final List<Filling> allfilling = Arrays.asList(
-           new Beef(),new Chicken(),new Lettuce(),new Tomato(), new Mayonnaise(), new Cheese()
+           new Beef(), new Chicken(), new Fish(), new Egg(), new Lettuce(), new Tomato(), new Mayonnaise(), new Cheese()
     );
 
     @Override
