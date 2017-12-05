@@ -1,9 +1,5 @@
 package com.kpl.sandwichshop.singleton;
 
-import com.kpl.sandwichshop.builder.Sandwich;
-import com.kpl.sandwichshop.strategy.DiscountType;
-import com.kpl.sandwichshop.strategy.NoDiscount;
-
 /**
  * Created by zaki on 4/12/17.
  */

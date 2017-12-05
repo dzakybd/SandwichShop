@@ -7,8 +7,9 @@ import org.parceler.ParcelFactory;
 import org.parceler.ParcelProperty;
 
 /**
- * Created by Ilham Aulia Majid on 27-Nov-17.
+ * Created by zaki on 4/12/17.
  */
+
 @AutoValue
 @Parcel
 public abstract class Filling {

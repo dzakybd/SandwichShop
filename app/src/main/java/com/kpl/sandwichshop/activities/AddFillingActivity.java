@@ -2,18 +2,12 @@ package com.kpl.sandwichshop.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
@@ -23,7 +17,6 @@ import com.kpl.sandwichshop.filter.FilterFilling;
 import com.kpl.sandwichshop.filter.MeatFilter;
 import com.kpl.sandwichshop.filter.OrCriteria;
 import com.kpl.sandwichshop.filter.VegetableFilter;
-import com.kpl.sandwichshop.models.Bread.Bun;
 import com.kpl.sandwichshop.models.Filling.Beef;
 import com.kpl.sandwichshop.models.Filling.Cheese;
 import com.kpl.sandwichshop.models.Filling.Chicken;
@@ -33,12 +26,10 @@ import com.kpl.sandwichshop.models.Filling.Mayonnaise;
 import com.kpl.sandwichshop.models.Filling.Tomato;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
-import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
 
 import org.parceler.Parcels;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

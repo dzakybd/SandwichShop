@@ -1,27 +1,16 @@
 package com.kpl.sandwichshop.activities;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
@@ -139,14 +128,16 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
 
 
     public void grabSandwich(View view) {
-        Sandwich sandwich = Sandwich.getSandwich();
-        sandwich.setBread(breads.get(spinnerbread.getSelectedItemPosition()));
-        List<Filling> fillings = new ArrayList<>();
-        for (FillingAdapter fillingAdapter:mItemAdapter.getAdapterItems()) {
-            fillings.add(fillingAdapter.filling);
+        if(mItemAdapter.getAdapterItems().size()>0) {
+            Sandwich sandwich = Sandwich.getSandwich();
+            sandwich.setBread(breads.get(spinnerbread.getSelectedItemPosition()));
+            List<Filling> fillings = new ArrayList<>();
+            for (FillingAdapter fillingAdapter : mItemAdapter.getAdapterItems()) {
+                fillings.add(fillingAdapter.filling);
+            }
+            sandwich.setFillings(fillings);
+            startActivity(new Intent(this, AdditionalActivity.class));
         }
-        sandwich.setFillings(fillings);
-        startActivity(new Intent(this,AdditionalActivity.class));
     }
 
     @Override

@@ -1,9 +1,7 @@
 package com.kpl.sandwichshop.singleton;
 
-import com.kpl.sandwichshop.builder.Sandwich;
-
 /**
- * Created by Ilham Aulia Majid on 28-Nov-17.
+ * Created by zaki on 4/12/17.
  */
 
 public class DiscountList {
