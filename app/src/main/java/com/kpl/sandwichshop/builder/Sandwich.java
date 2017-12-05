@@ -2,6 +2,7 @@ package com.kpl.sandwichshop.builder;
 
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Filling.Filling;
+import com.kpl.sandwichshop.singleton.Discount;
 
 import java.util.List;
 
@@ -10,6 +11,15 @@ import java.util.List;
  */
 
 public class Sandwich {
+
+    private Sandwich() {
+    }
+
+    private static Sandwich sandwich = new Sandwich();
+
+    public static Sandwich getSandwich() {
+        return sandwich;
+    }
 
     private Bread bread;
     private List<Filling> fillings;
@@ -30,19 +40,4 @@ public class Sandwich {
         this.fillings = fillings;
     }
 
-    public void addFillings(Filling filling){
-        this.fillings.add(filling);
-    }
-    public void removeFillings(int index){
-        this.fillings.remove(index);
-    }
-
-    public int getPrice() {
-        int breadPrice = this.bread.getPrice();
-        int fillingsPrice = 0;
-        for (Filling filling : this.fillings) {
-            fillingsPrice += filling.getPrice();
-        }
-        return breadPrice + fillingsPrice;
-    }
 }

@@ -73,7 +73,7 @@
 
         <LinearLayout
             android:id="@+id/container"
-            android:layout_above="@id/textview_price"
+            android:layout_above="@id/textview_discount"
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -97,6 +97,14 @@
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textview_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textview_price"
+            android:layout_centerHorizontal="true"
+            android:text="Discount : 0"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textview_price"
