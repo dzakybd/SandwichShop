@@ -6,9 +6,13 @@ package com.kpl.sandwichshop.observer;
 
 public interface Observable {
 
-    void register (Observer observer);
-    void unregister (Observer observer);
+    void register(Observer observer);
+
+    void unregister(Observer observer);
+
     void notifyObserver();
+
     void setReady(boolean ready);
+
     boolean getReady();
 }

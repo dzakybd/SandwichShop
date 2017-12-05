@@ -5,5 +5,7 @@ package com.kpl.sandwichshop.observer;
  */
 
 public interface Observer {
+
     String update();
+
 }

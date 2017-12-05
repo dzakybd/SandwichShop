@@ -6,15 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.decorator.CheeseDecorator;
+import com.kpl.sandwichshop.decorator.Decorator;
+import com.kpl.sandwichshop.decorator.MayoDecorator;
 
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class AdditionalActivity  extends AppCompatActivity implements View.OnClickListener{
+public class AdditionalActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private final String TAG = getClass().getSimpleName();
 
     Button button_pesan;
 
@@ -24,6 +28,9 @@ public class AdditionalActivity  extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_additional);
         button_pesan = findViewById(R.id.button_pesan);
         button_pesan.setOnClickListener(this);
+
+        Decorator decorator = new CheeseDecorator(new MayoDecorator());
+        Log.d(TAG, "onCreate: " + decorator.getDecorators());
     }
 
     @Override
@@ -35,7 +42,6 @@ public class AdditionalActivity  extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
-
 
 
 }
