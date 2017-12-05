@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
@@ -137,6 +139,8 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
             }
             sandwich.setFillings(fillings);
             startActivity(new Intent(this, AdditionalActivity.class));
+        }else{
+            Toast.makeText(view.getContext(),"Gagal: Pilih Isian Terlebih Dahulu",Toast.LENGTH_SHORT).show();
         }
     }
 
