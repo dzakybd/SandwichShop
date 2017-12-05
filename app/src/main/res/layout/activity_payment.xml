@@ -44,9 +44,11 @@
 
     <Button
         android:id="@+id/button_selesai"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_harga"
         android:layout_centerHorizontal="true"
-        android:text="Selesai" />
+        android:text="Selesai"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"/>
 </RelativeLayout>
