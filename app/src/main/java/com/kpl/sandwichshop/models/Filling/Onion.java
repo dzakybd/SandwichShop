@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop.models.Filling;
 
+import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 
 /**
@@ -16,9 +17,7 @@ public class Onion extends Filling {
     }
 
     @Override
-    public int getDrawable() {
-        return 0;
-    }
+    public int getDrawable() { return R.drawable.onion; }
 
     @Override
     public String getCategory() {

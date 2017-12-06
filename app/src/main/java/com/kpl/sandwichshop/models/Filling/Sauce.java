@@ -4,25 +4,27 @@ import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 
 /**
- * Created by Hendry on 12/5/2017.
+ * Created by Hendry on 12/6/2017.
  */
 
-public class Cucumber extends Filling {
+public class Sauce extends Filling {
     @Override
     public String getName() {
-        return "Cucumber";
+        return "Sauce";
     }
 
     @Override
     public int getPrice() {
-        return 500;
+        return 1500;
     }
 
     @Override
-    public int getDrawable() { return R.drawable.cucumber; }
+    public int getDrawable() {
+        return R.drawable.sauce;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.categoryCondiment;
     }
 }

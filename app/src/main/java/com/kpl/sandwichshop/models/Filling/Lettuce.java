@@ -20,7 +20,7 @@ public class Lettuce extends Filling {
 
     @Override
     public int getDrawable() {
-        return R.drawable.selada;
+        return R.drawable.lettuce;
     }
 
     @Override

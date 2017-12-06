@@ -19,9 +19,7 @@ public class Cheese extends Filling {
     }
 
     @Override
-    public int getDrawable() {
-        return R.drawable.keju;
-    }
+    public int getDrawable() { return R.drawable.cheese; }
 
     @Override
     public String getCategory() {

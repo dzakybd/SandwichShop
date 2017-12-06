@@ -20,7 +20,7 @@ public class Chicken extends Filling {
 
     @Override
     public int getDrawable() {
-        return R.drawable.ayam;
+        return R.drawable.chicken;
     }
 
     @Override

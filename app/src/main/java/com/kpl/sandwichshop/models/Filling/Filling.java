@@ -23,12 +23,19 @@ public abstract class Filling {
     public static Filling create(String getName) {
         if(getName.contentEquals("Beef")) return new Beef();
         else if(getName.contentEquals("Chicken meat")) return new Chicken();
-        else if(getName.contentEquals("Fish")) return new Fish();
+        else if(getName.contentEquals("Bacon")) return new Bacon();
+        else if(getName.contentEquals("Ham")) return new Ham();
+        else if(getName.contentEquals("Salmon")) return new Salmon();
         else if(getName.contentEquals("Egg")) return new Egg();
         else if(getName.contentEquals("Lettuce")) return new Lettuce();
+        else if(getName.contentEquals("Peppers")) return new Peppers();
+        else if(getName.contentEquals("Onion")) return new Onion();
+        else if(getName.contentEquals("Cucumber")) return new Cucumber();
+        else if(getName.contentEquals("Mushroom")) return new Mushroom();
         else if(getName.contentEquals("Tomato")) return new Tomato();
         else if(getName.contentEquals("Cheese")) return new Cheese();
         else if(getName.contentEquals("Mayonnaise")) return new Mayonnaise();
+        else if(getName.contentEquals("Sauce")) return new Sauce();
         else return null;
     }
 }

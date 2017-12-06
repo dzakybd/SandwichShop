@@ -20,7 +20,7 @@ public class Tomato extends Filling {
 
     @Override
     public int getDrawable() {
-        return R.drawable.tomat;
+        return R.drawable.tomato;
     }
 
     @Override

@@ -17,14 +17,21 @@ import com.kpl.sandwichshop.filter.FilterFilling;
 import com.kpl.sandwichshop.filter.MeatFilter;
 import com.kpl.sandwichshop.filter.OrCriteria;
 import com.kpl.sandwichshop.filter.VegetableFilter;
+import com.kpl.sandwichshop.models.Filling.Bacon;
 import com.kpl.sandwichshop.models.Filling.Beef;
 import com.kpl.sandwichshop.models.Filling.Cheese;
 import com.kpl.sandwichshop.models.Filling.Chicken;
+import com.kpl.sandwichshop.models.Filling.Cucumber;
 import com.kpl.sandwichshop.models.Filling.Egg;
 import com.kpl.sandwichshop.models.Filling.Filling;
-import com.kpl.sandwichshop.models.Filling.Fish;
+import com.kpl.sandwichshop.models.Filling.Ham;
 import com.kpl.sandwichshop.models.Filling.Lettuce;
 import com.kpl.sandwichshop.models.Filling.Mayonnaise;
+import com.kpl.sandwichshop.models.Filling.Mushroom;
+import com.kpl.sandwichshop.models.Filling.Onion;
+import com.kpl.sandwichshop.models.Filling.Peppers;
+import com.kpl.sandwichshop.models.Filling.Salmon;
+import com.kpl.sandwichshop.models.Filling.Sauce;
 import com.kpl.sandwichshop.models.Filling.Tomato;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
@@ -44,7 +51,9 @@ public class AddFillingActivity extends AppCompatActivity  {
     CheckBox checkboxvegetable;
     CheckBox checkboxcondiment;
     static final List<Filling> allfilling = Arrays.asList(
-           new Beef(), new Chicken(), new Fish(), new Egg(), new Lettuce(), new Tomato(), new Mayonnaise(), new Cheese()
+           new Beef(), new Chicken(), new Ham(), new Bacon(), new Salmon(), new Egg(),
+            new Peppers(), new Cucumber(), new Lettuce(), new Tomato(), new Mushroom(), new Onion(),
+            new Sauce(), new Mayonnaise(), new Cheese()
     );
 
     @Override

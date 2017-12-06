@@ -42,7 +42,7 @@ public class OrderActivity extends AppCompatActivity {
         NotificationCompat.Builder builder =
                 (NotificationCompat.Builder)
                         new NotificationCompat.Builder(this)
-                                .setSmallIcon(R.drawable.ic_launcher_round)
+                                .setSmallIcon(R.drawable.ic_notification)
                                 .setContentTitle("Sandwich Shop")
                                 .setContentText(message);
         NotificationManager manager = (NotificationManager)

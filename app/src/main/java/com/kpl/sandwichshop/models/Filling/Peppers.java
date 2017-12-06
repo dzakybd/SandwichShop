@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop.models.Filling;
 
+import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 
 /**
@@ -16,9 +17,7 @@ public class Peppers extends Filling{
     }
 
     @Override
-    public int getDrawable() {
-        return 0;
-    }
+    public int getDrawable() { return R.drawable.peppers; }
 
     @Override
     public String getCategory() {

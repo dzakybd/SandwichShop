@@ -20,7 +20,7 @@ public class Mayonnaise extends Filling {
 
     @Override
     public int getDrawable() {
-        return R.drawable.mayones;
+        return R.drawable.mayonnaise;
     }
 
     @Override

@@ -19,9 +19,7 @@ public class Beef extends Filling {
     }
 
     @Override
-    public int getDrawable() {
-        return R.drawable.sapi;
-    }
+    public int getDrawable() { return R.drawable.beef; }
 
     @Override
     public String getCategory() {

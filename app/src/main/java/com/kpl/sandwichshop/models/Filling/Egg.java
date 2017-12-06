@@ -15,7 +15,7 @@ public class Egg extends Filling {
     public int getPrice() { return 1000; }
 
     @Override
-    public int getDrawable() { return R.drawable.telur; }
+    public int getDrawable() { return R.drawable.egg; }
 
     @Override
     public String getCategory() {

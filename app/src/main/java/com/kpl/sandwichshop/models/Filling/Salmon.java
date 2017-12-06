@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop.models.Filling;
 
+import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 
 /**
@@ -14,7 +15,7 @@ public class Salmon extends Filling {
     public int getPrice() { return 3000; }
 
     @Override
-    public int getDrawable() { return 0; }
+    public int getDrawable() { return R.drawable.salmon; }
 
     @Override
     public String getCategory() {
