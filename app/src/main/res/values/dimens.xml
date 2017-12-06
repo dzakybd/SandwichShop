@@ -2,5 +2,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="action_padding">16dp</dimen>
     <dimen name="action_textSize">16sp</dimen>
-    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="padding_img_filling">10dp</dimen>
 </resources>

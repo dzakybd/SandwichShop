@@ -20,7 +20,8 @@
             android:layout_height="80dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:padding="@dimen/activity_margin"
+            android:padding="@dimen/padding_img_filling"
+            android:contentDescription="@string/img_filling_description"
             />
 
         <LinearLayout
