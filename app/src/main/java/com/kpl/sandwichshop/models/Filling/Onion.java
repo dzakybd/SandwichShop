@@ -12,9 +12,7 @@ public class Onion extends Filling {
     public String getName() { return "Onion"; }
 
     @Override
-    public int getPrice() {
-        return 500;
-    }
+    public int getPrice() { return 500; }
 
     @Override
     public int getDrawable() { return R.drawable.onion; }

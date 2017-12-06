@@ -15,7 +15,7 @@ public class Beef extends Filling {
 
     @Override
     public int getPrice() {
-        return 2500;
+        return 3000;
     }
 
     @Override

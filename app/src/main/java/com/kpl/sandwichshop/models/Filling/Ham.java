@@ -12,13 +12,11 @@ public class Ham extends Filling {
     public String getName() { return "Ham"; }
 
     @Override
-    public int getPrice() { return 2000; }
+    public int getPrice() { return 2500; }
 
     @Override
     public int getDrawable() { return R.drawable.ham; }
 
     @Override
-    public String getCategory() {
-        return StaticKeys.categoryMeat;
-    }
+    public String getCategory() { return StaticKeys.categoryMeat; }
 }

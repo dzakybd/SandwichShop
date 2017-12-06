@@ -7,24 +7,22 @@ import com.kpl.sandwichshop.StaticKeys;
  * Created by Hendry on 12/6/2017.
  */
 
-public class Sauce extends Filling {
+public class Salt extends Filling {
     @Override
     public String getName() {
-        return "Sauce";
+        return "Salt";
     }
 
     @Override
     public int getPrice() {
-        return 1000;
+        return 500;
     }
 
     @Override
     public int getDrawable() {
-        return R.drawable.sauce;
+        return R.drawable.salt;
     }
 
     @Override
-    public String getCategory() {
-        return StaticKeys.categoryCondiment;
-    }
+    public String getCategory() { return StaticKeys.categoryCondiment; }
 }

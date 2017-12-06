@@ -15,7 +15,7 @@ public class Mayonnaise extends Filling {
 
     @Override
     public int getPrice() {
-        return 1500;
+        return 1000;
     }
 
     @Override
@@ -24,7 +24,5 @@ public class Mayonnaise extends Filling {
     }
 
     @Override
-    public String getCategory() {
-        return StaticKeys.categoryCondiment;
-    }
+    public String getCategory() { return StaticKeys.categoryCondiment; }
 }

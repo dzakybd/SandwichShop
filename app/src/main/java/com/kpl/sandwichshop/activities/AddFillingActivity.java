@@ -19,20 +19,27 @@ import com.kpl.sandwichshop.filter.OrCriteria;
 import com.kpl.sandwichshop.filter.VegetableFilter;
 import com.kpl.sandwichshop.models.Filling.Bacon;
 import com.kpl.sandwichshop.models.Filling.Beef;
+import com.kpl.sandwichshop.models.Filling.Cabbage;
 import com.kpl.sandwichshop.models.Filling.Cheese;
 import com.kpl.sandwichshop.models.Filling.Chicken;
 import com.kpl.sandwichshop.models.Filling.Cucumber;
 import com.kpl.sandwichshop.models.Filling.Egg;
 import com.kpl.sandwichshop.models.Filling.Filling;
+import com.kpl.sandwichshop.models.Filling.Garlic;
 import com.kpl.sandwichshop.models.Filling.Ham;
 import com.kpl.sandwichshop.models.Filling.Lettuce;
 import com.kpl.sandwichshop.models.Filling.Mayonnaise;
 import com.kpl.sandwichshop.models.Filling.Mushroom;
+import com.kpl.sandwichshop.models.Filling.Octopus;
 import com.kpl.sandwichshop.models.Filling.Onion;
+import com.kpl.sandwichshop.models.Filling.Pepper;
 import com.kpl.sandwichshop.models.Filling.Peppers;
 import com.kpl.sandwichshop.models.Filling.Salmon;
+import com.kpl.sandwichshop.models.Filling.Salt;
 import com.kpl.sandwichshop.models.Filling.Sauce;
+import com.kpl.sandwichshop.models.Filling.Shrimp;
 import com.kpl.sandwichshop.models.Filling.Tomato;
+import com.kpl.sandwichshop.models.Filling.Turkeys;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.mikepenz.itemanimators.SlideDownAlphaAnimator;
@@ -51,9 +58,9 @@ public class AddFillingActivity extends AppCompatActivity  {
     CheckBox checkboxvegetable;
     CheckBox checkboxcondiment;
     static final List<Filling> allfilling = Arrays.asList(
-           new Beef(), new Chicken(), new Ham(), new Bacon(), new Salmon(), new Egg(),
-            new Peppers(), new Cucumber(), new Lettuce(), new Tomato(), new Mushroom(), new Onion(),
-            new Sauce(), new Mayonnaise(), new Cheese()
+           new Beef(), new Ham(), new Bacon(), new Salmon(), new Octopus(), new Shrimp(), new Turkeys(), new Chicken(), new Egg(),
+            new Mushroom(), new Peppers(),new Cabbage(), new Cucumber(), new Lettuce(), new Tomato(), new Onion(), new Garlic(),
+            new Cheese(), new Sauce(), new Mayonnaise(), new Pepper(), new Salt()
     );
 
     @Override
