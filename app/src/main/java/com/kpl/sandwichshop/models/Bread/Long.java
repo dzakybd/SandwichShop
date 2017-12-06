@@ -19,6 +19,6 @@ public class Long extends Bread {
 
     @Override
     public int getDrawable() {
-        return R.drawable.roti;
+        return R.drawable.bread_long;
     }
 }
