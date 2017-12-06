@@ -3,4 +3,5 @@
     <string name="title_activity_order">Order Sandwich</string>
     <string name="title_activity_add_filling">Add Filling</string>
     <string name="title_activity_sandwich">Build Sandwich</string>
+    <string name="img_filling_description">Image Filling</string>
 </resources>
