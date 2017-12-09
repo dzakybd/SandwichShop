@@ -31,7 +31,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
-        button_pesan = findViewById(R.id.button_pesan);
+        button_pesan = findViewById(R.id.btn_lanjutkan_additional);
         button_pesan.setOnClickListener(this);
 
         Decorator decorator = new CheeseDecorator(new MayoDecorator(new SauceDecorator()));
@@ -42,9 +42,8 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_pesan:
-                Log.d("Pesanan", "masuk");
-                startActivity(new Intent(this, OrderActivity.class));
+            case R.id.btn_lanjutkan_additional:
+                startActivity(new Intent(this, BonusActivity.class));
                 break;
         }
     }

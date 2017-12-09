@@ -36,10 +36,10 @@
         android:layout_centerHorizontal="true"
         android:text="Harga: Rp 20000"
         android:textSize="16sp"
-        android:layout_above="@+id/button_pesan"/>
+        android:layout_above="@+id/btn_lanjutkan_bonus"/>
 
     <Button
-        android:id="@+id/button_pesan"
+        android:id="@+id/btn_lanjutkan_bonus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
