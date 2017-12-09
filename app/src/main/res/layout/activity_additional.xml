@@ -9,8 +9,7 @@
         android:id="@+id/check_sauce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_sajian"
-        android:text="Saus BBQ" />
+        android:text="BBQ Sauce" />
 
     <CheckBox
         android:id="@+id/check_mayones"
@@ -30,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Harga: Rp 20000"
+        android:text="Total: 20000"
         android:textSize="16sp"
         android:layout_above="@+id/btn_lanjutkan_additional"/>
 
@@ -41,7 +40,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/action_padding"
-        android:text="Lanjutkan"
+        android:text="NEXT"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>
 </RelativeLayout>

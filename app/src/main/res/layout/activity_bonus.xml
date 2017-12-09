@@ -15,18 +15,18 @@
             android:id="@+id/radio_cofee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kopi" />
+            android:text="Coffee" />
 
         <RadioButton
             android:id="@+id/radio_tea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Teh" />
+            android:text="Tea" />
         <RadioButton
             android:id="@+id/radio_softdrink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soda" />
+            android:text="Softdrink" />
     </RadioGroup>
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Harga: Rp 20000"
+        android:text="Total: 20000"
         android:textSize="16sp"
         android:layout_above="@+id/btn_lanjutkan_bonus"/>
 
@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/action_padding"
-        android:text="Lanjutkan"
+        android:text="NEXT"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>
 </RelativeLayout>
