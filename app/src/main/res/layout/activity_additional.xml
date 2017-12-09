@@ -61,15 +61,72 @@
                 android:text="2000" />
         </LinearLayout>
     </LinearLayout>
-    <TextView
-        android:id="@+id/text_harga"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Total: 20000"
-        android:textSize="16sp"
         android:layout_above="@+id/btn_lanjutkan_additional"
-        android:onClick="onCheckboxClicked"/>
+        >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sandwich"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tv_total_sandwich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20000"
+                android:textSize="16sp"
+                android:gravity="right"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Topping"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/tv_harga_toping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20000"
+                android:textSize="16sp"
+                android:gravity="right"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/tv_harga_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20000"
+                android:textSize="16sp"
+                android:gravity="right"
+                />
+        </TableRow>
+    </TableLayout>
+
 
     <Button
         android:id="@+id/btn_lanjutkan_additional"
