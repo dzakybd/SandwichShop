@@ -2,53 +2,150 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    tools:context="com.kpl.sandwichshop.activities.PaymentActivity">
 
-    <TextView
-        android:id="@+id/text_pembayaran"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:text="Pembayaran"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:id="@+id/radiogroup_metode_bayar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_pembayaran">
-
-        <RadioButton
-            android:id="@+id/check_cash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cash" />
-
-        <RadioButton
-            android:id="@+id/check_transfer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Transfer" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/text_harga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/radiogroup_metode_bayar"
-        android:layout_centerHorizontal="true"
-        android:text="Harga: Rp 20000"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/button_selesai"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_harga"
-        android:layout_centerHorizontal="true"
-        android:text="Selesai"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_pembayaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:text="Pilih Metode Pembayaran"
+                android:textSize="22sp"
+                android:paddingVertical="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingBottom="@dimen/small_margin"
+                android:paddingLeft="@dimen/small_margin"
+                android:paddingRight="@dimen/small_margin"
+                android:paddingTop="@dimen/small_margin">
+
+                <ImageView
+                    android:id="@+id/cash"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/cash" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:text="@string/cash"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_very_small" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingBottom="@dimen/small_margin"
+                android:paddingLeft="@dimen/small_margin"
+                android:paddingRight="@dimen/small_margin"
+                android:paddingTop="@dimen/small_margin">
+
+                <ImageView
+                    android:id="@+id/credit"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/credit_card" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:text="@string/credit_card"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/text_size_very_small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingLeft="@dimen/activity_horizontal_margin">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/cash"-->
+                <!--android:layout_width="@dimen/cash_icon_size_width"-->
+                <!--android:layout_height="@dimen/cash_icon_size_heigth"-->
+                <!--android:src="@drawable/cash256" />-->
+
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+    <!--<RadioGroup-->
+        <!--android:id="@+id/radiogroup_metode_bayar"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/text_pembayaran">-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/check_cash"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Cash" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/check_transfer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Transfer" />-->
+    <!--</RadioGroup>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/text_harga"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/radiogroup_metode_bayar"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Harga: Rp 20000"-->
+        <!--android:textSize="16sp" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_selesai"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/text_harga"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Selesai"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:textColor="@android:color/white"/>-->
 </RelativeLayout>

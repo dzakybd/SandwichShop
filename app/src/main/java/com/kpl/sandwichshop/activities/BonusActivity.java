@@ -32,7 +32,7 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.btn_lanjutkan_bonus:
                 Log.d("s","d");
-                startActivity(new Intent(this, OrderActivity.class));
+                startActivity(new Intent(this, PaymentActivity.class));
                 Log.d("s","d");
                 break;
         }

@@ -21,7 +21,9 @@
         </activity>
         <activity android:name=".activities.AdditionalActivity" />
         <activity android:name=".activities.BonusActivity" />
-        <activity android:name=".activities.PaymentActivity" />
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:label="@string/title_activity_payment"/>
         <activity
             android:name=".activities.AddFillingActivity"
             android:label="@string/title_activity_add_filling" />
