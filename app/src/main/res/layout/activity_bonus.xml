@@ -5,49 +5,46 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <TextView
-        android:id="@+id/text_sajian"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:text="Sajian"
-        android:textSize="20sp" />
-
     <RadioGroup
         android:id="@+id/radiogroup_list_bonus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_sajian">
+        >
 
         <RadioButton
-            android:id="@+id/check_mayones"
+            android:id="@+id/radio_cofee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mayones" />
+            android:text="Kopi" />
 
         <RadioButton
-            android:id="@+id/check_bakar"
+            android:id="@+id/radio_tea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bakar" />
+            android:text="Teh" />
+        <RadioButton
+            android:id="@+id/radio_softdrink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soda" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/text_harga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radiogroup_list_bonus"
         android:layout_centerHorizontal="true"
         android:text="Harga: Rp 20000"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_above="@+id/button_pesan"/>
 
     <Button
-        android:id="@+id/button_lanjutkan"
+        android:id="@+id/button_pesan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_harga"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/action_padding"
         android:text="Lanjutkan"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>

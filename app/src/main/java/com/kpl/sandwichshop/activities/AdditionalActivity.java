@@ -29,7 +29,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additional);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Sajian Sandwich");
+        getSupportActionBar().setTitle("Topping Sandwich");
 
         button_pesan = findViewById(R.id.button_pesan);
         button_pesan.setOnClickListener(this);
