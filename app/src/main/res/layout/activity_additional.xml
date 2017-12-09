@@ -4,34 +4,129 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/action_padding">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/check_sauce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BBQ Sauce"
+                android:onClick="onCheckboxClicked"/>
 
-    <CheckBox
-        android:id="@+id/check_sauce"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BBQ Sauce" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="2000" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/check_mayones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mayonaise"
+                android:onClick="onCheckboxClicked"/>
 
-    <CheckBox
-        android:id="@+id/check_mayones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/check_sauce"
-        android:text="Mayonaise" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="1000" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/check_cheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheese Sauce"
+                android:onClick="onCheckboxClicked"/>
 
-    <CheckBox
-        android:id="@+id/check_cheese"
-        android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="2000" />
+        </LinearLayout>
+    </LinearLayout>
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/check_mayones"
-        android:text="Cheese Sauce" />
-    <TextView
-        android:id="@+id/text_harga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Total: 20000"
-        android:textSize="16sp"
-        android:layout_above="@+id/btn_lanjutkan_additional"/>
+        android:layout_above="@+id/btn_lanjutkan_additional"
+        >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sandwich"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tv_total_sandwich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20000"
+                android:textSize="16sp"
+                android:gravity="right"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Topping"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/tv_harga_toping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20000"
+                android:textSize="16sp"
+                android:gravity="right"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/tv_harga_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20000"
+                android:textSize="16sp"
+                android:gravity="right"
+                />
+        </TableRow>
+    </TableLayout>
+
 
     <Button
         android:id="@+id/btn_lanjutkan_additional"

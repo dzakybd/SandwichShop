@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
@@ -38,7 +39,38 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         Log.d(TAG, "onCreate: " + decorator.getName());
         Log.d(TAG, "onCreate: " + decorator.getPrice());
     }
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
 
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.check_sauce:
+                if (checked){
+                    Log.d("CHECKBOX","TERCENTANG SAUCE");
+                }
+            else{
+
+                }
+                break;
+            case R.id.check_cheese:
+                if (checked){
+                    Log.d("CHECKBOX","TERCENTANG CHEESE");
+                }
+            else{
+
+                }
+                break;
+            case R.id.check_mayones:
+                if (checked){
+                    Log.d("CHECKBOX","TERCENTANG MAYONASE");
+                }
+            else{
+
+                }
+                break;
+        }
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
