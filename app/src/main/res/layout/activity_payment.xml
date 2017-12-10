@@ -18,14 +18,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/text_pembayaran"
+                android:id="@+id/textview_pembayaran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
+                android:paddingVertical="20dp"
                 android:text="Pilih Metode Pembayaran"
-                android:textSize="22sp"
-                android:paddingVertical="20dp"/>
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -45,7 +45,7 @@
                 android:paddingTop="@dimen/small_margin">
 
                 <ImageView
-                    android:id="@+id/cash"
+                    android:id="@+id/imageview_cash"
                     android:layout_width="70dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cash" />
@@ -72,7 +72,7 @@
                 android:paddingTop="@dimen/small_margin">
 
                 <ImageView
-                    android:id="@+id/credit"
+                    android:id="@+id/imageview_credit"
                     android:layout_width="70dp"
                     android:layout_height="60dp"
                     android:src="@drawable/credit_card" />
