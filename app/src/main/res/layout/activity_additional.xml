@@ -13,12 +13,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
-                android:id="@+id/check_sauce"
+                android:id="@+id/checkbox_sauce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BBQ Sauce"
-                android:onClick="onCheckboxClicked"/>
+                android:onClick="onCheckboxClicked"
+                android:text="BBQ Sauce" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -30,12 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
-                android:id="@+id/check_mayones"
+                android:id="@+id/checkbox_mayonaise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mayonaise"
-                android:onClick="onCheckboxClicked"/>
+                android:onClick="onCheckboxClicked"
+                android:text="Mayonaise" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,12 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
-                android:id="@+id/check_cheese"
+                android:id="@+id/checkbox_cheese"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cheese Sauce"
-                android:onClick="onCheckboxClicked"/>
+                android:onClick="onCheckboxClicked"
+                android:text="Cheese Sauce" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,7 +67,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_lanjutkan_additional"
+        android:layout_above="@+id/button_lanjutkan_additional"
         >
         <TableRow
             android:layout_width="match_parent"
@@ -75,15 +78,15 @@
                 android:layout_height="wrap_content"
                 android:text="Sandwich"
                 android:textSize="16sp" />
+
             <TextView
-                android:id="@+id/tv_harga_sandwich"
+                android:id="@+id/textview_price_sandwich"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0"
-                android:textSize="16sp"
                 android:gravity="right"
-                />
+                android:text="0"
+                android:textSize="16sp" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -95,15 +98,15 @@
                 android:text="Topping"
                 android:textSize="16sp"
                 />
+
             <TextView
-                android:id="@+id/tv_harga_toping"
+                android:id="@+id/textview_price_topping"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0"
-                android:textSize="16sp"
                 android:gravity="right"
-                />
+                android:text="0"
+                android:textSize="16sp" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -115,21 +118,21 @@
                 android:text="Total Price"
                 android:textSize="16sp"
                 />
+
             <TextView
-                android:id="@+id/tv_harga_total"
+                android:id="@+id/textview_price_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0"
-                android:textSize="16sp"
                 android:gravity="right"
-                />
+                android:text="0"
+                android:textSize="16sp" />
         </TableRow>
     </TableLayout>
 
 
     <Button
-        android:id="@+id/btn_lanjutkan_additional"
+        android:id="@+id/button_lanjutkan_additional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

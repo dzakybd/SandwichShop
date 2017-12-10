@@ -25,9 +25,9 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
     private final String TAG = getClass().getSimpleName();
     Decorator toppingDecorator;
 
-    private TextView textViewHargaToping;
-    private TextView textViewHargaTotal;
-    private TextView textViewHargaSandwich;
+    private TextView textViewPriceTopping;
+    private TextView textViewPriceTotal;
+    private TextView textViewPriceSandwich;
     private Button button_pesan;
 
     @Override
@@ -37,12 +37,12 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
-        button_pesan = findViewById(R.id.btn_lanjutkan_additional);
-        textViewHargaToping=findViewById(R.id.tv_harga_toping);
-        textViewHargaSandwich=findViewById(R.id.tv_harga_sandwich);
-        textViewHargaTotal=findViewById(R.id.tv_harga_total);
-        textViewHargaSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
-        textViewHargaTotal.setText(Integer.toString(20000));
+        button_pesan = findViewById(R.id.button_lanjutkan_additional);
+        textViewPriceTopping=findViewById(R.id.textview_price_topping);
+        textViewPriceSandwich=findViewById(R.id.textview_price_sandwich);
+        textViewPriceTotal=findViewById(R.id.textview_price_total);
+        textViewPriceSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
+        textViewPriceTotal.setText(Integer.toString(20000));
 
         button_pesan.setOnClickListener(this);
 
@@ -53,7 +53,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
 
         // Check which checkbox was clicked
         switch(view.getId()) {
-            case R.id.check_sauce:
+            case R.id.checkbox_sauce:
                 if (checked){
                     toppingDecorator=new SauceDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG SAUCE");
@@ -62,40 +62,34 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
                     Log.d("UNCHECKBOX","TERCENTANG SAUCE");
                 }
                 break;
-            case R.id.check_cheese:
+            case R.id.checkbox_cheese:
                 if (checked){
                     toppingDecorator=new CheeseDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG CHEESE");
                 }
-                else{
-
-                }
                 break;
-            case R.id.check_mayones:
+            case R.id.checkbox_mayonaise:
                 if (checked){
                     toppingDecorator=new MayoDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG MAYONASE");
                 }
-                else{
-
-                }
                 break;
         }
-        updateHarga(toppingDecorator.getPrice());
+        updatePrice(toppingDecorator.getPrice());
     }
-    private void updateHarga(int harga_topping){
-        int hargaSandwich=20000;
-        int hargaTopping=harga_topping;
-        int total=hargaSandwich+harga_topping;
+    private void updatePrice(int price_topping){
+        int priceSandwich=20000;
+        int priceTopping=price_topping;
+        int total=priceSandwich+price_topping;
 
-        textViewHargaSandwich.setText(Integer.toString(hargaSandwich));
-        textViewHargaToping.setText(Integer.toString(hargaTopping));
-        textViewHargaTotal.setText(Integer.toString(total));
+        textViewPriceSandwich.setText(Integer.toString(priceSandwich));
+        textViewPriceTopping.setText(Integer.toString(priceTopping));
+        textViewPriceTotal.setText(Integer.toString(total));
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_lanjutkan_additional:
+            case R.id.button_lanjutkan_additional:
                 startActivity(new Intent(this, BonusActivity.class));
                 break;
         }
