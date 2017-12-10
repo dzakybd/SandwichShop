@@ -67,7 +67,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_lanjutkan_additional"
+        android:layout_above="@+id/button_next_additional"
         >
         <TableRow
             android:layout_width="match_parent"
@@ -132,7 +132,7 @@
 
 
     <Button
-        android:id="@+id/button_lanjutkan_additional"
+        android:id="@+id/button_next_additional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
