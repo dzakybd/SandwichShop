@@ -13,18 +13,19 @@
         >
 
         <RadioButton
-            android:id="@+id/radio_cofee"
+            android:id="@+id/radiobutton_cofee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Coffee" />
 
         <RadioButton
-            android:id="@+id/radio_tea"
+            android:id="@+id/radiobutton_tea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tea" />
+
         <RadioButton
-            android:id="@+id/radio_softdrink"
+            android:id="@+id/radiobutton_softdrink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Softdrink" />
