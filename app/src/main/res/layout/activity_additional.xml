@@ -13,12 +13,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
-                android:id="@+id/check_sauce"
+                android:id="@+id/checkbox_sauce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BBQ Sauce"
-                android:onClick="onCheckboxClicked"/>
+                android:onClick="onCheckboxClicked"
+                android:text="BBQ Sauce" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -30,12 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
-                android:id="@+id/check_mayones"
+                android:id="@+id/checkbox_mayones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mayonaise"
-                android:onClick="onCheckboxClicked"/>
+                android:onClick="onCheckboxClicked"
+                android:text="Mayonaise" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,12 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <CheckBox
-                android:id="@+id/check_cheese"
+                android:id="@+id/checkbox_cheese"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cheese Sauce"
-                android:onClick="onCheckboxClicked"/>
+                android:onClick="onCheckboxClicked"
+                android:text="Cheese Sauce" />
 
             <TextView
                 android:layout_width="match_parent"

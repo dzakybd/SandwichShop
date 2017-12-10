@@ -53,7 +53,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
 
         // Check which checkbox was clicked
         switch(view.getId()) {
-            case R.id.check_sauce:
+            case R.id.checkbox_sauce:
                 if (checked){
                     toppingDecorator=new SauceDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG SAUCE");
@@ -62,13 +62,13 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
                     Log.d("UNCHECKBOX","TERCENTANG SAUCE");
                 }
                 break;
-            case R.id.check_cheese:
+            case R.id.checkbox_cheese:
                 if (checked){
                     toppingDecorator=new CheeseDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG CHEESE");
                 }
                 break;
-            case R.id.check_mayones:
+            case R.id.checkbox_mayones:
                 if (checked){
                     toppingDecorator=new MayoDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG MAYONASE");
