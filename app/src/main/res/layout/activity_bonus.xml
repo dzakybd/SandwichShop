@@ -34,7 +34,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_lanjutkan_bonus"
+        android:layout_above="@+id/button_lanjutkan_bonus"
         >
         <TableRow
             android:layout_width="match_parent"
@@ -45,15 +45,15 @@
                 android:layout_height="wrap_content"
                 android:text="Bonus"
                 android:textSize="16sp" />
+
             <TextView
-                android:id="@+id/tv_bonus"
+                android:id="@+id/textview_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:textSize="16sp"
                 android:gravity="right"
-                />
+                android:text=""
+                android:textSize="16sp" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -65,21 +65,21 @@
                 android:text="Total Price"
                 android:textSize="16sp"
                 />
+
             <TextView
-                android:id="@+id/tv_total"
+                android:id="@+id/textview_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="20000"
-                android:textSize="16sp"
                 android:gravity="right"
-                />
+                android:text="20000"
+                android:textSize="16sp" />
         </TableRow>
 
     </TableLayout>
 
     <Button
-        android:id="@+id/btn_lanjutkan_bonus"
+        android:id="@+id/button_lanjutkan_bonus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
