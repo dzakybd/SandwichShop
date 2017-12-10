@@ -33,7 +33,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkbox_mayones"
+                android:id="@+id/checkbox_mayonaise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onCheckboxClicked"
@@ -80,7 +80,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textview_harga_sandwich"
+                android:id="@+id/textview_price_sandwich"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -100,7 +100,7 @@
                 />
 
             <TextView
-                android:id="@+id/textview_harga_toping"
+                android:id="@+id/textview_price_topping"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -120,7 +120,7 @@
                 />
 
             <TextView
-                android:id="@+id/textview_harga_total"
+                android:id="@+id/textview_price_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
