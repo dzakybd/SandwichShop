@@ -147,14 +147,10 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == StaticKeys.addFillingRequest) {
-                if(data.hasExtra(StaticKeys.addFillingResult)) {
-                    Filling filling = Parcels.unwrap(data.getParcelableExtra(StaticKeys.addFillingResult));
-                    mItemAdapter.add(new FillingAdapter().create(filling));
-                    calculatePrice();
-                }
-            }
+        if (resultCode == RESULT_OK && requestCode == StaticKeys.addFillingRequest && data.hasExtra(StaticKeys.addFillingResult)) {
+            Filling filling = Parcels.unwrap(data.getParcelableExtra(StaticKeys.addFillingResult));
+            mItemAdapter.add(new FillingAdapter().create(filling));
+            calculatePrice();
         }
     }
 
@@ -167,7 +163,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         if(total>discount.getPrice()){
             total-=discount.getPrice();
             textviewdiscount.setText("" + discount.getPrice());
-        }else textviewdiscount.setText("need more items");
+        }else { textviewdiscount.setText("need more items"); }
         textviewprice.setText("" + total);
     }
 
