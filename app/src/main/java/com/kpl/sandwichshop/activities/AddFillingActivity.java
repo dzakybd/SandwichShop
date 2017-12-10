@@ -70,7 +70,7 @@ public class AddFillingActivity extends AppCompatActivity  {
         checkboxcondiment = findViewById(R.id.checkbox_condiment);
         checkboxvegetable = findViewById(R.id.checkbox_vegetable);
         checkboxmeat = findViewById(R.id.checkbox_meat);
-        recyclerfilling = findViewById(R.id.recycler_filling);
+        recyclerfilling = findViewById(R.id.recyclerview_filling);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         fillingSetup();
         fillingData(allfilling);
