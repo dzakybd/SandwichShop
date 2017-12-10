@@ -12,7 +12,7 @@ public class SauceDecorator extends Decorator {
 
     public SauceDecorator(Decorator decorator) {
         super(decorator);
-        setName("Sauce");
-        setPrice(200);
+        setName("BBQ Sauce");
+        setPrice(2000);
     }
 }

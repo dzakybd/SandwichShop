@@ -3,7 +3,7 @@ package com.kpl.sandwichshop.decorator;
 /**
  * Created by Ilham Aulia Majid on 05-Dec-17.
  */
-
+import com.kpl.sandwichshop.builder.Sandwich;
 public abstract class Decorator {
 
     private String name;

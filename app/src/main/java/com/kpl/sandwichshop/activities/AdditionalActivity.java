@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
@@ -22,8 +23,12 @@ import com.kpl.sandwichshop.decorator.SauceDecorator;
 public class AdditionalActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = getClass().getSimpleName();
+    Decorator toppingDecorator;
 
-    Button button_pesan;
+    private TextView textViewHargaToping;
+    private TextView textViewHargaTotal;
+    private TextView textViewHargaSandwich;
+    private Button button_pesan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,14 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setTitle("Topping Sandwich");
 
         button_pesan = findViewById(R.id.btn_lanjutkan_additional);
+        textViewHargaToping=findViewById(R.id.tv_harga_toping);
+        textViewHargaSandwich=findViewById(R.id.tv_harga_sandwich);
+        textViewHargaTotal=findViewById(R.id.tv_harga_total);
+        textViewHargaSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
+        textViewHargaTotal.setText(Integer.toString(20000));
+
         button_pesan.setOnClickListener(this);
 
-        Decorator decorator = new CheeseDecorator(new MayoDecorator(new SauceDecorator()));
-        Log.d(TAG, "onCreate: " + decorator.getName());
-        Log.d(TAG, "onCreate: " + decorator.getPrice());
     }
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
@@ -47,29 +55,42 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         switch(view.getId()) {
             case R.id.check_sauce:
                 if (checked){
+                    toppingDecorator=new SauceDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG SAUCE");
                 }
-            else{
+                else{
 
                 }
                 break;
             case R.id.check_cheese:
                 if (checked){
+                    toppingDecorator=new CheeseDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG CHEESE");
                 }
-            else{
+                else{
 
                 }
                 break;
             case R.id.check_mayones:
                 if (checked){
+                    toppingDecorator=new MayoDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG MAYONASE");
                 }
-            else{
+                else{
 
                 }
                 break;
         }
+        updateHarga(toppingDecorator.getPrice());
+    }
+    private void updateHarga(int harga_topping){
+        int hargaSandwich=20000;
+        int hargaTopping=harga_topping;
+        int total=hargaSandwich+harga_topping;
+
+        textViewHargaSandwich.setText(Integer.toString(hargaSandwich));
+        textViewHargaToping.setText(Integer.toString(hargaTopping));
+        textViewHargaTotal.setText(Integer.toString(total));
     }
     @Override
     public void onClick(View v) {
