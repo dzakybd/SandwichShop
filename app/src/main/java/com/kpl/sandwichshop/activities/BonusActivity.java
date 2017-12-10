@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.kpl.sandwichshop.R;
 
@@ -16,6 +18,7 @@ import com.kpl.sandwichshop.R;
 
 public class BonusActivity  extends AppCompatActivity implements View.OnClickListener{
     Button buttonLanjutkan;
+    RadioGroup rgBonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,21 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setTitle("Bonus");
 
         buttonLanjutkan=(Button)findViewById(R.id.btn_lanjutkan_bonus);
+        rgBonus= (RadioGroup) findViewById(R.id.radiogroup_list_bonus);
+
+        rgBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                View radioButton = radioGroup.findViewById(i);
+                int index = radioGroup.indexOfChild(radioButton);
+                Log.d("i", String.valueOf(i));
+                Log.d("index", String.valueOf(index));
+                Log.d("RadioButton", String.valueOf(radioButton));
+                RadioButton rbSelected = (RadioButton) radioGroup.getChildAt(index);
+                String selection = (String) rbSelected.getText();
+                Log.d("Selction Tetx", String.valueOf(selection));
+            }
+        });
         buttonLanjutkan.setOnClickListener(this);
     }
 
