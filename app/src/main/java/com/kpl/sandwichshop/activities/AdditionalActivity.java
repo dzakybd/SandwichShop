@@ -59,7 +59,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
                     Log.d("CHECKBOX","TERCENTANG SAUCE");
                 }
                 else{
-
+                    Log.d("UNCHECKBOX","TERCENTANG SAUCE");
                 }
                 break;
             case R.id.check_cheese:

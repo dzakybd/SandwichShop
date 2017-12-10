@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.facade.Beverage;
 
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
@@ -19,6 +21,8 @@ import com.kpl.sandwichshop.R;
 public class BonusActivity  extends AppCompatActivity implements View.OnClickListener{
     Button buttonLanjutkan;
     RadioGroup rgBonus;
+    Beverage bonusBeverage;
+    TextView textViewBonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,8 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
 
         buttonLanjutkan=(Button)findViewById(R.id.btn_lanjutkan_bonus);
         rgBonus= (RadioGroup) findViewById(R.id.radiogroup_list_bonus);
+        textViewBonus=(TextView)findViewById(R.id.tv_bonus);
+        bonusBeverage=new Beverage();
 
         rgBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -36,10 +42,21 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
                 int index = radioGroup.indexOfChild(radioButton);
                 Log.d("i", String.valueOf(i));
                 Log.d("index", String.valueOf(index));
-                Log.d("RadioButton", String.valueOf(radioButton));
-                RadioButton rbSelected = (RadioButton) radioGroup.getChildAt(index);
-                String selection = (String) rbSelected.getText();
-                Log.d("Selction Tetx", String.valueOf(selection));
+                switch (index){
+                    case 0:
+                        textViewBonus.setText(bonusBeverage.coffee.getCoffee());
+                        break;
+                    case 1:
+                        textViewBonus.setText(bonusBeverage.tea.getTea());
+                        break;
+                    case 2:
+                        textViewBonus.setText(bonusBeverage.softdrink.getSoftdrink());
+                        break;
+                }
+//                Log.d("RadioButton", String.valueOf(radioButton));
+//                RadioButton rbSelected = (RadioButton) radioGroup.getChildAt(index);
+//                String selection = (String) rbSelected.getText();
+//                Log.d("Selction Tetx", String.valueOf(selection));
             }
         });
         buttonLanjutkan.setOnClickListener(this);

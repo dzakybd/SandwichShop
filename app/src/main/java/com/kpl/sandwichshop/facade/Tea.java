@@ -10,12 +10,8 @@ public class Tea {
 
     }
 
-    public String getGreenTea() {
-        return "Green Tea";
-    }
-
-    public String getIcedTea() {
-        return "Iced Tea";
+    public String getTea() {
+        return "Tea";
     }
 
 }

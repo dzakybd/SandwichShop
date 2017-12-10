@@ -9,11 +9,7 @@ public class Coffee {
     protected Coffee() {
     }
 
-    public String getArabicaCoffee() {
-        return "Arabica Coffee";
-    }
-
-    public String getRobustaCoffee() {
-        return "Robusta Coffee";
+    public String getCoffee() {
+        return "Coffee";
     }
 }
