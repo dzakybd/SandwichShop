@@ -67,17 +67,11 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
                     toppingDecorator=new CheeseDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG CHEESE");
                 }
-                else{
-
-                }
                 break;
             case R.id.check_mayones:
                 if (checked){
                     toppingDecorator=new MayoDecorator(this.toppingDecorator);
                     Log.d("CHECKBOX","TERCENTANG MAYONASE");
-                }
-                else{
-
                 }
                 break;
         }
