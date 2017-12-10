@@ -166,9 +166,9 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         Discount discount = Discount.getDiscount();
         if(total>discount.getPrice()){
             total-=discount.getPrice();
-            textviewdiscount.setText("Discount : " + discount.getPrice());
-        }else textviewdiscount.setText("Discount : need more items");
-        textviewprice.setText("Total : " + total);
+            textviewdiscount.setText("" + discount.getPrice());
+        }else textviewdiscount.setText("need more items");
+        textviewprice.setText("" + total);
     }
 
     @Override
