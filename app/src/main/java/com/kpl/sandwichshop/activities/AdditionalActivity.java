@@ -37,10 +37,10 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
-        button_pesan = findViewById(R.id.btn_lanjutkan_additional);
-        textViewHargaToping=findViewById(R.id.tv_harga_toping);
-        textViewHargaSandwich=findViewById(R.id.tv_harga_sandwich);
-        textViewHargaTotal=findViewById(R.id.tv_harga_total);
+        button_pesan = findViewById(R.id.button_lanjutkan_additional);
+        textViewHargaToping=findViewById(R.id.textview_harga_toping);
+        textViewHargaSandwich=findViewById(R.id.textview_harga_sandwich);
+        textViewHargaTotal=findViewById(R.id.textview_harga_total);
         textViewHargaSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
         textViewHargaTotal.setText(Integer.toString(20000));
 
@@ -89,7 +89,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_lanjutkan_additional:
+            case R.id.button_lanjutkan_additional:
                 startActivity(new Intent(this, BonusActivity.class));
                 break;
         }
