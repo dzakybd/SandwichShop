@@ -4,12 +4,10 @@ package com.kpl.sandwichshop.facade;
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
 
-public class Coffee {
+public class Coffee implements Beverage{
 
-    protected Coffee() {
-    }
-
-    public String getCoffee() {
+    @Override
+    public String getProductName() {
         return "Coffee";
     }
 }

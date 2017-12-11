@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.facade.Beverage;
+import com.kpl.sandwichshop.facade.BonusFacade;
 
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
@@ -20,7 +21,7 @@ import com.kpl.sandwichshop.facade.Beverage;
 public class BonusActivity  extends AppCompatActivity implements View.OnClickListener{
     Button buttonLanjutkan;
     RadioGroup rgBonus;
-    Beverage bonusBeverage;
+    BonusFacade bonusFacade;
     TextView textViewBonus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
         buttonLanjutkan=(Button)findViewById(R.id.button_next_bonus);
         rgBonus= (RadioGroup) findViewById(R.id.radiogroup_list_bonus);
         textViewBonus=(TextView)findViewById(R.id.textview_bonus);
-        bonusBeverage=new Beverage();
+        bonusFacade=new BonusFacade();
 
         rgBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -43,13 +44,13 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
                 Log.d("index", String.valueOf(index));
                 switch (index){
                     case 0:
-                        textViewBonus.setText(bonusBeverage.coffee.getCoffee());
+                        textViewBonus.setText(bonusFacade.CoffeeTaken());
                         break;
                     case 1:
-                        textViewBonus.setText(bonusBeverage.tea.getTea());
+                        textViewBonus.setText(bonusFacade.TeaTaken());
                         break;
                     case 2:
-                        textViewBonus.setText(bonusBeverage.softdrink.getSoftdrink());
+                        textViewBonus.setText(bonusFacade.SoftdrinkTaken());
                         break;
                 }
 //                Log.d("RadioButton", String.valueOf(radioButton));
