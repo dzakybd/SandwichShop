@@ -6,7 +6,7 @@ import com.kpl.sandwichshop.R;
  * Created by zaki on 4/12/17.
  */
 
-public class Flat extends Bread {
+public class FlatBread extends Bread {
 
     @Override
     public String getName() {

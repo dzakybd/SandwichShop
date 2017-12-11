@@ -35,7 +35,7 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
 
     @Override
     public int getLayoutRes() {
-        return R.layout.filling_item;
+        return R.layout.item_filling;
     }
 
     @Override

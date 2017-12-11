@@ -6,21 +6,21 @@ import com.kpl.sandwichshop.R;
  * Created by zaki on 4/12/17.
  */
 
-public class Long extends Bread {
+public class BunBread extends Bread {
 
     @Override
     public String getName() {
-        return "Long bread";
+        return "Bun bread";
     }
 
     @Override
     public int getPrice() {
-        return 2500;
+        return 2000;
     }
 
     @Override
     public int getDrawable() {
-        return R.drawable.bread_long;
+        return R.drawable.bread_bun;
     }
 
 }

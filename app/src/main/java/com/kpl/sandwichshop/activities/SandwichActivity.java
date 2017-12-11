@@ -19,9 +19,9 @@ import com.kpl.sandwichshop.adapters.FillingAdapter;
 import com.kpl.sandwichshop.adapters.SpinnerIconAdapter;
 import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.models.Bread.Bread;
-import com.kpl.sandwichshop.models.Bread.Bun;
-import com.kpl.sandwichshop.models.Bread.Flat;
-import com.kpl.sandwichshop.models.Bread.Long;
+import com.kpl.sandwichshop.models.Bread.BunBread;
+import com.kpl.sandwichshop.models.Bread.FlatBread;
+import com.kpl.sandwichshop.models.Bread.LongBread;
 import com.kpl.sandwichshop.models.Filling.Filling;
 import com.kpl.sandwichshop.singleton.Discount;
 import com.kpl.sandwichshop.singleton.DiscountList;
@@ -105,9 +105,9 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
 
     private void spinnerSetup() {
         breads = new ArrayList<>();
-        breads.add(new Flat());
-        breads.add(new Bun());
-        breads.add(new Long());
+        breads.add(new FlatBread());
+        breads.add(new BunBread());
+        breads.add(new LongBread());
         SpinnerIconAdapter adapter = new SpinnerIconAdapter(this, R.layout.spinner_icon, R.id.txt, breads);
         spinnerBread.setAdapter(adapter);
     }
@@ -138,7 +138,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
             sandwich.setFillings(fillings);
             startActivity(new Intent(this, AdditionalActivity.class));
         } else {
-            Toast.makeText(view.getContext(), "Gagal: Pilih Isian Terlebih Dahulu", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), "Please add the fillings!", Toast.LENGTH_SHORT).show();
         }
     }
 
