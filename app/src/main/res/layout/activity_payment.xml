@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:padding="16dp"
     tools:context="com.kpl.sandwichshop.activities.PaymentActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -24,10 +23,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:text="@string/title_payment_methode"
-                android:textSize="@dimen/title_textsize"
+                android:paddingBottom="@dimen/padding_title_bottom"
                 android:paddingTop="@dimen/padding_title_top"
-                android:paddingBottom="@dimen/padding_title_bottom"/>
+                android:text="@string/title_payment_methode"
+                android:textSize="@dimen/title_textsize" />
         </LinearLayout>
 
         <LinearLayout
@@ -36,12 +35,12 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/linierlayout_cash"
+                android:id="@+id/linearlayout_cash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:paddingBottom="@dimen/small_margin"
                 android:paddingLeft="@dimen/small_margin"
                 android:paddingRight="@dimen/small_margin"
@@ -64,12 +63,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linierlayout_credit_card"
+                android:id="@+id/linearlayout_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:paddingBottom="@dimen/small_margin"
                 android:paddingLeft="@dimen/small_margin"
                 android:paddingRight="@dimen/small_margin"
@@ -92,43 +91,31 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/card_payment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout"
         android:orientation="vertical"
-        android:paddingTop="60dp"
-        android:visibility="gone">
+        android:paddingTop="40dp">
 
-        <EditText
-            android:id="@+id/amount"
+        <TextView
+            android:id="@+id/textview_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/action_padding"
+            android:text="text"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edittext_value"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/action_padding"
             android:layout_weight="1"
-            android:hint="@string/amount"
             android:inputType="number" />
-
-        <EditText
-            android:id="@+id/noCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/action_padding"
-            android:layout_weight="1"
-            android:hint="@string/card_number"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/expiredCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/action_padding"
-            android:layout_weight="1"
-            android:hint="@string/card_expired"
-            android:inputType="date" />
 
         <Button
             android:id="@+id/btn_pay"
@@ -140,6 +127,7 @@
             android:background="@color/colorPrimary"
             android:text="@string/btn_pay"
             android:textColor="@android:color/white" />
+
     </LinearLayout>
 
 </RelativeLayout>

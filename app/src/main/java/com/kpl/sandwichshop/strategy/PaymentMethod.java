@@ -6,6 +6,6 @@ package com.kpl.sandwichshop.strategy;
 
 public interface PaymentMethod {
 
-    public void processPayment(int price, int value);
+    public String processPayment(int price, int value);
 
 }
