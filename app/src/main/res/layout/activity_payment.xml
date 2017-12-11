@@ -26,8 +26,8 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:paddingVertical="20dp"
-                android:text="Pilih Metode Pembayaran"
-                android:textSize="21sp"
+                android:text="@string/title_payment_methode"
+                android:textSize="20sp"
                 android:paddingTop="40dp"
                 android:paddingBottom="20dp"/>
         </LinearLayout>
@@ -38,7 +38,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/cash"
+                android:id="@+id/linierlayout_cash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -51,8 +51,8 @@
 
                 <ImageView
                     android:id="@+id/imageview_cash"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
+                    android:layout_width="@dimen/payment_icon_size_width"
+                    android:layout_height="@dimen/payment_icon_size_height"
                     android:src="@drawable/cash" />
 
                 <TextView
@@ -66,7 +66,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/credit_card"
+                android:id="@+id/linierlayout_credit_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -79,8 +79,8 @@
 
                 <ImageView
                     android:id="@+id/imageview_credit"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
+                    android:layout_width="@dimen/payment_icon_size_width"
+                    android:layout_height="@dimen/payment_icon_size_height"
                     android:src="@drawable/credit_card" />
 
                 <TextView
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/action_padding"
             android:layout_weight="1"
-            android:hint="Nominal"
+            android:hint="@string/amount"
             android:inputType="number" />
 
         <EditText
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/action_padding"
             android:layout_weight="1"
-            android:hint="No Kartu"
+            android:hint="@string/card_number"
             android:inputType="textPersonName" />
 
         <EditText
@@ -129,18 +129,18 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/action_padding"
             android:layout_weight="1"
-            android:hint="Tanggal Kadaluarsa"
+            android:hint="@string/card_expired"
             android:inputType="date" />
 
         <Button
-            android:id="@+id/btn_bayar"
+            android:id="@+id/btn_pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/action_padding"
             android:background="@color/colorPrimary"
-            android:text="Bayar"
+            android:text="@string/btn_pay"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

@@ -4,8 +4,8 @@
     <dimen name="action_textSize">16sp</dimen>
     <dimen name="padding_img_filling">10dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="cash_icon_size_width">70dp</dimen>
-    <dimen name="cash_icon_size_heigth">70dp</dimen>
+    <dimen name="payment_icon_size_width">70dp</dimen>
+    <dimen name="payment_icon_size_height">70dp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="text_size_very_small">12sp</dimen>
 </resources>

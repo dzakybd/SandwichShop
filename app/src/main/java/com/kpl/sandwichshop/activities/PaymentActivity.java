@@ -16,7 +16,7 @@ import com.kpl.sandwichshop.R;
 
 public class PaymentActivity  extends AppCompatActivity implements View.OnClickListener{
     LinearLayout creditLayout, cash, credit_card;
-    Button bayar;
+    Button pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +25,12 @@ public class PaymentActivity  extends AppCompatActivity implements View.OnClickL
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         creditLayout = (LinearLayout) findViewById(R.id.card_payment);
-        credit_card = (LinearLayout) findViewById(R.id.credit_card);
+        credit_card = (LinearLayout) findViewById(R.id.linierlayout_credit_card);
         credit_card.setOnClickListener(this);
-        cash = (LinearLayout) findViewById(R.id.cash);
+        cash = (LinearLayout) findViewById(R.id.linierlayout_cash);
         cash.setOnClickListener(this);
-        bayar = findViewById(R.id.btn_bayar);
-        bayar.setOnClickListener(this);
+        pay = findViewById(R.id.btn_pay);
+        pay.setOnClickListener(this);
 
     }
     @Override
@@ -52,13 +52,13 @@ public class PaymentActivity  extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_bayar:
+            case R.id.btn_pay:
                 startActivity(new Intent(this, StatusActivity.class));
                 break;
-            case R.id.credit_card:
+            case R.id.linierlayout_credit_card:
                 creditLayout.setVisibility(View.VISIBLE);
                 break;
-            case R.id.cash:
+            case R.id.linierlayout_cash:
                 startActivity(new Intent(this, StatusActivity.class));
                 break;
         }
