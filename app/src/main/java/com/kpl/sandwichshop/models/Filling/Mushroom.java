@@ -9,7 +9,9 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Mushroom extends Filling {
     @Override
-    public String getName() { return "Mushroom"; }
+    public String getName() {
+        return "Mushroom";
+    }
 
     @Override
     public int getPrice() {
@@ -17,10 +19,12 @@ public class Mushroom extends Filling {
     }
 
     @Override
-    public int getDrawable() { return R.drawable.mushroom; }
+    public int getDrawable() {
+        return R.drawable.mushroom;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

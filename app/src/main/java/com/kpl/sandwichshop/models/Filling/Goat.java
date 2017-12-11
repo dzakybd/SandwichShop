@@ -8,16 +8,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Goat extends Filling {
     @Override
-    public String getName() { return "Goat"; }
+    public String getName() {
+        return "Goat";
+    }
 
     @Override
-    public int getPrice() { return 2000; }
+    public int getPrice() {
+        return 2000;
+    }
 
     @Override
-    public int getDrawable() { return 0; }
+    public int getDrawable() {
+        return 0;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryMeat;
+        return StaticKeys.CATEGORY_MEAT;
     }
 }

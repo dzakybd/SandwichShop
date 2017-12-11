@@ -8,14 +8,13 @@ public class DiscountList {
 
     public static void checkDiscount(String code) {
         Discount discount = Discount.getDiscount();
-        if(code.contentEquals("SHOP1")){
+        if (code.contentEquals("SHOP1")) {
             discount.setCode("SHOP1");
             discount.setPrice(2000);
-        }
-        else if(code.contentEquals("SHOP2")){
+        } else if (code.contentEquals("SHOP2")) {
             discount.setCode("SHOP2");
             discount.setPrice(3000);
-        }else{
+        } else {
             discount.setCode("");
             discount.setPrice(0);
         }

@@ -1,7 +1,7 @@
 package com.kpl.sandwichshop.models.Filling;
 
-import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 
 /**
  * Created by zaki on 4/12/17.
@@ -19,10 +19,12 @@ public class Cheese extends Filling {
     }
 
     @Override
-    public int getDrawable() { return R.drawable.cheese; }
+    public int getDrawable() {
+        return R.drawable.cheese;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryCondiment;
+        return StaticKeys.CATEGORY_CONDIMENT;
     }
 }

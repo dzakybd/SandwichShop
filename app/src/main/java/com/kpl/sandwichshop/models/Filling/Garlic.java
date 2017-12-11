@@ -9,16 +9,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Garlic extends Filling {
     @Override
-    public String getName() { return "Garlic"; }
+    public String getName() {
+        return "Garlic";
+    }
 
     @Override
-    public int getPrice() { return 500; }
+    public int getPrice() {
+        return 500;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.garlic; }
+    public int getDrawable() {
+        return R.drawable.garlic;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

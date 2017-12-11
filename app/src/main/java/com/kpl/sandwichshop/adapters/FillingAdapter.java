@@ -22,7 +22,7 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
 
     public Filling filling;
 
-    public FillingAdapter create(Filling filling){
+    public FillingAdapter create(Filling filling) {
         this.filling = filling;
         return this;
     }
@@ -70,15 +70,15 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
      */
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         protected ImageView imageDrawable;
-        protected TextView tvName,tvPrice;
+        protected TextView tvName, tvPrice;
         protected FrameLayout view;
 
         public ViewHolder(View view) {
             super(view);
             this.view = (FrameLayout) view;
-            tvName=view.findViewById(R.id.textview_name);
-            tvPrice=view.findViewById(R.id.textview_price);
-            imageDrawable=view.findViewById(R.id.imageview_drawable);
+            tvName = view.findViewById(R.id.textview_name);
+            tvPrice = view.findViewById(R.id.textview_price);
+            imageDrawable = view.findViewById(R.id.imageview_drawable);
         }
     }
 }

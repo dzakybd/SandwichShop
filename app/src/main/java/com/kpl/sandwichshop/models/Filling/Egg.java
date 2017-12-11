@@ -1,7 +1,7 @@
 package com.kpl.sandwichshop.models.Filling;
 
-import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 
 /**
  * Created by Hendry on 12/5/2017.
@@ -9,16 +9,22 @@ import com.kpl.sandwichshop.R;
 
 public class Egg extends Filling {
     @Override
-    public String getName() { return "Egg"; }
+    public String getName() {
+        return "Egg";
+    }
 
     @Override
-    public int getPrice() { return 1000; }
+    public int getPrice() {
+        return 1000;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.egg; }
+    public int getDrawable() {
+        return R.drawable.egg;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryMeat;
+        return StaticKeys.CATEGORY_MEAT;
     }
 }

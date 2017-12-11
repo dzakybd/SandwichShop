@@ -1,7 +1,7 @@
 package com.kpl.sandwichshop.models.Filling;
 
-import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 
 /**
  * Created by zaki on 4/12/17.
@@ -25,6 +25,6 @@ public class Tomato extends Filling {
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

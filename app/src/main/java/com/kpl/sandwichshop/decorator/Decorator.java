@@ -3,7 +3,7 @@ package com.kpl.sandwichshop.decorator;
 /**
  * Created by Ilham Aulia Majid on 05-Dec-17.
  */
-import com.kpl.sandwichshop.builder.Sandwich;
+
 public abstract class Decorator {
 
     private String name;
@@ -30,9 +30,9 @@ public abstract class Decorator {
         return decoratorsName;
     }
 
-    public int getPrice(){
+    public int getPrice() {
         int decoratorsPrice = price;
-        if(decorator != null) {
+        if (decorator != null) {
             decoratorsPrice += decorator.getPrice();
         }
         return decoratorsPrice;

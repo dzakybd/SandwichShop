@@ -6,7 +6,7 @@ package com.kpl.sandwichshop.decorator;
 
 public class SauceDecorator extends Decorator {
 
-    public SauceDecorator(){
+    public SauceDecorator() {
         this(null);
     }
 

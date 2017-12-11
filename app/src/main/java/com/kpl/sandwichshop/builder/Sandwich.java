@@ -12,7 +12,7 @@ import java.util.List;
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
 
-public class Sandwich implements Observable{
+public class Sandwich implements Observable {
 
     public boolean ready;
 
@@ -67,7 +67,7 @@ public class Sandwich implements Observable{
 
     @Override
     public void notifyObserver() {
-        for (Observer order : orders){
+        for (Observer order : orders) {
             order.update();
         }
     }

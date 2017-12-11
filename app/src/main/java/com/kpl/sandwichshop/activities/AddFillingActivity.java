@@ -49,17 +49,17 @@ import org.parceler.Parcels;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddFillingActivity extends AppCompatActivity  {
+public class AddFillingActivity extends AppCompatActivity {
 
-    RecyclerView recyclerfilling;
+    RecyclerView recyclerViewFilling;
     FastAdapter<FillingAdapter> mFastAdapter;
     ItemAdapter<FillingAdapter> mItemAdapter;
-    CheckBox checkboxmeat;
-    CheckBox checkboxvegetable;
-    CheckBox checkboxcondiment;
+    CheckBox checkBoxMeat;
+    CheckBox checkBoxVegetable;
+    CheckBox checkBoxCondiment;
     static final List<Filling> allfilling = Arrays.asList(
-           new Beef(), new Ham(), new Bacon(), new Salmon(), new Octopus(), new Shrimp(), new Turkeys(), new Chicken(), new Egg(),
-            new Mushroom(), new Peppers(),new Cabbage(), new Cucumber(), new Lettuce(), new Tomato(), new Onion(), new Garlic(),
+            new Beef(), new Ham(), new Bacon(), new Salmon(), new Octopus(), new Shrimp(), new Turkeys(), new Chicken(), new Egg(),
+            new Mushroom(), new Peppers(), new Cabbage(), new Cucumber(), new Lettuce(), new Tomato(), new Onion(), new Garlic(),
             new Cheese(), new Sauce(), new Mayonnaise(), new Pepper(), new Salt()
     );
 
@@ -67,10 +67,10 @@ public class AddFillingActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_filling);
-        checkboxcondiment = findViewById(R.id.checkbox_condiment);
-        checkboxvegetable = findViewById(R.id.checkbox_vegetable);
-        checkboxmeat = findViewById(R.id.checkbox_meat);
-        recyclerfilling = findViewById(R.id.recyclerview_filling);
+        checkBoxCondiment = findViewById(R.id.checkbox_condiment);
+        checkBoxVegetable = findViewById(R.id.checkbox_vegetable);
+        checkBoxMeat = findViewById(R.id.checkbox_meat);
+        recyclerViewFilling = findViewById(R.id.recyclerview_filling);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         fillingSetup();
         fillingData(allfilling);
@@ -89,22 +89,22 @@ public class AddFillingActivity extends AppCompatActivity  {
         mFastAdapter = FastAdapter.with(Arrays.asList(mItemAdapter));
         mFastAdapter.withSelectable(true);
         mFastAdapter.withSelectOnLongClick(false);
-        recyclerfilling.setLayoutManager(new LinearLayoutManager(this));
-        recyclerfilling.setAdapter(mFastAdapter);
-        recyclerfilling.setItemAnimator(new SlideDownAlphaAnimator());
-        recyclerfilling.getItemAnimator().setAddDuration(500);
-        recyclerfilling.getItemAnimator().setRemoveDuration(500);
+        recyclerViewFilling.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewFilling.setAdapter(mFastAdapter);
+        recyclerViewFilling.setItemAnimator(new SlideDownAlphaAnimator());
+        recyclerViewFilling.getItemAnimator().setAddDuration(500);
+        recyclerViewFilling.getItemAnimator().setRemoveDuration(500);
 
     }
 
     public void addFilling(View view) {
         Filling filling = null;
         for (Integer pos : mFastAdapter.getSelections()) {
-            filling=mItemAdapter.getAdapterItem(pos).filling;
+            filling = mItemAdapter.getAdapterItem(pos).filling;
         }
         Intent i = new Intent();
         Bundle bundle = new Bundle();
-        bundle.putParcelable(StaticKeys.addFillingResult, Parcels.wrap(Filling.class, filling));
+        bundle.putParcelable(StaticKeys.ADD_FILLING_RESULT, Parcels.wrap(Filling.class, filling));
         i.putExtras(bundle);
         setResult(RESULT_OK, i);
         finish();
@@ -130,38 +130,38 @@ public class AddFillingActivity extends AppCompatActivity  {
     }
 
     public void checkCategory(View view) {
-        if(checkboxcondiment.isChecked()&&checkboxmeat.isChecked()&&checkboxvegetable.isChecked()){
+        if (checkBoxCondiment.isChecked() && checkBoxMeat.isChecked() && checkBoxVegetable.isChecked()) {
             fillingData(allfilling);
-        }else if(checkboxcondiment.isChecked()&&checkboxmeat.isChecked()) {
+        } else if (checkBoxCondiment.isChecked() && checkBoxMeat.isChecked()) {
             FilterFilling condimentFilter = new CondimentFilter();
             FilterFilling meatFilter = new MeatFilter();
             FilterFilling condimentOrMeat = new OrCriteria(condimentFilter, meatFilter);
             fillingData(condimentOrMeat.meetCriteria(allfilling));
 
-        }else if(checkboxmeat.isChecked()&&checkboxvegetable.isChecked()) {
+        } else if (checkBoxMeat.isChecked() && checkBoxVegetable.isChecked()) {
             FilterFilling meatFilter = new MeatFilter();
             FilterFilling vegetableFilter = new VegetableFilter();
             FilterFilling meatOrVegetable = new OrCriteria(meatFilter, vegetableFilter);
             fillingData(meatOrVegetable.meetCriteria(allfilling));
 
-        }else if(checkboxcondiment.isChecked()&&checkboxvegetable.isChecked()) {
+        } else if (checkBoxCondiment.isChecked() && checkBoxVegetable.isChecked()) {
             FilterFilling condimentFilter = new CondimentFilter();
             FilterFilling vegetableFilter = new VegetableFilter();
             FilterFilling condimentOrVegetable = new OrCriteria(condimentFilter, vegetableFilter);
             fillingData(condimentOrVegetable.meetCriteria(allfilling));
 
-        }else if(checkboxcondiment.isChecked()){
+        } else if (checkBoxCondiment.isChecked()) {
             FilterFilling condimentFilter = new CondimentFilter();
             fillingData(condimentFilter.meetCriteria(allfilling));
 
-        }else if(checkboxmeat.isChecked()){
+        } else if (checkBoxMeat.isChecked()) {
             FilterFilling meatFilter = new MeatFilter();
             fillingData(meatFilter.meetCriteria(allfilling));
 
-        }else if(checkboxvegetable.isChecked()){
+        } else if (checkBoxVegetable.isChecked()) {
             FilterFilling vegetableFilter = new VegetableFilter();
             fillingData(vegetableFilter.meetCriteria(allfilling));
-        }else{
+        } else {
             mItemAdapter.clear();
         }
     }

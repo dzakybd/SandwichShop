@@ -14,8 +14,11 @@ import com.kpl.sandwichshop.R;
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class PaymentActivity  extends AppCompatActivity implements View.OnClickListener{
-    LinearLayout creditLayout, cash, credit_card;
+public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
+
+    LinearLayout linearLayoutCredit;
+    LinearLayout linearLayoutCash;
+    LinearLayout linearLayoutCard;
     Button pay;
 
     @Override
@@ -24,20 +27,22 @@ public class PaymentActivity  extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_payment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        creditLayout = (LinearLayout) findViewById(R.id.card_payment);
-        credit_card = (LinearLayout) findViewById(R.id.linierlayout_credit_card);
-        credit_card.setOnClickListener(this);
-        cash = (LinearLayout) findViewById(R.id.linierlayout_cash);
-        cash.setOnClickListener(this);
+        linearLayoutCredit = (LinearLayout) findViewById(R.id.card_payment);
+        linearLayoutCard = (LinearLayout) findViewById(R.id.linierlayout_credit_card);
+        linearLayoutCard.setOnClickListener(this);
+        linearLayoutCash = (LinearLayout) findViewById(R.id.linierlayout_cash);
+        linearLayoutCash.setOnClickListener(this);
         pay = findViewById(R.id.btn_pay);
         pay.setOnClickListener(this);
 
     }
+
     @Override
     public void onBackPressed() {
         finish();
         super.onBackPressed();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -56,7 +61,7 @@ public class PaymentActivity  extends AppCompatActivity implements View.OnClickL
                 startActivity(new Intent(this, StatusActivity.class));
                 break;
             case R.id.linierlayout_credit_card:
-                creditLayout.setVisibility(View.VISIBLE);
+                linearLayoutCredit.setVisibility(View.VISIBLE);
                 break;
             case R.id.linierlayout_cash:
                 startActivity(new Intent(this, StatusActivity.class));

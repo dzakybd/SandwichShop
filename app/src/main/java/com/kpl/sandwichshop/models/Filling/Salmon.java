@@ -9,16 +9,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Salmon extends Filling {
     @Override
-    public String getName() { return "Salmon"; }
+    public String getName() {
+        return "Salmon";
+    }
 
     @Override
-    public int getPrice() { return 3000; }
+    public int getPrice() {
+        return 3000;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.salmon; }
+    public int getDrawable() {
+        return R.drawable.salmon;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryMeat;
+        return StaticKeys.CATEGORY_MEAT;
     }
 }

@@ -25,6 +25,6 @@ public class Sauce extends Filling {
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryCondiment;
+        return StaticKeys.CATEGORY_CONDIMENT;
     }
 }

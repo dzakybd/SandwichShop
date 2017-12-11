@@ -24,5 +24,7 @@ public class Pepper extends Filling {
     }
 
     @Override
-    public String getCategory() { return StaticKeys.categoryCondiment; }
+    public String getCategory() {
+        return StaticKeys.CATEGORY_CONDIMENT;
+    }
 }

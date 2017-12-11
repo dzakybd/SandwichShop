@@ -28,7 +28,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
     private TextView textViewPriceTopping;
     private TextView textViewPriceTotal;
     private TextView textViewPriceSandwich;
-    private Button button_pesan;
+    private Button buttonNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,55 +37,57 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
-        button_pesan = findViewById(R.id.button_next_additional);
-        textViewPriceTopping=findViewById(R.id.textview_price_topping);
-        textViewPriceSandwich=findViewById(R.id.textview_price_sandwich);
-        textViewPriceTotal=findViewById(R.id.textview_price_total);
+        buttonNext = findViewById(R.id.button_next_additional);
+        textViewPriceTopping = findViewById(R.id.textview_price_topping);
+        textViewPriceSandwich = findViewById(R.id.textview_price_sandwich);
+        textViewPriceTotal = findViewById(R.id.textview_price_total);
         textViewPriceSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
         textViewPriceTotal.setText(Integer.toString(20000));
 
-        button_pesan.setOnClickListener(this);
+        buttonNext.setOnClickListener(this);
 
     }
+
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
 
         // Check which checkbox was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.checkbox_sauce:
-                if (checked){
-                    toppingDecorator=new SauceDecorator(this.toppingDecorator);
-                    Log.d("CHECKBOX","TERCENTANG SAUCE");
-                }
-                else{
-                    Log.d("UNCHECKBOX","TERCENTANG SAUCE");
+                if (checked) {
+                    toppingDecorator = new SauceDecorator(this.toppingDecorator);
+                    Log.d("CHECKBOX", "TERCENTANG SAUCE");
+                } else {
+                    Log.d("UNCHECKBOX", "TERCENTANG SAUCE");
                 }
                 break;
             case R.id.checkbox_cheese:
-                if (checked){
-                    toppingDecorator=new CheeseDecorator(this.toppingDecorator);
-                    Log.d("CHECKBOX","TERCENTANG CHEESE");
+                if (checked) {
+                    toppingDecorator = new CheeseDecorator(this.toppingDecorator);
+                    Log.d("CHECKBOX", "TERCENTANG CHEESE");
                 }
                 break;
             case R.id.checkbox_mayonaise:
-                if (checked){
-                    toppingDecorator=new MayoDecorator(this.toppingDecorator);
-                    Log.d("CHECKBOX","TERCENTANG MAYONASE");
+                if (checked) {
+                    toppingDecorator = new MayoDecorator(this.toppingDecorator);
+                    Log.d("CHECKBOX", "TERCENTANG MAYONASE");
                 }
                 break;
         }
         updatePrice(toppingDecorator.getPrice());
     }
-    private void updatePrice(int price_topping){
-        int priceSandwich=20000;
-        int priceTopping=price_topping;
-        int total=priceSandwich+price_topping;
+
+    private void updatePrice(int price_topping) {
+        int priceSandwich = 20000;
+        int priceTopping = price_topping;
+        int total = priceSandwich + price_topping;
 
         textViewPriceSandwich.setText(Integer.toString(priceSandwich));
         textViewPriceTopping.setText(Integer.toString(priceTopping));
         textViewPriceTotal.setText(Integer.toString(total));
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

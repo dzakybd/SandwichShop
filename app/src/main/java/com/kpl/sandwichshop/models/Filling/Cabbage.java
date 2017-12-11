@@ -9,16 +9,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Cabbage extends Filling {
     @Override
-    public String getName() { return "Cabbage"; }
+    public String getName() {
+        return "Cabbage";
+    }
 
     @Override
-    public int getPrice() { return 500; }
+    public int getPrice() {
+        return 500;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.cabbage; }
+    public int getDrawable() {
+        return R.drawable.cabbage;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

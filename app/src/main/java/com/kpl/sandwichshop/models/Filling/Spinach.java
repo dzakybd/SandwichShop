@@ -23,5 +23,7 @@ public class Spinach extends Filling {
     }
 
     @Override
-    public String getCategory() { return StaticKeys.categoryVegetable; }
+    public String getCategory() {
+        return StaticKeys.CATEGORY_VEGETABLE;
+    }
 }

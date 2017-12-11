@@ -8,16 +8,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Tuna extends Filling {
     @Override
-    public String getName() { return "Tuna"; }
+    public String getName() {
+        return "Tuna";
+    }
 
     @Override
-    public int getPrice() { return 3000; }
+    public int getPrice() {
+        return 3000;
+    }
 
     @Override
-    public int getDrawable() { return 0; }
+    public int getDrawable() {
+        return 0;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryMeat;
+        return StaticKeys.CATEGORY_MEAT;
     }
 }

@@ -7,6 +7,7 @@ import com.kpl.sandwichshop.R;
  */
 
 public class Flat extends Bread {
+
     @Override
     public String getName() {
         return "Flat bread";
@@ -21,4 +22,5 @@ public class Flat extends Bread {
     public int getDrawable() {
         return R.drawable.bread_flat;
     }
+
 }

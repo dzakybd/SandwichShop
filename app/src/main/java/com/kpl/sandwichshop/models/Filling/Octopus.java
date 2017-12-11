@@ -9,16 +9,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Octopus extends Filling {
     @Override
-    public String getName() { return "Octopus"; }
+    public String getName() {
+        return "Octopus";
+    }
 
     @Override
-    public int getPrice() { return 2500; }
+    public int getPrice() {
+        return 2500;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.octopus; }
+    public int getDrawable() {
+        return R.drawable.octopus;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryMeat;
+        return StaticKeys.CATEGORY_MEAT;
     }
 }

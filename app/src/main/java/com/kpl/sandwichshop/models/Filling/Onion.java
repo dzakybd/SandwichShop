@@ -9,16 +9,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Onion extends Filling {
     @Override
-    public String getName() { return "Onion"; }
+    public String getName() {
+        return "Onion";
+    }
 
     @Override
-    public int getPrice() { return 500; }
+    public int getPrice() {
+        return 500;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.onion; }
+    public int getDrawable() {
+        return R.drawable.onion;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

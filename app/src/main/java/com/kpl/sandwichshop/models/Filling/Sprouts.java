@@ -8,7 +8,9 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Sprouts extends Filling {
     @Override
-    public String getName() { return "Sprouts"; }
+    public String getName() {
+        return "Sprouts";
+    }
 
     @Override
     public int getPrice() {
@@ -22,6 +24,6 @@ public class Sprouts extends Filling {
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

@@ -8,6 +8,9 @@ package com.kpl.sandwichshop.models.Bread;
 public abstract class Bread {
 
     public abstract String getName();
+
     public abstract int getPrice();
+
     public abstract int getDrawable();
+
 }

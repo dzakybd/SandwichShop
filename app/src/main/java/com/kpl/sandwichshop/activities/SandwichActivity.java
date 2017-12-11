@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -46,10 +45,10 @@ import java.util.List;
 
 public class SandwichActivity extends AppCompatActivity implements ItemTouchCallback {
 
-    private Spinner spinnerbread;
-    private RecyclerView recyclerfilling;
-    private EditText edittextcoupon;
-    private TextView textviewprice,textviewdiscount;
+    private Spinner spinnerBread;
+    private RecyclerView recyclerViewFilling;
+    private EditText editTextCoupon;
+    private TextView textViewPrice, textViewDiscount;
     FastAdapter<FillingAdapter> mFastAdapter;
     ItemAdapter<FillingAdapter> mItemAdapter;
     private SimpleDragCallback touchCallback;
@@ -60,16 +59,15 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sandwich);
-        textviewprice = findViewById(R.id.textview_price);
-        textviewdiscount= findViewById(R.id.textview_discount);
-        edittextcoupon = findViewById(R.id.edittext_coupon);
-        recyclerfilling = findViewById(R.id.recycler_filling);
-        spinnerbread = findViewById(R.id.spinner_bread);
+        textViewPrice = findViewById(R.id.textview_price);
+        textViewDiscount = findViewById(R.id.textview_discount);
+        editTextCoupon = findViewById(R.id.edittext_coupon);
+        recyclerViewFilling = findViewById(R.id.recycler_filling);
+        spinnerBread = findViewById(R.id.spinner_bread);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         spinnerSetup();
         fillingSetup();
     }
-
 
 
     private void fillingSetup() {
@@ -78,14 +76,14 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         mFastAdapter.withSelectable(true);
         mFastAdapter.withMultiSelect(true);
         mFastAdapter.withSelectOnLongClick(false);
-        recyclerfilling.setLayoutManager(new LinearLayoutManager(this));
-        recyclerfilling.setAdapter(mFastAdapter);
-        recyclerfilling.setItemAnimator(new SlideDownAlphaAnimator());
-        recyclerfilling.getItemAnimator().setAddDuration(500);
-        recyclerfilling.getItemAnimator().setRemoveDuration(500);
+        recyclerViewFilling.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewFilling.setAdapter(mFastAdapter);
+        recyclerViewFilling.setItemAnimator(new SlideDownAlphaAnimator());
+        recyclerViewFilling.getItemAnimator().setAddDuration(500);
+        recyclerViewFilling.getItemAnimator().setRemoveDuration(500);
         touchCallback = new SimpleDragCallback(this);
         touchHelper = new ItemTouchHelper(touchCallback); // Create ItemTouchHelper and pass with parameter the SimpleDragCallback
-        touchHelper.attachToRecyclerView(recyclerfilling); // Attach ItemTouchHelper to RecyclerView
+        touchHelper.attachToRecyclerView(recyclerViewFilling); // Attach ItemTouchHelper to RecyclerView
     }
 
     @Override
@@ -106,12 +104,12 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     }
 
     private void spinnerSetup() {
-        breads=new ArrayList<>();
+        breads = new ArrayList<>();
         breads.add(new Flat());
         breads.add(new Bun());
         breads.add(new Long());
-        SpinnerIconAdapter adapter=new SpinnerIconAdapter(this, R.layout.spinner_icon,R.id.txt,breads);
-        spinnerbread.setAdapter(adapter);
+        SpinnerIconAdapter adapter = new SpinnerIconAdapter(this, R.layout.spinner_icon, R.id.txt, breads);
+        spinnerBread.setAdapter(adapter);
     }
 
     public void removeFilling(View view) {
@@ -120,51 +118,53 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
 
     public void addFilling(View view) {
         Intent i = new Intent(this, AddFillingActivity.class);
-        startActivityForResult(i, StaticKeys.addFillingRequest);
+        startActivityForResult(i, StaticKeys.ADD_FILLING_REQUEST);
     }
 
     public void addCoupon(View view) {
-        DiscountList.checkDiscount(edittextcoupon.getText().toString());
+        DiscountList.checkDiscount(editTextCoupon.getText().toString());
         calculatePrice();
     }
 
 
     public void grabSandwich(View view) {
-        if(mItemAdapter.getAdapterItems().size()>0) {
+        if (mItemAdapter.getAdapterItems().size() > 0) {
             Sandwich sandwich = Sandwich.getSandwich();
-            sandwich.setBread(breads.get(spinnerbread.getSelectedItemPosition()));
+            sandwich.setBread(breads.get(spinnerBread.getSelectedItemPosition()));
             List<Filling> fillings = new ArrayList<>();
             for (FillingAdapter fillingAdapter : mItemAdapter.getAdapterItems()) {
                 fillings.add(fillingAdapter.filling);
             }
             sandwich.setFillings(fillings);
             startActivity(new Intent(this, AdditionalActivity.class));
-        }else{
-            Toast.makeText(view.getContext(),"Gagal: Pilih Isian Terlebih Dahulu",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(view.getContext(), "Gagal: Pilih Isian Terlebih Dahulu", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == StaticKeys.addFillingRequest && data.hasExtra(StaticKeys.addFillingResult)) {
-            Filling filling = Parcels.unwrap(data.getParcelableExtra(StaticKeys.addFillingResult));
+        if (resultCode == RESULT_OK && requestCode == StaticKeys.ADD_FILLING_REQUEST && data.hasExtra(StaticKeys.ADD_FILLING_RESULT)) {
+            Filling filling = Parcels.unwrap(data.getParcelableExtra(StaticKeys.ADD_FILLING_RESULT));
             mItemAdapter.add(new FillingAdapter().create(filling));
             calculatePrice();
         }
     }
 
     private void calculatePrice() {
-        int total=0;
-        for (FillingAdapter fillingAdapter: mItemAdapter.getAdapterItems()) {
-            total+=fillingAdapter.filling.getPrice();
+        int total = 0;
+        for (FillingAdapter fillingAdapter : mItemAdapter.getAdapterItems()) {
+            total += fillingAdapter.filling.getPrice();
         }
         Discount discount = Discount.getDiscount();
-        if(total>discount.getPrice()){
-            total-=discount.getPrice();
-            textviewdiscount.setText("" + discount.getPrice());
-        }else { textviewdiscount.setText("need more items"); }
-        textviewprice.setText("" + total);
+        if (total > discount.getPrice()) {
+            total -= discount.getPrice();
+            textViewDiscount.setText("" + discount.getPrice());
+        } else {
+            textViewDiscount.setText("need more items");
+        }
+        textViewPrice.setText("" + total);
     }
 
     @Override

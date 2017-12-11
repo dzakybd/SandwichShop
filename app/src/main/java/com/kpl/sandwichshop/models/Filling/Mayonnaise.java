@@ -1,7 +1,7 @@
 package com.kpl.sandwichshop.models.Filling;
 
-import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
 
 /**
  * Created by zaki on 4/12/17.
@@ -24,5 +24,7 @@ public class Mayonnaise extends Filling {
     }
 
     @Override
-    public String getCategory() { return StaticKeys.categoryCondiment; }
+    public String getCategory() {
+        return StaticKeys.CATEGORY_CONDIMENT;
+    }
 }

@@ -51,6 +51,7 @@ public class OrderActivity extends AppCompatActivity {
 
         notificationId += 1;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

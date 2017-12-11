@@ -9,14 +9,22 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class Ham extends Filling {
     @Override
-    public String getName() { return "Ham"; }
+    public String getName() {
+        return "Ham";
+    }
 
     @Override
-    public int getPrice() { return 2500; }
+    public int getPrice() {
+        return 2500;
+    }
 
     @Override
-    public int getDrawable() { return R.drawable.ham; }
+    public int getDrawable() {
+        return R.drawable.ham;
+    }
 
     @Override
-    public String getCategory() { return StaticKeys.categoryMeat; }
+    public String getCategory() {
+        return StaticKeys.CATEGORY_MEAT;
+    }
 }

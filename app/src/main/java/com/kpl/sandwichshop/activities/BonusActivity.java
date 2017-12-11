@@ -11,18 +11,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
-import com.kpl.sandwichshop.facade.Beverage;
 import com.kpl.sandwichshop.facade.BonusFacade;
 
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class BonusActivity  extends AppCompatActivity implements View.OnClickListener{
-    Button buttonLanjutkan;
-    RadioGroup rgBonus;
+public class BonusActivity extends AppCompatActivity implements View.OnClickListener {
+    Button buttonNext;
+    RadioGroup radioGroupBonus;
     BonusFacade bonusFacade;
     TextView textViewBonus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,19 +30,19 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Bonus");
 
-        buttonLanjutkan=(Button)findViewById(R.id.button_next_bonus);
-        rgBonus= (RadioGroup) findViewById(R.id.radiogroup_list_bonus);
-        textViewBonus=(TextView)findViewById(R.id.textview_bonus);
-        bonusFacade=new BonusFacade();
+        buttonNext = (Button) findViewById(R.id.button_next_bonus);
+        radioGroupBonus = (RadioGroup) findViewById(R.id.radiogroup_list_bonus);
+        textViewBonus = (TextView) findViewById(R.id.textview_bonus);
+        bonusFacade = new BonusFacade();
 
-        rgBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        radioGroupBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 View radioButton = radioGroup.findViewById(i);
                 int index = radioGroup.indexOfChild(radioButton);
                 Log.d("i", String.valueOf(i));
                 Log.d("index", String.valueOf(index));
-                switch (index){
+                switch (index) {
                     case 0:
                         textViewBonus.setText(bonusFacade.CoffeeTaken());
                         break;
@@ -59,19 +59,20 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
 //                Log.d("Selction Tetx", String.valueOf(selection));
             }
         });
-        buttonLanjutkan.setOnClickListener(this);
+        buttonNext.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_next_bonus:
-                Log.d("s","d");
+                Log.d("s", "d");
                 startActivity(new Intent(this, PaymentActivity.class));
-                Log.d("s","d");
+                Log.d("s", "d");
                 break;
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

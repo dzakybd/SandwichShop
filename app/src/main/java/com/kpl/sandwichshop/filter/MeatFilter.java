@@ -11,15 +11,17 @@ import java.util.List;
  */
 
 public class MeatFilter implements FilterFilling {
+
     @Override
     public List<Filling> meetCriteria(List<Filling> fillings) {
         List<Filling> meat = new ArrayList<>();
         for (Filling filling : fillings) {
-            if (filling.getCategory().contentEquals(StaticKeys.categoryMeat)) {
+            if (filling.getCategory().contentEquals(StaticKeys.CATEGORY_MEAT)) {
                 meat.add(filling);
             }
         }
         return meat;
     }
+
 }
 

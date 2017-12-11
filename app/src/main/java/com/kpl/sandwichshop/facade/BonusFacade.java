@@ -5,6 +5,7 @@ package com.kpl.sandwichshop.facade;
  */
 
 public class BonusFacade {
+
     private Beverage coffee;
     private Beverage tea;
     private Beverage softdrink;
@@ -12,16 +13,18 @@ public class BonusFacade {
     public BonusFacade() {
         this.coffee = new Coffee();
         this.tea = new Tea();
-        this.softdrink=new Softdrink();
+        this.softdrink = new Softdrink();
     }
 
-    public String CoffeeTaken(){
+    public String CoffeeTaken() {
         return this.coffee.getProductName();
     }
-    public String TeaTaken(){
+
+    public String TeaTaken() {
         return this.tea.getProductName();
     }
-    public String SoftdrinkTaken(){
+
+    public String SoftdrinkTaken() {
         return this.softdrink.getProductName();
     }
 }

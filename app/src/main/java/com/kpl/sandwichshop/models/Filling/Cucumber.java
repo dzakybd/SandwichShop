@@ -19,10 +19,12 @@ public class Cucumber extends Filling {
     }
 
     @Override
-    public int getDrawable() { return R.drawable.cucumber; }
+    public int getDrawable() {
+        return R.drawable.cucumber;
+    }
 
     @Override
     public String getCategory() {
-        return StaticKeys.categoryVegetable;
+        return StaticKeys.CATEGORY_VEGETABLE;
     }
 }

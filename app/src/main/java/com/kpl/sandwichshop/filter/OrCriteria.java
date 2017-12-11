@@ -9,12 +9,15 @@ import java.util.List;
  */
 
 public class OrCriteria implements FilterFilling {
+
     FilterFilling criteria;
     FilterFilling otherCriteria;
+
     public OrCriteria(FilterFilling criteria, FilterFilling otherCriteria) {
         this.criteria = criteria;
         this.otherCriteria = otherCriteria;
     }
+
     @Override
     public List<Filling> meetCriteria(List<Filling> fillings) {
         List<Filling> firstCriteria =
@@ -28,4 +31,5 @@ public class OrCriteria implements FilterFilling {
         }
         return firstCriteria;
     }
+
 }
