@@ -4,11 +4,22 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/action_padding">
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="@string/title_topping"
+            android:textSize="@dimen/title_textsize"
+            android:paddingTop="@dimen/padding_title_top"
+            android:paddingBottom="@dimen/padding_title_bottom"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

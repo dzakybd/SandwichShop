@@ -5,31 +5,47 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <RadioGroup
-        android:id="@+id/radiogroup_list_bonus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/action_padding"
-        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radiobutton_cofee"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Coffee" />
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="@string/title_bonus"
+            android:textSize="@dimen/title_textsize"
+            android:paddingTop="@dimen/padding_title_top"
+            android:paddingBottom="@dimen/padding_title_bottom"/>
 
-        <RadioButton
-            android:id="@+id/radiobutton_tea"
+        <RadioGroup
+            android:id="@+id/radiogroup_list_bonus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tea" />
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/radiobutton_softdrink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Softdrink" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radiobutton_cofee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coffee" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_tea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tea" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_softdrink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Softdrink" />
+        </RadioGroup>
+
+    </LinearLayout>
+
 
     <TableLayout
         android:layout_width="match_parent"
