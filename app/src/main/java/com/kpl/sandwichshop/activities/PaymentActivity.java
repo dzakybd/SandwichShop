@@ -110,16 +110,18 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(this, "Please fill all box", Toast.LENGTH_SHORT).show();
             return;
         }
-        int value = Integer.parseInt(editTextValue.getText().toString());
+        String value = editTextValue.getText().toString();
         payment.setValue(value);
         String message = payment.pay();
-        Log.d(TAG, "pay: "  + message);
-        if (message.equals(StaticKeys.FAILED)) {
+        Log.d(TAG, "pay: " + message);
+        if (message.equals(StaticKeys.CASH_FAILED)) {
             Toast.makeText(this, "Your money is not enough", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else if (message.equals(StaticKeys.CARD_FAILED)) {
+            Toast.makeText(this, "Card number is invalid", Toast.LENGTH_SHORT).show();
+        } else {
             Intent intent = new Intent(this, StatusActivity.class);
             intent.putExtra(StaticKeys.PAYMENT_MESSAGE, message);
+            startActivity(intent);
         }
     }
 }

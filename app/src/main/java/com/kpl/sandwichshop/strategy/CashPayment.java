@@ -12,12 +12,12 @@ public class CashPayment implements PaymentMethod {
     private final String TAG = getClass().getSimpleName();
 
     @Override
-    public String processPayment(int price, int value) {
-        int cash = value;
-        if (cash > price) {
-            return "Cash\t\t= " + cash + "\nChange\t\t= " + (cash - price);
+    public String processPayment(int price, String value) {
+        int cash = Integer.parseInt(value);
+        if (cash >= price) {
+            return "Cash : " + cash + "\nChange : " + (cash - price);
         } else {
-            return StaticKeys.FAILED;
+            return StaticKeys.CASH_FAILED;
         }
     }
 }

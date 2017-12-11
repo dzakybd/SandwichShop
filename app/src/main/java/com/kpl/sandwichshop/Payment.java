@@ -11,7 +11,7 @@ public class Payment {
 
     PaymentMethod paymentMethod;
     int price;
-    int value;
+    String value;
 
     public Payment(/*Sandwich sandwich*/) {
 //        this.price = sandwich.getPrice();
@@ -23,7 +23,7 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
