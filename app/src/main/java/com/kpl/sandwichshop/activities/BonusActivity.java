@@ -29,7 +29,7 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Bonus");
 
-        buttonLanjutkan=(Button)findViewById(R.id.button_lanjutkan_bonus);
+        buttonLanjutkan=(Button)findViewById(R.id.button_next_bonus);
         rgBonus= (RadioGroup) findViewById(R.id.radiogroup_list_bonus);
         textViewBonus=(TextView)findViewById(R.id.textview_bonus);
         bonusBeverage=new Beverage();
@@ -64,7 +64,7 @@ public class BonusActivity  extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button_lanjutkan_bonus:
+            case R.id.button_next_bonus:
                 Log.d("s","d");
                 startActivity(new Intent(this, PaymentActivity.class));
                 Log.d("s","d");

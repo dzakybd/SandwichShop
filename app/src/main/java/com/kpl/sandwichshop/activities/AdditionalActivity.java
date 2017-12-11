@@ -37,7 +37,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
-        button_pesan = findViewById(R.id.button_lanjutkan_additional);
+        button_pesan = findViewById(R.id.button_next_additional);
         textViewPriceTopping=findViewById(R.id.textview_price_topping);
         textViewPriceSandwich=findViewById(R.id.textview_price_sandwich);
         textViewPriceTotal=findViewById(R.id.textview_price_total);
@@ -89,7 +89,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_lanjutkan_additional:
+            case R.id.button_next_additional:
                 startActivity(new Intent(this, BonusActivity.class));
                 break;
         }
