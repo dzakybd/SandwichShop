@@ -50,13 +50,13 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
                 int index = radioGroup.indexOfChild(radioButton);
                 switch (index) {
                     case 0:
-                        bonus = bonusFacade.CoffeeTaken();
+                        bonus = bonusFacade.getCoffee();
                         break;
                     case 1:
-                        bonus = bonusFacade.TeaTaken();
+                        bonus = bonusFacade.getTea();
                         break;
                     case 2:
-                        bonus = bonusFacade.SoftdrinkTaken();
+                        bonus = bonusFacade.getSoftdrink();
                         break;
                 }
                 textViewBonus.setText(bonus);

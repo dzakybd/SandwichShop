@@ -16,15 +16,15 @@ public class BonusFacade {
         this.softdrink = new Softdrink();
     }
 
-    public String CoffeeTaken() {
+    public String getCoffee() {
         return this.coffee.getProductName();
     }
 
-    public String TeaTaken() {
+    public String getTea() {
         return this.tea.getProductName();
     }
 
-    public String SoftdrinkTaken() {
+    public String getSoftdrink() {
         return this.softdrink.getProductName();
     }
 }

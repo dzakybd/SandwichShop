@@ -136,7 +136,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
                 fillings.add(fillingAdapter.filling);
             }
             sandwich.setFillings(fillings);
-            startActivity(new Intent(this, AdditionalActivity.class));
+            startActivity(new Intent(this, ToppingActivity.class));
         } else {
             Toast.makeText(view.getContext(), "Please add the fillings!", Toast.LENGTH_SHORT).show();
         }

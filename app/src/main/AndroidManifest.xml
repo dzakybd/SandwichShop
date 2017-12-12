@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AdditionalActivity" />
+        <activity android:name=".activities.ToppingActivity" />
         <activity android:name=".activities.BonusActivity" />
         <activity
             android:name=".activities.PaymentActivity"

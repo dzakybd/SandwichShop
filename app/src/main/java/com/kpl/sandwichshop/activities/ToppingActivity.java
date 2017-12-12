@@ -20,7 +20,7 @@ import com.kpl.sandwichshop.decorator.SauceDecorator;
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class AdditionalActivity extends AppCompatActivity implements View.OnClickListener {
+public class ToppingActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = getClass().getSimpleName();
     Decorator toppingDecorator;
@@ -33,7 +33,7 @@ public class AdditionalActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_additional);
+        setContentView(R.layout.activity_topping);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
