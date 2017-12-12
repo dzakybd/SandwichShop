@@ -18,6 +18,8 @@ import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.strategy.CardPayment;
 import com.kpl.sandwichshop.strategy.CashPayment;
 
+import org.parceler.Parcels;
+
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
@@ -41,7 +43,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_payment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        order = (Order) getIntent().getExtras().getSerializable(StaticKeys.ORDER);
+        order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
 
         payment = new Payment();
 
@@ -123,7 +125,9 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             order.setPaymentMessage(message);
             Intent intent = new Intent(this, StatusActivity.class);
-            intent.putExtra(StaticKeys.ORDER, order);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+            intent.putExtras(bundle);
             startActivity(intent);
         }
     }

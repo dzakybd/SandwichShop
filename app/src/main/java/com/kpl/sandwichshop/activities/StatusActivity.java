@@ -1,6 +1,5 @@
 package com.kpl.sandwichshop.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -15,6 +14,8 @@ import com.kpl.sandwichshop.observer.Observable;
 import com.kpl.sandwichshop.observer.Observer;
 import com.kpl.sandwichshop.observer.OrderObservable;
 
+import org.parceler.Parcels;
+
 public class StatusActivity extends AppCompatActivity {
 
     TextView textViewOrderInfo;
@@ -26,8 +27,7 @@ public class StatusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
 
-        Order order = (Order) getIntent().getExtras().getSerializable(StaticKeys.ORDER);
-
+        Order order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
         Observer notificationObserver = new NotificationObserver(this);
         Observer historyObserver = new HistoryObserver();
         final Observable orderObservable = new OrderObservable(order);

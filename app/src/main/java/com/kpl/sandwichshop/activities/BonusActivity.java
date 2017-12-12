@@ -14,6 +14,8 @@ import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.facade.BonusFacade;
 
+import org.parceler.Parcels;
+
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
@@ -72,7 +74,9 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
             case R.id.button_next_bonus:
                 order.setBonus(bonus);
                 Intent intent = new Intent(this, PaymentActivity.class);
-                intent.putExtra(StaticKeys.ORDER, order);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 break;
         }

@@ -14,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.adapters.FillingAdapter;
@@ -38,7 +37,6 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by zaki on 4/12/17.
@@ -119,6 +117,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 sandwich.setBread(breads.get(spinnerBread.getSelectedItemPosition()));
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
                 // TODO Auto-generated method stub
@@ -148,9 +147,9 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     public void grabSandwich(View view) {
         if (sandwich.sizeFilling() > 0) {
             Intent i = new Intent(this, ToppingActivity.class);
-            Order order = new Order();
-            order.setSandwich(sandwich);
-            i.putExtra(StaticKeys.ORDER,order);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(StaticKeys.SANDWICH, Parcels.wrap(Sandwich.class, sandwich));
+            i.putExtras(bundle);
             startActivity(i);
         } else {
             Toast.makeText(view.getContext(), "Please add the fillings!", Toast.LENGTH_SHORT).show();
