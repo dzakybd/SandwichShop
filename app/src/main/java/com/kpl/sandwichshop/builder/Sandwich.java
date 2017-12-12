@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop.builder;
 
+import com.kpl.sandwichshop.adapters.FillingAdapter;
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Filling.Filling;
 import com.kpl.sandwichshop.observer.Observable;
@@ -14,20 +15,28 @@ import java.util.List;
 
 public class Sandwich implements Observable {
 
-    public boolean ready;
-
-    public Sandwich() {
-    }
-
-    private static Sandwich sandwich = new Sandwich();
-
-    public static Sandwich getSandwich() {
-        return sandwich;
-    }
-
     private Bread bread;
     private List<Filling> fillings;
-    private ArrayList<Observer> orders = new ArrayList<Observer>();
+
+    public void addFilling(Filling filling){
+        this.fillings.add(filling);
+    }
+
+    public void removeFilling(int index){
+        this.fillings.remove(index);
+    }
+
+    public int getPrice(){
+        int total = 0;
+        for (Filling filling : fillings) {
+            total += filling.getPrice();
+        }
+        return total;
+    }
+
+    public void changePosition(int oldposition, int newposition){
+        fillings.add(newposition, fillings.remove(oldposition));
+    }
 
     public Bread getBread() {
         return bread;
@@ -37,13 +46,12 @@ public class Sandwich implements Observable {
         this.bread = bread;
     }
 
-    public List<Filling> getFillings() {
-        return fillings;
+    public int sizeFilling(){
+        return this.fillings.size();
     }
 
-    public void setFillings(List<Filling> fillings) {
-        this.fillings = fillings;
-    }
+    public boolean ready;
+    private ArrayList<Observer> orders = new ArrayList<Observer>();
 
     @Override
     public void register(Observer observer) {

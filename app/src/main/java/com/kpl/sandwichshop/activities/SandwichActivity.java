@@ -54,6 +54,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     private SimpleDragCallback touchCallback;
     private ItemTouchHelper touchHelper;
     ArrayList<Bread> breads;
+    Sandwich sandwich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         recyclerViewFilling = findViewById(R.id.recycler_filling);
         spinnerBread = findViewById(R.id.spinner_bread);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        sandwich=new Sandwich();
         spinnerSetup();
         fillingSetup();
     }
@@ -113,7 +115,10 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     }
 
     public void removeFilling(View view) {
-        mFastAdapter.deleteAllSelectedItems();
+        for (FillingAdapter fillingAdapter: mFastAdapter.getSelectedItems()) {
+            Toast.makeText(this, " "+(int)fillingAdapter.getIdentifier(), Toast.LENGTH_SHORT).show();
+        }
+        //mFastAdapter.deleteAllSelectedItems();
     }
 
     public void addFilling(View view) {
@@ -128,15 +133,12 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
 
 
     public void grabSandwich(View view) {
-        if (mItemAdapter.getAdapterItems().size() > 0) {
-            Sandwich sandwich = Sandwich.getSandwich();
-            sandwich.setBread(breads.get(spinnerBread.getSelectedItemPosition()));
-            List<Filling> fillings = new ArrayList<>();
-            for (FillingAdapter fillingAdapter : mItemAdapter.getAdapterItems()) {
-                fillings.add(fillingAdapter.filling);
-            }
-            sandwich.setFillings(fillings);
-            startActivity(new Intent(this, ToppingActivity.class));
+        if (sandwich.sizeFilling() > 0) {
+            Intent i = new Intent(this, ToppingActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(StaticKeys.SANDWICH, Parcels.wrap(Filling.class, sandwich));
+            i.putExtras(bundle);
+            startActivity(i);
         } else {
             Toast.makeText(view.getContext(), "Please add the fillings!", Toast.LENGTH_SHORT).show();
         }
@@ -148,15 +150,13 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         if (resultCode == RESULT_OK && requestCode == StaticKeys.ADD_FILLING_REQUEST && data.hasExtra(StaticKeys.ADD_FILLING_RESULT)) {
             Filling filling = Parcels.unwrap(data.getParcelableExtra(StaticKeys.ADD_FILLING_RESULT));
             mItemAdapter.add(new FillingAdapter().create(filling));
+            sandwich.addFilling(filling);
             calculatePrice();
         }
     }
 
     private void calculatePrice() {
-        int total = 0;
-        for (FillingAdapter fillingAdapter : mItemAdapter.getAdapterItems()) {
-            total += fillingAdapter.filling.getPrice();
-        }
+        int total = sandwich.getPrice();
         Discount discount = Discount.getDiscount();
         if (total > discount.getPrice()) {
             total -= discount.getPrice();
@@ -170,6 +170,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     @Override
     public boolean itemTouchOnMove(int oldPosition, int newPosition) {
         DragDropUtil.onMove(mItemAdapter, oldPosition, newPosition);  // change position
+        sandwich.changePosition(oldPosition,newPosition);
         return true;
     }
 
