@@ -23,7 +23,7 @@
             android:textSize="21sp" />
 
         <TextView
-            android:id="@+id/textview_payment_message"
+            android:id="@+id/textview_order_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="message"

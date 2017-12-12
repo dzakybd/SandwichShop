@@ -37,4 +37,12 @@ public class Order implements Serializable {
     public void setPaymentMessage(String paymentMessage) {
         this.paymentMessage = paymentMessage;
     }
+
+    @Override
+    public String toString(){
+        String orderInfo = "";
+        orderInfo += "Bonus : " + bonus + "\n";
+        orderInfo += paymentMessage + "\n";
+        return orderInfo;
+    }
 }
