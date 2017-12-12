@@ -13,4 +13,5 @@ public class StaticKeys {
     public static final String CASH_FAILED = "cash_failed";
     public static final String CARD_FAILED = "card_failed";
     public static final String PAYMENT_MESSAGE = "message";
+    public static final String ORDER = "order";
 }

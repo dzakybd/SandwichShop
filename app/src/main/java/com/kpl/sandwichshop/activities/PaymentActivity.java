@@ -3,7 +3,6 @@ package com.kpl.sandwichshop.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.Payment;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
@@ -33,12 +33,15 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     Button buttonPay;
 
     Payment payment;
+    Order order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        order = (Order) getIntent().getExtras().getSerializable(StaticKeys.ORDER);
 
         payment = new Payment();
 
@@ -113,14 +116,14 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         String value = editTextValue.getText().toString();
         payment.setValue(value);
         String message = payment.pay();
-        Log.d(TAG, "pay: " + message);
         if (message.equals(StaticKeys.CASH_FAILED)) {
             Toast.makeText(this, "Your money is not enough", Toast.LENGTH_SHORT).show();
         } else if (message.equals(StaticKeys.CARD_FAILED)) {
             Toast.makeText(this, "Card number is invalid", Toast.LENGTH_SHORT).show();
         } else {
+            order.setPaymentMessage(message);
             Intent intent = new Intent(this, StatusActivity.class);
-            intent.putExtra(StaticKeys.PAYMENT_MESSAGE, message);
+            intent.putExtra(StaticKeys.ORDER, order);
             startActivity(intent);
         }
     }
