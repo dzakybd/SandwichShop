@@ -10,7 +10,7 @@ public abstract class Decorator {
     private int price;
     private Decorator decorator;
 
-    public Decorator(Decorator decorator) {
+    public Decorator(Decorator decozrator) {
         this.decorator = decorator;
     }
 

@@ -8,11 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.adapters.FillingAdapter;
@@ -112,6 +114,16 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         breads.add(new LongBread());
         SpinnerIconAdapter adapter = new SpinnerIconAdapter(this, R.layout.spinner_icon, R.id.txt, breads);
         spinnerBread.setAdapter(adapter);
+        spinnerBread.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                sandwich.setBread(breads.get(spinnerBread.getSelectedItemPosition()));
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
     public void removeFilling(View view) {
@@ -136,9 +148,9 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     public void grabSandwich(View view) {
         if (sandwich.sizeFilling() > 0) {
             Intent i = new Intent(this, ToppingActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(StaticKeys.SANDWICH, Parcels.wrap(Filling.class, sandwich));
-            i.putExtras(bundle);
+            Order order = new Order();
+            order.setSandwich(sandwich);
+            i.putExtra(StaticKeys.ORDER,order);
             startActivity(i);
         } else {
             Toast.makeText(view.getContext(), "Please add the fillings!", Toast.LENGTH_SHORT).show();

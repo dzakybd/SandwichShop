@@ -6,6 +6,8 @@ import com.kpl.sandwichshop.models.Filling.Filling;
 import com.kpl.sandwichshop.observer.Observable;
 import com.kpl.sandwichshop.observer.Observer;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ import java.util.List;
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
 
+@Parcel
 public class Sandwich implements Observable {
 
     private Bread bread;
