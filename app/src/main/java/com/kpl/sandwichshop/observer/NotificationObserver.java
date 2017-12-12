@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop.observer;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
@@ -27,7 +28,9 @@ public class NotificationObserver implements Observer {
                         new NotificationCompat.Builder(context)
                                 .setSmallIcon(R.drawable.ic_notification)
                                 .setContentTitle("Sandwich Shop")
-                                .setContentText(order.toString());
+                                .setContentText(order.toString())
+                                .setAutoCancel(true)
+                                .setDefaults(Notification.DEFAULT_ALL);
         NotificationManager manager = (NotificationManager)
                 context.getSystemService(context.NOTIFICATION_SERVICE);
         manager.notify(notificationId, builder.build());
