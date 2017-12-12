@@ -3,18 +3,22 @@ package com.kpl.sandwichshop.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
+import com.kpl.sandwichshop.StaticKeys;
+import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
 import com.kpl.sandwichshop.decorator.Decorator;
 import com.kpl.sandwichshop.decorator.MayoDecorator;
 import com.kpl.sandwichshop.decorator.SauceDecorator;
+
+import org.parceler.Parcels;
 
 /**
  * Created by Ilham Aulia Majid on 01-Dec-17.
@@ -32,7 +36,8 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     private CheckBox checkBoxMayonaise;
     private CheckBox checkBoxCheese;
     private CheckBox checkBoxSauce;
-
+    Order order;
+    Sandwich sandwich;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,8 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
+        order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
+        sandwich=order.getSandwich();
         toppingDecorator = new SauceDecorator();
 
         textViewPriceTopping = findViewById(R.id.textview_price_topping);
@@ -83,23 +90,23 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void update() {
-        toppingDecorator = new SauceDecorator();
+        sandwich.removeDecorator();
         if (checkBoxMayonaise.isChecked()) {
-            toppingDecorator.addDecorator(new MayoDecorator());
+            sandwich.addDecorator(new MayoDecorator());
         }
         if (checkBoxCheese.isChecked()) {
-            toppingDecorator.addDecorator(new CheeseDecorator());
+            sandwich.addDecorator(new CheeseDecorator());
         }
         if (checkBoxSauce.isChecked()) {
-            toppingDecorator.addDecorator(new SauceDecorator());
+            sandwich.addDecorator(new SauceDecorator());
         }
-        Log.d(TAG, "update: " + toppingDecorator.getPrice());
+        updatePrice();
     }
 
-    private void updatePrice(int price_topping) {
-        int priceSandwich = 20000;
-        int priceTopping = price_topping;
-        int total = priceSandwich + price_topping;
+    private void updatePrice() {
+        int priceSandwich = order.getSandwich().getPrice();
+        int priceTopping = sandwich.getDecoratorPrice();
+        int total = priceSandwich + priceTopping;
 
         textViewPriceSandwich.setText(Integer.toString(priceSandwich));
         textViewPriceTopping.setText(Integer.toString(priceTopping));

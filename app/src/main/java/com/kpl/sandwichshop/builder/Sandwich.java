@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop.builder;
 
+import com.kpl.sandwichshop.decorator.Decorator;
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Filling.Filling;
 
@@ -12,10 +13,27 @@ import java.util.List;
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
 @Parcel
-public class Sandwich {
+public class Sandwich extends Decorator {
 
-    private Bread bread;
-    private List<Filling> fillings = new ArrayList<>();
+    public Bread bread;
+    public List<Filling> fillings = new ArrayList<>();
+
+    public Sandwich() {
+        this(null);
+    }
+
+    public Sandwich(Decorator decorator) {
+        setName("Sandwich");
+        setPrice(0);
+    }
+
+    public String getDecorator(){
+        if(decorator==null)return "null";
+        return decorator.toString();
+    }
+    public void removeDecorator(){
+        this.decorator=null;
+    }
 
     public void addFilling(Filling filling){
         this.fillings.add(filling);
@@ -31,6 +49,10 @@ public class Sandwich {
             total += filling.getPrice();
         }
         return total;
+    }
+
+    public int getDecoratorPrice(){
+        return super.getPrice();
     }
 
     public void changePosition(int oldposition, int newposition){

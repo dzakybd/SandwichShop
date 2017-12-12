@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.adapters.FillingAdapter;
@@ -147,8 +148,10 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     public void grabSandwich(View view) {
         if (sandwich.sizeFilling() > 0) {
             Intent i = new Intent(this, ToppingActivity.class);
+            Order order = new Order();
+            order.setSandwich(sandwich);
             Bundle bundle = new Bundle();
-            bundle.putParcelable(StaticKeys.SANDWICH, Parcels.wrap(Sandwich.class, sandwich));
+            bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
             i.putExtras(bundle);
             startActivity(i);
         } else {
