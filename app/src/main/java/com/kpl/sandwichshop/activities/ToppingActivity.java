@@ -29,6 +29,9 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewPriceTotal;
     private TextView textViewPriceSandwich;
     private Button buttonNext;
+    private CheckBox checkBoxMayonaise;
+    private CheckBox checkBoxCheese;
+    private CheckBox checkBoxSauce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +40,16 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Topping Sandwich");
 
-        buttonNext = findViewById(R.id.button_next_additional);
+        toppingDecorator = new SauceDecorator();
+
         textViewPriceTopping = findViewById(R.id.textview_price_topping);
         textViewPriceSandwich = findViewById(R.id.textview_price_sandwich);
         textViewPriceTotal = findViewById(R.id.textview_price_total);
+        buttonNext = findViewById(R.id.button_next_additional);
+        checkBoxMayonaise = findViewById(R.id.checkbox_mayonaise);
+        checkBoxCheese = findViewById(R.id.checkbox_cheese);
+        checkBoxSauce = findViewById(R.id.checkbox_sauce);
+
         textViewPriceSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
         textViewPriceTotal.setText(Integer.toString(20000));
 
@@ -49,33 +58,42 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void onCheckboxClicked(View view) {
-        // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch (view.getId()) {
-            case R.id.checkbox_sauce:
-                if (checked) {
+        /*if (checked) {
+            switch (view.getId()) {
+                case R.id.checkbox_sauce:
+//                if (checked) {
                     toppingDecorator = new SauceDecorator(this.toppingDecorator);
-                    Log.d("CHECKBOX", "TERCENTANG SAUCE");
-                } else {
-                    Log.d("UNCHECKBOX", "TERCENTANG SAUCE");
-                }
-                break;
-            case R.id.checkbox_cheese:
-                if (checked) {
+//                }
+                    break;
+                case R.id.checkbox_cheese:
+//                if (checked) {
                     toppingDecorator = new CheeseDecorator(this.toppingDecorator);
-                    Log.d("CHECKBOX", "TERCENTANG CHEESE");
-                }
-                break;
-            case R.id.checkbox_mayonaise:
-                if (checked) {
+//                }
+                    break;
+                case R.id.checkbox_mayonaise:
+//                if (checked) {
                     toppingDecorator = new MayoDecorator(this.toppingDecorator);
-                    Log.d("CHECKBOX", "TERCENTANG MAYONASE");
-                }
-                break;
+//                }
+                    break;
+            }
+        }*/
+        update();
+//        updatePrice(toppingDecorator.getPrice());
+    }
+
+    private void update() {
+        toppingDecorator = new SauceDecorator();
+        if (checkBoxMayonaise.isChecked()) {
+            toppingDecorator.addDecorator(new MayoDecorator());
         }
-        updatePrice(toppingDecorator.getPrice());
+        if (checkBoxCheese.isChecked()) {
+            toppingDecorator.addDecorator(new CheeseDecorator());
+        }
+        if (checkBoxSauce.isChecked()) {
+            toppingDecorator.addDecorator(new SauceDecorator());
+        }
+        Log.d(TAG, "update: " + toppingDecorator.getPrice());
     }
 
     private void updatePrice(int price_topping) {

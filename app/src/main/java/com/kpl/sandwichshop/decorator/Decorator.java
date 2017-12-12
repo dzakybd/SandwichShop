@@ -38,5 +38,11 @@ public abstract class Decorator {
         return decoratorsPrice;
     }
 
-
+    public void addDecorator(Decorator decorator) {
+        if (this.decorator == null) {
+            this.decorator = decorator;
+        } else {
+            this.decorator.addDecorator(decorator);
+        }
+    }
 }
