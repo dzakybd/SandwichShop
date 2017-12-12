@@ -16,7 +16,7 @@ import java.util.List;
 public class Sandwich implements Observable {
 
     private Bread bread;
-    private List<Filling> fillings;
+    private List<Filling> fillings = new ArrayList<>();
 
     public void addFilling(Filling filling){
         this.fillings.add(filling);

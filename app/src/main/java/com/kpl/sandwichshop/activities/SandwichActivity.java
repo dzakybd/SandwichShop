@@ -115,10 +115,11 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     }
 
     public void removeFilling(View view) {
-        for (FillingAdapter fillingAdapter: mFastAdapter.getSelectedItems()) {
-            Toast.makeText(this, " "+(int)fillingAdapter.getIdentifier(), Toast.LENGTH_SHORT).show();
+        for (int aa: mFastAdapter.getSelections()) {
+            sandwich.removeFilling(aa);
         }
-        //mFastAdapter.deleteAllSelectedItems();
+        mFastAdapter.deleteAllSelectedItems();
+        calculatePrice();
     }
 
     public void addFilling(View view) {
