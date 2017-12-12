@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
 
-public class Sandwich implements Observable {
+public class Sandwich {
 
     private Bread bread;
     private List<Filling> fillings = new ArrayList<>();
@@ -51,33 +51,6 @@ public class Sandwich implements Observable {
     }
 
     public boolean ready;
-    private ArrayList<Observer> orders = new ArrayList<Observer>();
 
-    @Override
-    public void register(Observer observer) {
-        orders.add(observer);
-    }
-
-    @Override
-    public void unregister(Observer observer) {
-        orders.remove(observer);
-    }
-
-    @Override
-    public boolean getReady() {
-        return ready;
-    }
-
-    @Override
-    public void setReady(boolean ready) {
-        this.ready = ready;
-    }
-
-    @Override
-    public void notifyObserver() {
-        for (Observer order : orders) {
-            order.update();
-        }
-    }
 
 }
