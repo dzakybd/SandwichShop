@@ -1,12 +1,7 @@
 package com.kpl.sandwichshop.builder;
 
-import com.kpl.sandwichshop.adapters.FillingAdapter;
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Filling.Filling;
-import com.kpl.sandwichshop.observer.Observable;
-import com.kpl.sandwichshop.observer.Observer;
-
-import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +10,7 @@ import java.util.List;
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
 
-@Parcel
-public class Sandwich implements Observable {
+public class Sandwich {
 
     private Bread bread;
     private List<Filling> fillings = new ArrayList<>();
@@ -51,36 +45,6 @@ public class Sandwich implements Observable {
 
     public int sizeFilling(){
         return this.fillings.size();
-    }
-
-    public boolean ready;
-    private ArrayList<Observer> orders = new ArrayList<Observer>();
-
-    @Override
-    public void register(Observer observer) {
-        orders.add(observer);
-    }
-
-    @Override
-    public void unregister(Observer observer) {
-        orders.remove(observer);
-    }
-
-    @Override
-    public boolean getReady() {
-        return ready;
-    }
-
-    @Override
-    public void setReady(boolean ready) {
-        this.ready = ready;
-    }
-
-    @Override
-    public void notifyObserver() {
-        for (Observer order : orders) {
-            order.update();
-        }
     }
 
 }
