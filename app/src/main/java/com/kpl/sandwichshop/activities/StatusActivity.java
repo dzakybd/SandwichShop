@@ -46,7 +46,6 @@ public class StatusActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }finally{
                     orderObservable.notifyObserver();
-                            
                 }
 
             }
