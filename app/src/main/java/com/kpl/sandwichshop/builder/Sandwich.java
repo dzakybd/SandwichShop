@@ -3,13 +3,15 @@ package com.kpl.sandwichshop.builder;
 import com.kpl.sandwichshop.models.Bread.Bread;
 import com.kpl.sandwichshop.models.Filling.Filling;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ilham Aulia Majid on 27-Nov-17.
  */
-
+@Parcel
 public class Sandwich {
 
     private Bread bread;
