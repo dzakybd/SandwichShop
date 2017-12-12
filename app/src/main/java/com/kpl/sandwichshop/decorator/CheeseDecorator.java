@@ -11,7 +11,7 @@ public class CheeseDecorator extends Decorator {
     }
 
     public CheeseDecorator(Decorator decorator) {
-        super(decorator);
+        this.decorator = decorator;
         setName("Cheese Sauce");
         setPrice(2000);
     }

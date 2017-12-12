@@ -11,7 +11,7 @@ public class MayoDecorator extends Decorator {
     }
 
     public MayoDecorator(Decorator decorator) {
-        super(decorator);
+        this.decorator = decorator;
         setName("Mayonnaise");
         setPrice(1000);
     }
