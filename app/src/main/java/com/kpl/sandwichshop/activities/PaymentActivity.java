@@ -49,7 +49,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         linearLayoutCash = findViewById(R.id.linearlayout_cash);
         textViewValue = findViewById(R.id.textview_value);
         editTextValue = findViewById(R.id.edittext_value);
-        buttonPay = findViewById(R.id.btn_pay);
+        buttonPay = findViewById(R.id.button_pay);
 
         linearLayoutCard.setOnClickListener(this);
         linearLayoutCash.setOnClickListener(this);
@@ -78,7 +78,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_pay:
+            case R.id.button_pay:
                 pay();
                 break;
             case R.id.linearlayout_cash:
