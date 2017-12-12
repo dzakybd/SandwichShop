@@ -2,13 +2,13 @@ package com.kpl.sandwichshop;
 
 import com.kpl.sandwichshop.builder.Sandwich;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
 /**
  * Created by Ilham Aulia Majid on 12-Dec-17.
  */
-
-public class Order implements Serializable {
+@Parcel
+public class Order {
 
     Sandwich sandwich;
     String bonus;
