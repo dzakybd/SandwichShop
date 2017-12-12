@@ -11,8 +11,4 @@ public interface Observable {
     void unregister(Observer observer);
 
     void notifyObserver();
-
-    void setReady(boolean ready);
-
-    boolean getReady();
 }
