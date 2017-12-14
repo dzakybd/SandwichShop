@@ -45,7 +45,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
 
-        payment = new Payment();
+        payment = new Payment(order.getSandwich());
 
         linearLayoutCard = findViewById(R.id.linearlayout_card);
         linearLayoutCash = findViewById(R.id.linearlayout_cash);

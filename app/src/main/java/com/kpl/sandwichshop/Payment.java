@@ -1,5 +1,6 @@
 package com.kpl.sandwichshop;
 
+import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.strategy.CashPayment;
 import com.kpl.sandwichshop.strategy.PaymentMethod;
 
@@ -13,9 +14,8 @@ public class Payment {
     int price;
     String value;
 
-    public Payment(/*Sandwich sandwich*/) {
-//        this.price = sandwich.getPrice();
-        this.price = 20000;
+    public Payment(Sandwich sandwich) {
+        this.price = sandwich.getPrice();
         this.paymentMethod = new CashPayment();
     }
 
