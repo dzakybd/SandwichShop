@@ -37,9 +37,15 @@ public class Order {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String orderInfo = "";
+        orderInfo += "Bread : " + sandwich.getBread().getName() + "\n";
+        orderInfo += "Fillings : " + "------------" + "\n";
+        orderInfo += "Toppings : " + sandwich.getName()
+                .replace(" + Sandwich + ","")
+                .replace(" + Sandwich","None") + "\n";
         orderInfo += "Bonus : " + bonus + "\n";
+        orderInfo += "Price : " + sandwich.getPrice() + "\n";
         orderInfo += paymentMessage + "\n";
         return orderInfo;
     }
