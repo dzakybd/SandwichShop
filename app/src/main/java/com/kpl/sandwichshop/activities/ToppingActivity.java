@@ -14,7 +14,6 @@ import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
 import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
-import com.kpl.sandwichshop.decorator.Decorator;
 import com.kpl.sandwichshop.decorator.MayoDecorator;
 import com.kpl.sandwichshop.decorator.SauceDecorator;
 
@@ -27,7 +26,6 @@ import org.parceler.Parcels;
 public class ToppingActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = getClass().getSimpleName();
-    Decorator toppingDecorator;
 
     private TextView textViewPriceTopping;
     private TextView textViewPriceTotal;
@@ -36,8 +34,10 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     private CheckBox checkBoxMayonaise;
     private CheckBox checkBoxCheese;
     private CheckBox checkBoxSauce;
+
     Order order;
     Sandwich sandwich;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +46,7 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setTitle("Topping Sandwich");
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
-        sandwich=order.getSandwich();
-        toppingDecorator = new SauceDecorator();
+        sandwich = order.getSandwich();
 
         textViewPriceTopping = findViewById(R.id.textview_price_topping);
         textViewPriceSandwich = findViewById(R.id.textview_price_sandwich);
@@ -57,39 +56,13 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
         checkBoxCheese = findViewById(R.id.checkbox_cheese);
         checkBoxSauce = findViewById(R.id.checkbox_sauce);
 
-        textViewPriceSandwich.setText(Integer.toString(20000)); //20000 = nilai awal sandwich
-        textViewPriceTotal.setText(Integer.toString(20000));
-
         buttonNext.setOnClickListener(this);
+
+        updatePrice();
 
     }
 
     public void onCheckboxClicked(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
-        /*if (checked) {
-            switch (view.getId()) {
-                case R.id.checkbox_sauce:
-//                if (checked) {
-                    toppingDecorator = new SauceDecorator(this.toppingDecorator);
-//                }
-                    break;
-                case R.id.checkbox_cheese:
-//                if (checked) {
-                    toppingDecorator = new CheeseDecorator(this.toppingDecorator);
-//                }
-                    break;
-                case R.id.checkbox_mayonaise:
-//                if (checked) {
-                    toppingDecorator = new MayoDecorator(this.toppingDecorator);
-//                }
-                    break;
-            }
-        }*/
-        update();
-//        updatePrice(toppingDecorator.getPrice());
-    }
-
-    private void update() {
         sandwich.removeDecorator();
         if (checkBoxMayonaise.isChecked()) {
             sandwich.addDecorator(new MayoDecorator());
