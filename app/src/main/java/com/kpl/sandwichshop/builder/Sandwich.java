@@ -27,23 +27,24 @@ public class Sandwich extends Decorator {
         setPrice(0);
     }
 
-    public String getDecorator(){
-        if(decorator==null)return "null";
+    public String getDecorator() {
+        if (decorator == null) return "null";
         return decorator.toString();
     }
-    public void removeDecorator(){
-        this.decorator=null;
+
+    public void removeDecorator() {
+        this.decorator = null;
     }
 
-    public void addFilling(Filling filling){
+    public void addFilling(Filling filling) {
         this.fillings.add(filling);
     }
 
-    public void removeFilling(int index){
+    public void removeFilling(int index) {
         this.fillings.remove(index);
     }
 
-    public int getPrice(){
+    public int getSandwichPrice() {
         int total = 0;
         for (Filling filling : fillings) {
             total += filling.getPrice();
@@ -51,11 +52,16 @@ public class Sandwich extends Decorator {
         return total;
     }
 
-    public int getDecoratorPrice(){
+    public int getToppingPrice() {
         return super.getPrice();
     }
 
-    public void changePosition(int oldposition, int newposition){
+    @Override
+    public int getPrice() {
+        return this.getSandwichPrice() + this.getToppingPrice();
+    }
+
+    public void changePosition(int oldposition, int newposition) {
         fillings.add(newposition, fillings.remove(oldposition));
     }
 
@@ -67,7 +73,7 @@ public class Sandwich extends Decorator {
         this.bread = bread;
     }
 
-    public int sizeFilling(){
+    public int sizeFilling() {
         return this.fillings.size();
     }
 

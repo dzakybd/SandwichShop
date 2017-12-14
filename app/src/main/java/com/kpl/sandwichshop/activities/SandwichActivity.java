@@ -171,7 +171,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
     }
 
     private void calculatePrice() {
-        int total = sandwich.getPrice();
+        int total = sandwich.getSandwichPrice();
         Discount discount = Discount.getDiscount();
         if (total > discount.getPrice()) {
             total -= discount.getPrice();

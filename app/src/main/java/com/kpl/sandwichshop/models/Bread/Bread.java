@@ -17,7 +17,7 @@ public abstract class Bread {
     @ParcelProperty("getName")
     public abstract String getName();
 
-    @ParcelProperty("getPrice")
+    @ParcelProperty("getSandwichPrice")
     public abstract int getPrice();
 
     @ParcelProperty("getDrawable")
