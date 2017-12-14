@@ -77,9 +77,9 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void updatePrice() {
-        int priceSandwich = order.getSandwich().getPrice();
-        int priceTopping = sandwich.getDecoratorPrice();
-        int total = priceSandwich + priceTopping;
+        int priceSandwich = sandwich.getSandwichPrice();
+        int priceTopping = sandwich.getToppingPrice();
+        int total = sandwich.getPrice();
 
         textViewPriceSandwich.setText(Integer.toString(priceSandwich));
         textViewPriceTopping.setText(Integer.toString(priceTopping));
@@ -90,7 +90,11 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_next_additional:
-                startActivity(new Intent(this, BonusActivity.class));
+                Intent intent = new Intent(this, BonusActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
         }
     }

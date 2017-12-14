@@ -3,6 +3,7 @@ package com.kpl.sandwichshop.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,8 @@ import org.parceler.Parcels;
 
 public class BonusActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private final String TAG = getClass().getSimpleName();
+
     Button buttonNext;
     RadioGroup radioGroupBonus;
     TextView textViewBonus;
@@ -37,7 +40,8 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Bonus");
 
-        order = new Order();
+        order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
+        Log.d(TAG, "onCreate: " + order.getSandwich().getPrice());
 
         buttonNext = findViewById(R.id.button_next_bonus);
         radioGroupBonus = findViewById(R.id.radiogroup_list_bonus);
