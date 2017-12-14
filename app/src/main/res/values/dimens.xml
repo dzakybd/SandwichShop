@@ -9,6 +9,9 @@
     <dimen name="small_margin">8dp</dimen>
     <dimen name="text_size_very_small">12sp</dimen>
     <dimen name="title_textsize">20sp</dimen>
+    <dimen name="title_textsize_large">24sp</dimen>
     <dimen name="padding_title_top">20dp</dimen>
     <dimen name="padding_title_bottom">20dp</dimen>
+    <dimen name="padding_button_horizontal">24dp</dimen>
+
 </resources>

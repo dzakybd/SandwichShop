@@ -15,4 +15,5 @@
     <string name="card_expired">Card Expiry Date</string>
     <string name="title_topping">Choose Topping Sandwich</string>
     <string name="title_bonus">Choose Your Bonus</string>
+    <string name="title_dialog_status">Payment Success</string>
 </resources>
