@@ -17,7 +17,7 @@ import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.Payment;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.builder.Sandwich;
+import com.kpl.sandwichshop.Sandwich;
 import com.kpl.sandwichshop.strategy.CardPayment;
 import com.kpl.sandwichshop.strategy.CashPayment;
 

@@ -8,7 +8,7 @@ public class Softdrink implements Beverage {
 
     @Override
     public String getProductName() {
-        return "SoftDrink";
+        return "Softdrink";
     }
 
 }

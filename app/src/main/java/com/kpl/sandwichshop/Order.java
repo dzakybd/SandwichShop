@@ -1,7 +1,5 @@
 package com.kpl.sandwichshop;
 
-import com.kpl.sandwichshop.builder.Sandwich;
-
 import org.parceler.Parcel;
 
 /**

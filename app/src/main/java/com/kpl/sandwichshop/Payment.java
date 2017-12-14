@@ -1,6 +1,5 @@
 package com.kpl.sandwichshop;
 
-import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.strategy.CashPayment;
 import com.kpl.sandwichshop.strategy.PaymentMethod;
 

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
-import com.kpl.sandwichshop.models.Bread.Bread;
+import com.kpl.sandwichshop.models.bread.Bread;
 
 import java.util.ArrayList;
 

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.builder.Sandwich;
+import com.kpl.sandwichshop.Sandwich;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
 import com.kpl.sandwichshop.decorator.MayoDecorator;
 import com.kpl.sandwichshop.decorator.SauceDecorator;

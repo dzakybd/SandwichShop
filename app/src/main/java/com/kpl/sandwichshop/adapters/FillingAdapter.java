@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kpl.sandwichshop.R;
-import com.kpl.sandwichshop.models.Filling.Filling;
+import com.kpl.sandwichshop.models.filling.Filling;
 import com.mikepenz.fastadapter.commons.utils.FastAdapterUIUtils;
 import com.mikepenz.fastadapter.items.AbstractItem;
 

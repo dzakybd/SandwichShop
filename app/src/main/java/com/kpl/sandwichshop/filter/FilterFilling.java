@@ -1,6 +1,6 @@
 package com.kpl.sandwichshop.filter;
 
-import com.kpl.sandwichshop.models.Filling.Filling;
+import com.kpl.sandwichshop.models.filling.Filling;
 
 import java.util.List;
 
