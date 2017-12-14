@@ -15,6 +15,7 @@ import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.Payment;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
+import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.strategy.CardPayment;
 import com.kpl.sandwichshop.strategy.CashPayment;
 
@@ -30,6 +31,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
     LinearLayout linearLayoutCash;
     LinearLayout linearLayoutCard;
+    TextView textViewPrice;
     TextView textViewValue;
     EditText editTextValue;
     Button buttonPay;
@@ -44,15 +46,18 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
+        Sandwich sandwich = order.getSandwich();
 
-        payment = new Payment(order.getSandwich());
+        payment = new Payment(sandwich);
 
         linearLayoutCard = findViewById(R.id.linearlayout_card);
         linearLayoutCash = findViewById(R.id.linearlayout_cash);
+        textViewPrice = findViewById(R.id.textview_price);
         textViewValue = findViewById(R.id.textview_value);
         editTextValue = findViewById(R.id.edittext_value);
         buttonPay = findViewById(R.id.button_pay);
 
+        textViewPrice.setText("Price : " + sandwich.getPrice());
         linearLayoutCard.setOnClickListener(this);
         linearLayoutCash.setOnClickListener(this);
         buttonPay.setOnClickListener(this);

@@ -102,6 +102,14 @@
         android:paddingTop="40dp">
 
         <TextView
+            android:id="@+id/textview_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/action_padding"
+            android:text="text"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/textview_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
