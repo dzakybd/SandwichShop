@@ -3,7 +3,6 @@ package com.kpl.sandwichshop.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +27,7 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
     Button buttonNext;
     RadioGroup radioGroupBonus;
     TextView textViewBonus;
+    TextView textViewPrice;
 
     BonusFacade bonusFacade;
     String bonus;
@@ -41,14 +41,16 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setTitle("Bonus");
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
-        Log.d(TAG, "onCreate: " + order.getSandwich().getPrice());
 
+        textViewBonus = findViewById(R.id.textview_bonus);
+        textViewPrice = findViewById(R.id.textview_price);
         buttonNext = findViewById(R.id.button_next_bonus);
         radioGroupBonus = findViewById(R.id.radiogroup_list_bonus);
-        textViewBonus = findViewById(R.id.textview_bonus);
+
+        buttonNext.setOnClickListener(this);
+        textViewPrice.setText(String.valueOf(order.getSandwich().getPrice()));
 
         bonusFacade = new BonusFacade();
-
         radioGroupBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -69,7 +71,6 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
             }
         });
         radioGroupBonus.check(R.id.radiobutton_cofee);
-        buttonNext.setOnClickListener(this);
     }
 
     @Override
