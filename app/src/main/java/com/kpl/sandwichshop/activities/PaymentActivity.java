@@ -1,7 +1,9 @@
 package com.kpl.sandwichshop.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -129,11 +131,30 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(this, "Card number is invalid", Toast.LENGTH_SHORT).show();
         } else {
             order.setPaymentMessage(message);
-            Intent intent = new Intent(this, StatusActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
-            intent.putExtras(bundle);
-            startActivity(intent);
+//            Intent intent = new Intent(this, StatusActivity.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+//            intent.putExtras(bundle);
+//            startActivity(intent);
+            showSuccessDialog();
         }
+    }
+
+    private void showSuccessDialog() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(PaymentActivity.this, MainActivity.class);
+                startActivity(intent);
+                finishAffinity();
+            }
+        };
+        mBuilder.setTitle("Payment Success")
+                .setMessage(order.toString())
+                .setPositiveButton("OK", listener)
+                .setCancelable(false);
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
     }
 }
