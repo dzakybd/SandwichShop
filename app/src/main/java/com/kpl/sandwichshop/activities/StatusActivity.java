@@ -5,13 +5,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.builder.Sandwich;
 import com.kpl.sandwichshop.observer.HistoryObserver;
 import com.kpl.sandwichshop.observer.NotificationObserver;
 import com.kpl.sandwichshop.observer.Observable;
@@ -59,13 +57,13 @@ public class StatusActivity extends AppCompatActivity {
         orderObservable.register(notificationObserver);
         orderObservable.register(historyObserver);
 
-        Thread observerTherad = new Thread(){
-            public void run(){
-                try{
+        Thread observerTherad = new Thread() {
+            public void run() {
+                try {
                     sleep(4000);
-                }catch(InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
                     orderObservable.notifyObserver();
                 }
 

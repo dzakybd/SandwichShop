@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +17,8 @@ import java.util.List;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     Context context;
-    List <Order> orders;
+    List<Order> orders;
+
     public HistoryAdapter(Context context, List<Order> orders) {
         this.context = context;
         this.orders = orders;
@@ -40,7 +40,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return orders.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
         }

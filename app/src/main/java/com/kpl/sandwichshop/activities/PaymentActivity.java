@@ -131,11 +131,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(this, "Card number is invalid", Toast.LENGTH_SHORT).show();
         } else {
             order.setPaymentMessage(message);
-//            Intent intent = new Intent(this, StatusActivity.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
-//            intent.putExtras(bundle);
-//            startActivity(intent);
             showSuccessDialog();
         }
     }

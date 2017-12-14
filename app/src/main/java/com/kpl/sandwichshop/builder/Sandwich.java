@@ -28,7 +28,9 @@ public class Sandwich extends Decorator {
     }
 
     public String getDecorator() {
-        if (decorator == null) return "null";
+        if (decorator == null) {
+            return "null";
+        }
         return decorator.toString();
     }
 
