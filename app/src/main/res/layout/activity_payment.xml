@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/action_padding"
-            android:text="text"
+            android:text="Insert your money"
             android:textSize="20sp" />
 
         <EditText

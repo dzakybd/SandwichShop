@@ -29,7 +29,6 @@ import org.parceler.Parcels;
 
 public class PaymentActivity extends AppCompatActivity {
 
-
     LinearLayout linearLayoutCash;
     LinearLayout linearLayoutCard;
     TextView textViewPrice;
@@ -76,7 +75,6 @@ public class PaymentActivity extends AppCompatActivity {
         }
     }
 
-
     public void selectCash(View view) {
         linearLayoutCash.setClickable(false);
         linearLayoutCard.setClickable(true);
@@ -118,9 +116,11 @@ public class PaymentActivity extends AppCompatActivity {
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(PaymentActivity.this, SandwichActivity.class);
+                Intent intent = new Intent(PaymentActivity.this, StatusActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+                intent.putExtras(bundle);
                 startActivity(intent);
-                finishAffinity();
             }
         };
         mBuilder.setTitle("Payment Success")

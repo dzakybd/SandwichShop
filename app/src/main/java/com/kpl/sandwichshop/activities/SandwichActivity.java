@@ -46,14 +46,14 @@ import java.util.Arrays;
 
 public class SandwichActivity extends AppCompatActivity implements ItemTouchCallback {
 
-    private Spinner spinnerBread;
-    private RecyclerView recyclerViewFilling;
-    private EditText editTextCoupon;
-    private TextView textViewPrice, textViewDiscount;
+    Spinner spinnerBread;
+    RecyclerView recyclerViewFilling;
+    EditText editTextCoupon;
+    TextView textViewPrice, textViewDiscount;
     FastAdapter<FillingAdapter> mFastAdapter;
     ItemAdapter<FillingAdapter> mItemAdapter;
-    private SimpleDragCallback touchCallback;
-    private ItemTouchHelper touchHelper;
+    SimpleDragCallback touchCallback;
+    ItemTouchHelper touchHelper;
     ArrayList<Bread> breads;
     Sandwich sandwich;
 
@@ -121,7 +121,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
+
             }
         });
     }
@@ -179,18 +179,17 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         } else {
             textViewDiscount.setText("need more items");
         }
-        textViewPrice.setText("" + total);
+        textViewPrice.setText(String.valueOf(total));
     }
 
     @Override
     public boolean itemTouchOnMove(int oldPosition, int newPosition) {
         DragDropUtil.onMove(mItemAdapter, oldPosition, newPosition);  // change position
-        sandwich.changePosition(oldPosition,newPosition);
         return true;
     }
 
     @Override
     public void itemTouchDropped(int oldPosition, int newPosition) {
-        // save the new item order, i.e. in your database
+        sandwich.changePosition(oldPosition,newPosition);
     }
 }

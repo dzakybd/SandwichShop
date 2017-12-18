@@ -25,13 +25,12 @@ import org.parceler.Parcels;
 
 public class ToppingActivity extends AppCompatActivity {
 
-
-    private TextView textViewPriceTopping;
-    private TextView textViewPriceTotal;
-    private TextView textViewPriceSandwich;
-    private CheckBox checkBoxMayonaise;
-    private CheckBox checkBoxCheese;
-    private CheckBox checkBoxSauce;
+    TextView textViewPriceTopping;
+    TextView textViewPriceTotal;
+    TextView textViewPriceSandwich;
+    CheckBox checkBoxMayonaise;
+    CheckBox checkBoxCheese;
+    CheckBox checkBoxSauce;
 
     Order order;
 

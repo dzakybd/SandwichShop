@@ -22,8 +22,6 @@ import org.parceler.Parcels;
 
 public class BonusActivity extends AppCompatActivity {
 
-    private final String TAG = getClass().getSimpleName();
-
     RadioGroup radioGroupBonus;
     TextView textViewBonus;
     TextView textViewPrice;

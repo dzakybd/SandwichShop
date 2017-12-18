@@ -20,7 +20,8 @@ import org.parceler.Parcels;
 
 public class StatusActivity extends AppCompatActivity {
 
-    TextView textViewOrderInfo, textViewStatusInfo;
+    TextView textViewOrderInfo;
+    TextView textViewStatusInfo;
     Button buttonOk;
 
     @Override
