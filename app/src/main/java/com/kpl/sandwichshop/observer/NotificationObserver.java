@@ -3,6 +3,8 @@ package com.kpl.sandwichshop.observer;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
 import android.support.v4.app.NotificationCompat;
 
 import com.kpl.sandwichshop.Order;
@@ -26,11 +28,13 @@ public class NotificationObserver implements Observer {
         NotificationCompat.Builder builder =
                 (NotificationCompat.Builder)
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.ic_notification)
-                                .setContentTitle("Sandwich Shop")
-                                .setContentText("Sandwich ready")
+                                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher))
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                                .setContentTitle("Sandwich ready")
                                 .setAutoCancel(true)
-                                .setDefaults(Notification.DEFAULT_ALL);
+                                .setContentText(order.toString())
+                                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText(order.toString()));
         NotificationManager manager = (NotificationManager)
                 context.getSystemService(context.NOTIFICATION_SERVICE);
         manager.notify(notificationId, builder.build());
