@@ -25,7 +25,6 @@ import org.parceler.Parcels;
 
 public class ToppingActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final String TAG = getClass().getSimpleName();
 
     private TextView textViewPriceTopping;
     private TextView textViewPriceTotal;
@@ -43,7 +42,6 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topping);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Topping Sandwich");
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
         sandwich = order.getSandwich();

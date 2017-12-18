@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">Sandwich Shop</string>
     <string name="title_activity_order">Order Sandwich</string>
+    <string name="title_activity_status">Payment Status</string>
     <string name="title_activity_add_filling">Add Filling</string>
     <string name="title_activity_sandwich">Build Sandwich</string>
+    <string name="title_activity_topping">Topping sandwich</string>
+    <string name="title_activity_bonus">Choose bonus</string>
     <string name="img_filling_description">Image Filling</string>
     <string name="title_activity_payment">Payment Method</string>
     <string name="cash">Cash</string>
     <string name="credit_card">Credit Card</string>
-    <string name="title_activity_status">Payment Status</string>
     <string name="title_payment_methode">Choose Your Payment Method</string>
     <string name="btn_pay">Pay</string>
     <string name="amount">Amount</string>

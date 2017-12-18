@@ -29,7 +29,6 @@ import org.parceler.Parcels;
 
 public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final String TAG = getClass().getSimpleName();
 
     LinearLayout linearLayoutCash;
     LinearLayout linearLayoutCard;
@@ -140,7 +139,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(PaymentActivity.this, MainActivity.class);
+                Intent intent = new Intent(PaymentActivity.this, SandwichActivity.class);
                 startActivity(intent);
                 finishAffinity();
             }

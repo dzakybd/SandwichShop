@@ -11,16 +11,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.SandwichActivity"
-            android:label="@string/title_activity_sandwich" />
-        <activity android:name=".activities.MainActivity">
+            android:label="@string/title_activity_sandwich" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ToppingActivity" />
-        <activity android:name=".activities.BonusActivity" />
+        <activity
+            android:name=".activities.ToppingActivity"
+            android:label="@string/title_activity_topping" />
+        <activity
+            android:name=".activities.BonusActivity"
+            android:label="@string/title_activity_bonus" />
         <activity
             android:name=".activities.PaymentActivity"
             android:label="@string/title_activity_payment" />

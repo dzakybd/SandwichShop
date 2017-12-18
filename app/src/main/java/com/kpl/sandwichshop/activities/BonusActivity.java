@@ -22,8 +22,6 @@ import org.parceler.Parcels;
 
 public class BonusActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final String TAG = getClass().getSimpleName();
-
     Button buttonNext;
     RadioGroup radioGroupBonus;
     TextView textViewBonus;
@@ -38,7 +36,6 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bonus);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Bonus");
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
 
