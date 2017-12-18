@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.observer.HistoryObserver;
 import com.kpl.sandwichshop.observer.NotificationObserver;
 import com.kpl.sandwichshop.observer.Observable;
 import com.kpl.sandwichshop.observer.Observer;
@@ -31,11 +30,7 @@ public class StatusActivity extends AppCompatActivity {
 
         Order order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
         Observer notificationObserver = new NotificationObserver(this);
-        Observer historyObserver = new HistoryObserver();
         final Observable orderObservable = new OrderObservable(order);
-
-//        textViewOrderInfo = findViewById(R.id.textview_order_info);
-//        textViewOrderInfo.setText(order.toString());
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(StatusActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.dialog_status, null);
@@ -56,7 +51,6 @@ public class StatusActivity extends AppCompatActivity {
 
 
         orderObservable.register(notificationObserver);
-        orderObservable.register(historyObserver);
 
         Thread observerTherad = new Thread() {
             public void run() {

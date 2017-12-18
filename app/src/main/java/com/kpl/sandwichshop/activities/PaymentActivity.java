@@ -7,17 +7,15 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kpl.sandwichshop.Order;
-import com.kpl.sandwichshop.Payment;
+import com.kpl.sandwichshop.strategy.Payment;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.Sandwich;
 import com.kpl.sandwichshop.strategy.CardPayment;
 import com.kpl.sandwichshop.strategy.CashPayment;
 
@@ -29,11 +27,17 @@ import org.parceler.Parcels;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    LinearLayout linearLayoutCash;
-    LinearLayout linearLayoutCard;
     TextView textViewPrice;
-    TextView textViewValue;
+
+    LinearLayout linearLayoutCash;
+    LinearLayout linearLayoutCashDetail;
     EditText editTextValue;
+
+    LinearLayout linearLayoutCard;
+    LinearLayout linearLayoutCardDetail;
+    EditText editTextNumber;
+    EditText editTextCvc;
+    EditText editTextExpiredDate;
 
     Payment payment;
     Order order;
@@ -43,19 +47,19 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
-        Sandwich sandwich = order.getSandwich();
-
-        payment = new Payment(sandwich);
-
         linearLayoutCard = findViewById(R.id.linearlayout_card);
         linearLayoutCash = findViewById(R.id.linearlayout_cash);
+        linearLayoutCashDetail = findViewById(R.id.linerLayout_cash_detail);
+        editTextNumber=findViewById(R.id.edittext_number);
+        editTextCvc=findViewById(R.id.edittext_cvc);
+        editTextExpiredDate=findViewById(R.id.edittext_expired_date);
+        linearLayoutCardDetail = findViewById(R.id.linerLayout_card_detail);
         textViewPrice = findViewById(R.id.textview_price);
-        textViewValue = findViewById(R.id.textview_value);
         editTextValue = findViewById(R.id.edittext_value);
 
-        textViewPrice.setText("Price : " + sandwich.getPrice());
+        order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
+        payment = new Payment(order.getSandwich());
+        textViewPrice.setText("Price : " + order.getSandwich().getPrice());
     }
 
     @Override
@@ -78,36 +82,64 @@ public class PaymentActivity extends AppCompatActivity {
     public void selectCash(View view) {
         linearLayoutCash.setClickable(false);
         linearLayoutCard.setClickable(true);
-        textViewValue.setText("Insert your money");
+        linearLayoutCashDetail.setVisibility(View.VISIBLE);
+        linearLayoutCardDetail.setVisibility(View.GONE);
         editTextValue.setText("");
-        editTextValue.setHint("Amount");
-        payment.setPaymentMethod(new CashPayment());
+        editTextValue.setHint(getResources().getString(R.string.cash));
     }
 
     public void selectCard(View view) {
         linearLayoutCash.setClickable(true);
         linearLayoutCard.setClickable(false);
-        textViewValue.setText("Insert your credit card number");
-        editTextValue.setText("");
-        editTextValue.setHint("Card number");
-        payment.setPaymentMethod(new CardPayment());
+        linearLayoutCashDetail.setVisibility(View.GONE);
+        linearLayoutCardDetail.setVisibility(View.VISIBLE);
+        editTextCvc.setText("");
+        editTextCvc.setHint(getResources().getString(R.string.card_cvc));
+        editTextNumber.setText("");
+        editTextNumber.setHint(getResources().getString(R.string.card_number));
+        editTextExpiredDate.setText("");
+        editTextExpiredDate.setHint("mm/yyyy like 12/2017");
     }
 
-    public void pay(View view) {
-        if (editTextValue.getText().toString().trim().length() == 0) {
-            Toast.makeText(this, "Please fill all box", Toast.LENGTH_SHORT).show();
+
+    public void pay_with_cash(View view) {
+        if (editTextValue.getText().toString().trim().isEmpty()) {
+            Toast.makeText(this, "Please fill the box", Toast.LENGTH_SHORT).show();
             return;
         }
-        String value = editTextValue.getText().toString();
-        payment.setValue(value);
-        String message = payment.pay();
-        if (message.equals(StaticKeys.CASH_FAILED)) {
+        int value = Integer.parseInt(editTextValue.getText().toString().trim());
+        String message = payment.pay(new CashPayment(value));
+        if (message.equals(StaticKeys.CASH_INSUFFICIENT)) {
             Toast.makeText(this, "Your money is not enough", Toast.LENGTH_SHORT).show();
-        } else if (message.equals(StaticKeys.CARD_FAILED)) {
-            Toast.makeText(this, "Card number is invalid", Toast.LENGTH_SHORT).show();
         } else {
             order.setPaymentMessage(message);
             showSuccessDialog();
+        }
+    }
+
+    public void pay_with_card(View view) {
+        String cardnumber=editTextNumber.getText().toString().trim();
+        String cardcvc=editTextCvc.getText().toString().trim();
+        String cardexpireddate=editTextExpiredDate.getText().toString().trim();
+        if (cardnumber.length() == 0 || cardexpireddate.length() >7 || editTextCvc.length() != 3) {
+            Toast.makeText(this, "Please fill with valid format", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String message = payment.pay(new CardPayment(cardnumber,cardcvc,cardexpireddate));
+        switch (message){
+            case StaticKeys.CARD_EXPIRED:
+                Toast.makeText(this, "Card reach expired date", Toast.LENGTH_SHORT).show();
+                break;
+            case StaticKeys.CARD_INVALID:
+                Toast.makeText(this, "Invalid card number", Toast.LENGTH_SHORT).show();
+                break;
+            case StaticKeys.CARD_WRONG_CVC:
+                Toast.makeText(this, "Wrong card cvc code", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                order.setPaymentMessage(message);
+                showSuccessDialog();
+                break;
         }
     }
 
@@ -123,8 +155,8 @@ public class PaymentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-        mBuilder.setTitle("Payment Success")
-                .setMessage(order.toString())
+        mBuilder.setTitle("Payment success")
+                .setMessage(order.getPaymentMessage())
                 .setPositiveButton("OK", listener)
                 .setCancelable(false);
         AlertDialog mDialog = mBuilder.create();
