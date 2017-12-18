@@ -11,5 +11,4 @@ import java.util.List;
 public interface FilterFilling {
 
     List<Filling> meetCriteria(List<Filling> fillings);
-
 }

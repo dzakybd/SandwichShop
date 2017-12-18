@@ -34,10 +34,6 @@ public abstract class Decorator {
         }
     }
 
-//    public Decorator(Decorator decorator) {
-//
-//    }
-
     public void setName(String name) {
         this.name = name;
     }

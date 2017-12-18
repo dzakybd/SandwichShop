@@ -28,13 +28,12 @@ public class NotificationObserver implements Observer {
                         new NotificationCompat.Builder(context)
                                 .setSmallIcon(R.drawable.ic_notification)
                                 .setContentTitle("Sandwich Shop")
-                                .setContentText(order.toString())
+                                .setContentText("Sandwich ready")
                                 .setAutoCancel(true)
                                 .setDefaults(Notification.DEFAULT_ALL);
         NotificationManager manager = (NotificationManager)
                 context.getSystemService(context.NOTIFICATION_SERVICE);
         manager.notify(notificationId, builder.build());
-
         notificationId += 1;
     }
 }

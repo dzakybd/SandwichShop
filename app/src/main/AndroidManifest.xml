@@ -29,9 +29,6 @@
         <activity
             android:name=".activities.AddFillingActivity"
             android:label="@string/title_activity_add_filling" />
-        <activity android:name=".activities.StatusActivity"
-            android:label="@string/title_activity_status">
-        </activity>
     </application>
 
 </manifest>

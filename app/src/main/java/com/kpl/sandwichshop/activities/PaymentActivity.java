@@ -13,6 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kpl.sandwichshop.Order;
+import com.kpl.sandwichshop.observer.NotificationObserver;
+import com.kpl.sandwichshop.observer.Observable;
+import com.kpl.sandwichshop.observer.Observer;
+import com.kpl.sandwichshop.observer.OrderObservable;
 import com.kpl.sandwichshop.strategy.Payment;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
@@ -102,7 +106,7 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
 
-    public void pay_with_cash(View view) {
+    public void payCash(View view) {
         if (editTextValue.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Please fill the box", Toast.LENGTH_SHORT).show();
             return;
@@ -117,7 +121,7 @@ public class PaymentActivity extends AppCompatActivity {
         }
     }
 
-    public void pay_with_card(View view) {
+    public void payCard(View view) {
         String cardnumber=editTextNumber.getText().toString().trim();
         String cardcvc=editTextCvc.getText().toString().trim();
         String cardexpireddate=editTextExpiredDate.getText().toString().trim();
@@ -148,11 +152,9 @@ public class PaymentActivity extends AppCompatActivity {
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(PaymentActivity.this, StatusActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
-                intent.putExtras(bundle);
-                startActivity(intent);
+                sandwichCook();
+                startActivity(new Intent(PaymentActivity.this,SandwichActivity.class));
+                finishAffinity();
             }
         };
         mBuilder.setTitle("Payment success")
@@ -161,5 +163,23 @@ public class PaymentActivity extends AppCompatActivity {
                 .setCancelable(false);
         AlertDialog mDialog = mBuilder.create();
         mDialog.show();
+    }
+
+    private void sandwichCook() {
+        Observer notificationObserver = new NotificationObserver(this);
+        final Observable orderObservable = new OrderObservable(order);
+        orderObservable.register(notificationObserver);
+        Thread observerThread = new Thread() {
+            public void run() {
+                try {
+                    sleep(4000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    orderObservable.notifyObserver();
+                }
+            }
+        };
+        observerThread.start();
     }
 }

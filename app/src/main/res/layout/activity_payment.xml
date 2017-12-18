@@ -133,7 +133,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/action_padding"
                 android:background="@color/colorPrimary"
-                android:onClick="pay_with_cash"
+                android:onClick="payCash"
                 android:text="@string/btn_pay"
                 android:textColor="@android:color/white" />
 
@@ -182,7 +182,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/action_padding"
                 android:background="@color/colorPrimary"
-                android:onClick="pay_with_card"
+                android:onClick="payCard"
                 android:text="@string/btn_pay"
                 android:textColor="@android:color/white" />
 

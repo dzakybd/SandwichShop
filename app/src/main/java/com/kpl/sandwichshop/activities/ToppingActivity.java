@@ -71,12 +71,10 @@ public class ToppingActivity extends AppCompatActivity {
         int priceTopping = order.getSandwich().getToppingPrice();
         int total = order.getSandwich().getPrice();
 
-        textViewPriceSandwich.setText(Integer.toString(priceSandwich));
-        textViewPriceTopping.setText(Integer.toString(priceTopping));
-        textViewPriceTotal.setText(Integer.toString(total));
+        textViewPriceSandwich.setText(String.valueOf(priceSandwich));
+        textViewPriceTopping.setText(String.valueOf(priceTopping));
+        textViewPriceTotal.setText(String.valueOf(total));
     }
-
-
 
 
     @Override
