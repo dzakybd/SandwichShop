@@ -14,6 +14,7 @@
     <string name="btn_pay">Pay</string>
     <string name="amount">Amount</string>
     <string name="card_number">Card Number</string>
+    <string name="card_cvc">CVC</string>
     <string name="card_expired">Card Expiry Date</string>
     <string name="title_topping">Choose Topping Sandwich</string>
     <string name="title_bonus">Choose Your Bonus</string>
