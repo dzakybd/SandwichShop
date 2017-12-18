@@ -97,6 +97,7 @@
     </TableLayout>
 
     <Button
+        android:onClick="goToPayment"
         android:id="@+id/button_next_bonus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

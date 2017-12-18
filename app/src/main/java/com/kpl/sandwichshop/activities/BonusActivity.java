@@ -20,9 +20,10 @@ import org.parceler.Parcels;
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class BonusActivity extends AppCompatActivity implements View.OnClickListener {
+public class BonusActivity extends AppCompatActivity {
 
-    Button buttonNext;
+    private final String TAG = getClass().getSimpleName();
+
     RadioGroup radioGroupBonus;
     TextView textViewBonus;
     TextView textViewPrice;
@@ -36,15 +37,12 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bonus);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
 
         textViewBonus = findViewById(R.id.textview_bonus);
         textViewPrice = findViewById(R.id.textview_price);
-        buttonNext = findViewById(R.id.button_next_bonus);
         radioGroupBonus = findViewById(R.id.radiogroup_list_bonus);
 
-        buttonNext.setOnClickListener(this);
         textViewPrice.setText(String.valueOf(order.getSandwich().getPrice()));
 
         bonusFacade = new BonusFacade();
@@ -67,21 +65,6 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
                 textViewBonus.setText(bonus);
             }
         });
-        radioGroupBonus.check(R.id.radiobutton_cofee);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button_next_bonus:
-                order.setBonus(bonus);
-                Intent intent = new Intent(this, PaymentActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
-                intent.putExtras(bundle);
-                startActivity(intent);
-                break;
-        }
     }
 
     @Override
@@ -99,5 +82,14 @@ public class BonusActivity extends AppCompatActivity implements View.OnClickList
     public void onBackPressed() {
         finish();
         super.onBackPressed();
+    }
+
+    public void goToPayment(View view) {
+        order.setBonus(bonus);
+        Intent intent = new Intent(this, PaymentActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

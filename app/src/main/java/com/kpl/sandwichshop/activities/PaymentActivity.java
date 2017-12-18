@@ -27,7 +27,7 @@ import org.parceler.Parcels;
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
+public class PaymentActivity extends AppCompatActivity {
 
 
     LinearLayout linearLayoutCash;
@@ -35,7 +35,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     TextView textViewPrice;
     TextView textViewValue;
     EditText editTextValue;
-    Button buttonPay;
 
     Payment payment;
     Order order;
@@ -56,14 +55,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         textViewPrice = findViewById(R.id.textview_price);
         textViewValue = findViewById(R.id.textview_value);
         editTextValue = findViewById(R.id.edittext_value);
-        buttonPay = findViewById(R.id.button_pay);
 
         textViewPrice.setText("Price : " + sandwich.getPrice());
-        linearLayoutCard.setOnClickListener(this);
-        linearLayoutCash.setOnClickListener(this);
-        buttonPay.setOnClickListener(this);
-
-        selectCash();
     }
 
     @Override
@@ -83,22 +76,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_pay:
-                pay();
-                break;
-            case R.id.linearlayout_cash:
-                selectCash();
-                break;
-            case R.id.linearlayout_card:
-                selectCard();
-                break;
-        }
-    }
 
-    private void selectCash() {
+    public void selectCash(View view) {
         linearLayoutCash.setClickable(false);
         linearLayoutCard.setClickable(true);
         textViewValue.setText("Insert your money");
@@ -107,7 +86,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         payment.setPaymentMethod(new CashPayment());
     }
 
-    private void selectCard() {
+    public void selectCard(View view) {
         linearLayoutCash.setClickable(true);
         linearLayoutCard.setClickable(false);
         textViewValue.setText("Insert your credit card number");
@@ -116,7 +95,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         payment.setPaymentMethod(new CardPayment());
     }
 
-    private void pay() {
+    public void pay(View view) {
         if (editTextValue.getText().toString().trim().length() == 0) {
             Toast.makeText(this, "Please fill all box", Toast.LENGTH_SHORT).show();
             return;
