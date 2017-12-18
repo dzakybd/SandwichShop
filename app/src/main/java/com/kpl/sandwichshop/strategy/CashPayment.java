@@ -9,15 +9,18 @@ import com.kpl.sandwichshop.StaticKeys;
 
 public class CashPayment implements PaymentMethod {
 
-    private final String TAG = getClass().getSimpleName();
+    private int cashvalue;
+
+    public CashPayment(int cashvalue){
+        this.cashvalue=cashvalue;
+    }
 
     @Override
-    public String processPayment(int price, String value) {
-        int cash = Integer.parseInt(value);
-        if (cash >= price) {
-            return "Cash : " + cash + "\nChange : " + (cash - price);
+    public String processPayment(int price) {
+        if (cashvalue >= price) {
+            return price +" paid with cash, return "+ (cashvalue - price);
         } else {
-            return StaticKeys.CASH_FAILED;
+            return StaticKeys.CASH_INSUFFICIENT;
         }
     }
 }

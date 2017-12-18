@@ -5,7 +5,5 @@ package com.kpl.sandwichshop.strategy;
  */
 
 public interface PaymentMethod {
-
-    public String processPayment(int price, String value);
-
+    String processPayment(int price);
 }
