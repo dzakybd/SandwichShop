@@ -36,6 +36,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -54,6 +55,7 @@
                 android:paddingTop="@dimen/small_margin">
 
                 <ImageView
+                    android:contentDescription="@string/description_cash_image"
                     android:id="@+id/imageview_cash"
                     android:layout_width="@dimen/payment_icon_size_width"
                     android:layout_height="@dimen/payment_icon_size_height"
@@ -83,6 +85,7 @@
                 android:paddingTop="@dimen/small_margin">
 
                 <ImageView
+                    android:contentDescription="@string/description_credit_card_image"
                     android:id="@+id/imageview_credit"
                     android:layout_width="@dimen/payment_icon_size_width"
                     android:layout_height="@dimen/payment_icon_size_height"
@@ -117,10 +120,11 @@
             android:visibility="gone">
 
             <EditText
-                android:id="@+id/edittext_value"
+                android:id="@+id/edittext_cash_value"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/action_padding"
+                android:layout_marginLeft="@dimen/action_padding"
+                android:layout_marginRight="@dimen/action_padding"
                 android:layout_weight="1"
                 android:hint="@string/cash"
                 android:inputType="number" />
@@ -151,16 +155,18 @@
                 android:id="@+id/edittext_number"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/action_padding"
+                android:layout_marginLeft="@dimen/action_padding"
+                android:layout_marginRight="@dimen/action_padding"
                 android:layout_weight="1"
                 android:hint="card @string/card_number"
-                android:inputType="text" />
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/edittext_cvc"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/action_padding"
+                android:layout_marginLeft="@dimen/action_padding"
+                android:layout_marginRight="@dimen/action_padding"
                 android:layout_weight="1"
                 android:hint="@string/card_cvc"
                 android:inputType="number" />
@@ -169,7 +175,8 @@
                 android:id="@+id/edittext_expired_date"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginHorizontal="@dimen/action_padding"
+                android:layout_marginLeft="@dimen/action_padding"
+                android:layout_marginRight="@dimen/action_padding"
                 android:layout_weight="1"
                 android:hint="@string/card_expired"
                 android:inputType="text" />

@@ -1,8 +1,6 @@
 package com.kpl.sandwichshop.strategy;
 
 import com.kpl.sandwichshop.Sandwich;
-import com.kpl.sandwichshop.strategy.CashPayment;
-import com.kpl.sandwichshop.strategy.PaymentMethod;
 
 /**
  * Created by Ilham Aulia Majid on 28-Nov-17.
@@ -10,7 +8,7 @@ import com.kpl.sandwichshop.strategy.PaymentMethod;
 
 public class Payment {
 
-    int price;
+    private int price;
 
     public Payment(Sandwich sandwich) {
         this.price = sandwich.getPrice();

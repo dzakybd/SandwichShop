@@ -46,16 +46,16 @@ import java.util.Arrays;
 
 public class SandwichActivity extends AppCompatActivity implements ItemTouchCallback {
 
-    Spinner spinnerBread;
-    RecyclerView recyclerViewFilling;
-    EditText editTextCoupon;
-    TextView textViewPrice, textViewDiscount;
-    FastAdapter<FillingAdapter> mFastAdapter;
-    ItemAdapter<FillingAdapter> mItemAdapter;
-    SimpleDragCallback touchCallback;
-    ItemTouchHelper touchHelper;
-    ArrayList<Bread> breads;
-    Sandwich sandwich;
+    private Spinner spinnerBread;
+    private RecyclerView recyclerViewFilling;
+    private EditText editTextCoupon;
+    private TextView textViewPrice, textViewDiscount;
+    private FastAdapter<FillingAdapter> mFastAdapter;
+    private ItemAdapter<FillingAdapter> mItemAdapter;
+    private SimpleDragCallback touchCallback;
+    private ItemTouchHelper touchHelper;
+    private ArrayList<Bread> breads;
+    private Sandwich sandwich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +111,7 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         breads.add(new FlatBread());
         breads.add(new BunBread());
         breads.add(new LongBread());
-        SpinnerIconAdapter adapter = new SpinnerIconAdapter(this, R.layout.spinner_icon, R.id.txt, breads);
+        SpinnerIconAdapter adapter = new SpinnerIconAdapter(this, R.layout.spinner_icon, R.id.textview_title, breads);
         spinnerBread.setAdapter(adapter);
         spinnerBread.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -175,9 +175,9 @@ public class SandwichActivity extends AppCompatActivity implements ItemTouchCall
         Discount discount = Discount.getDiscount();
         if (total > discount.getPrice()) {
             total -= discount.getPrice();
-            textViewDiscount.setText("" + discount.getPrice());
+            textViewDiscount.setText(String.valueOf(discount.getPrice()));
         } else {
-            textViewDiscount.setText("need more items");
+            textViewDiscount.setText(R.string.text_need_more);
         }
         textViewPrice.setText(String.valueOf(total));
     }

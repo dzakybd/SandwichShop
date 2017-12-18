@@ -20,29 +20,27 @@ import java.util.ArrayList;
 
 public class SpinnerIconAdapter extends ArrayAdapter<Bread> {
 
-    int groupid;
-    ArrayList<Bread> breads;
-    LayoutInflater inflater;
+    private int groupId;
+    private ArrayList<Bread> breads;
+    private LayoutInflater inflater;
 
-    public SpinnerIconAdapter(Activity context, int groupid, int id, ArrayList<Bread> breads) {
+    public SpinnerIconAdapter(Activity context, int groupId, int id, ArrayList<Bread> breads) {
         super(context, id, breads);
         this.breads = breads;
+        this.groupId = groupId;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.groupid = groupid;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        View itemView = inflater.inflate(groupid, parent, false);
-        ImageView imageView = itemView.findViewById(R.id.img);
-        imageView.setImageResource(breads.get(position).getDrawable());
-        TextView textView = itemView.findViewById(R.id.txt);
-        textView.setText(breads.get(position).getName());
+        View itemView = inflater.inflate(groupId, parent, false);
+        ImageView imageViewDrawable = itemView.findViewById(R.id.imageview_drawable);
+        imageViewDrawable.setImageResource(breads.get(position).getDrawable());
+        TextView textViewTitle = itemView.findViewById(R.id.textview_title);
+        textViewTitle.setText(breads.get(position).getName());
         return itemView;
     }
 
-    public View getDropDownView(int position, View convertView, ViewGroup
-            parent) {
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
         return getView(position, convertView, parent);
-
     }
 }

@@ -15,9 +15,9 @@ import org.parceler.ParcelProperty;
 public abstract class Decorator {
 
     @ParcelProperty("name")
-    public String name;
+    String name;
     @ParcelProperty("price")
-    public int price;
+    int price;
     @ParcelProperty("Decorator")
     public Decorator decorator;
 

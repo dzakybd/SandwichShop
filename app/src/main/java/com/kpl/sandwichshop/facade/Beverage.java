@@ -5,7 +5,5 @@ package com.kpl.sandwichshop.facade;
  */
 
 public interface Beverage {
-
     String getProductName();
-
 }

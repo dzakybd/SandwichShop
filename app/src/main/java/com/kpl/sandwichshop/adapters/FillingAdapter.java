@@ -43,21 +43,20 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
         super.bindView(viewHolder, payloads);
 
         Context ctx = viewHolder.itemView.getContext();
-        //set the background for the item
         viewHolder.view.setForeground(FastAdapterUIUtils.getSelectablePressedBackground(ctx, FastAdapterUIUtils.adjustAlpha(ctx.getResources().getColor(R.color.colorPrimary), 100), 50, true));
 
-        viewHolder.tvPrice.setText(String.valueOf(filling.getPrice()));
-        viewHolder.tvName.setText(filling.getName());
-        viewHolder.imageDrawable.setImageDrawable(ctx.getResources().getDrawable(filling.getDrawable()));
+        viewHolder.textViewName.setText(String.valueOf(filling.getPrice()));
+        viewHolder.textViewName.setText(filling.getName());
+        viewHolder.imageViewDrawable.setImageDrawable(ctx.getResources().getDrawable(filling.getDrawable()));
 
     }
 
     @Override
     public void unbindView(ViewHolder holder) {
         super.unbindView(holder);
-        holder.imageDrawable.setImageDrawable(null);
-        holder.tvPrice.setText(null);
-        holder.tvName.setText(null);
+        holder.imageViewDrawable.setImageDrawable(null);
+        holder.textViewPrice.setText(null);
+        holder.textViewName.setText(null);
     }
 
     @Override
@@ -69,16 +68,16 @@ public class FillingAdapter extends AbstractItem<FillingAdapter, FillingAdapter.
      * our ViewHolder
      */
     protected static class ViewHolder extends RecyclerView.ViewHolder {
-        protected ImageView imageDrawable;
-        protected TextView tvName, tvPrice;
-        protected FrameLayout view;
+        private ImageView imageViewDrawable;
+        private TextView textViewName, textViewPrice;
+        private FrameLayout view;
 
         public ViewHolder(View view) {
             super(view);
             this.view = (FrameLayout) view;
-            tvName = view.findViewById(R.id.textview_name);
-            tvPrice = view.findViewById(R.id.textview_price);
-            imageDrawable = view.findViewById(R.id.imageview_drawable);
+            textViewName = view.findViewById(R.id.textview_name);
+            textViewPrice = view.findViewById(R.id.textview_price);
+            imageViewDrawable = view.findViewById(R.id.imageview_drawable);
         }
     }
 }

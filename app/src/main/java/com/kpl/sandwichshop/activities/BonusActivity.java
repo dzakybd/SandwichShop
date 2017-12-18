@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -22,13 +21,13 @@ import org.parceler.Parcels;
 
 public class BonusActivity extends AppCompatActivity {
 
-    RadioGroup radioGroupBonus;
-    TextView textViewBonus;
-    TextView textViewPrice;
+    private RadioGroup radioGroupBonus;
+    private TextView textViewBonus;
+    private TextView textViewPrice;
 
-    BonusFacade bonusFacade;
-    String bonus;
-    Order order;
+    private BonusFacade bonusFacade;
+    private String bonus;
+    private Order order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

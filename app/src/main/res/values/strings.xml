@@ -19,4 +19,8 @@
     <string name="title_topping">Choose Topping Sandwich</string>
     <string name="title_bonus">Choose Your Bonus</string>
     <string name="title_dialog_status">Payment Success</string>
+    <string name="description_spinner_image">spinner image</string>
+    <string name="description_credit_card_image">credit card image</string>
+    <string name="description_cash_image">cash image</string>
+    <string name="text_need_more">need more items</string>
 </resources>

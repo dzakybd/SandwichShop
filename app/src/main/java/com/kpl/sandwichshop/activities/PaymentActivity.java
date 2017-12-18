@@ -31,20 +31,20 @@ import org.parceler.Parcels;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    TextView textViewPrice;
+    private LinearLayout linearLayoutCash;
+    private LinearLayout linearLayoutCashDetail;
+    private LinearLayout linearLayoutCard;
+    private LinearLayout linearLayoutCardDetail;
 
-    LinearLayout linearLayoutCash;
-    LinearLayout linearLayoutCashDetail;
-    EditText editTextValue;
+    private EditText editTextCashValue;
+    private EditText editTextNumber;
+    private EditText editTextCvc;
+    private EditText editTextExpiredDate;
 
-    LinearLayout linearLayoutCard;
-    LinearLayout linearLayoutCardDetail;
-    EditText editTextNumber;
-    EditText editTextCvc;
-    EditText editTextExpiredDate;
+    private TextView textViewPrice;
 
-    Payment payment;
-    Order order;
+    private Payment payment;
+    private Order order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class PaymentActivity extends AppCompatActivity {
         editTextExpiredDate=findViewById(R.id.edittext_expired_date);
         linearLayoutCardDetail = findViewById(R.id.linerLayout_card_detail);
         textViewPrice = findViewById(R.id.textview_price);
-        editTextValue = findViewById(R.id.edittext_value);
+        editTextCashValue = findViewById(R.id.edittext_cash_value);
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
         payment = new Payment(order.getSandwich());
@@ -88,8 +88,8 @@ public class PaymentActivity extends AppCompatActivity {
         linearLayoutCard.setClickable(true);
         linearLayoutCashDetail.setVisibility(View.VISIBLE);
         linearLayoutCardDetail.setVisibility(View.GONE);
-        editTextValue.setText("");
-        editTextValue.setHint(getResources().getString(R.string.cash));
+        editTextCashValue.setText("");
+        editTextCashValue.setHint(getResources().getString(R.string.cash));
     }
 
     public void selectCard(View view) {
@@ -107,11 +107,11 @@ public class PaymentActivity extends AppCompatActivity {
 
 
     public void payCash(View view) {
-        if (editTextValue.getText().toString().trim().isEmpty()) {
+        if (editTextCashValue.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Please fill the box", Toast.LENGTH_SHORT).show();
             return;
         }
-        int value = Integer.parseInt(editTextValue.getText().toString().trim());
+        int value = Integer.parseInt(editTextCashValue.getText().toString().trim());
         String message = payment.pay(new CashPayment(value));
         if (message.equals(StaticKeys.CASH_INSUFFICIENT)) {
             Toast.makeText(this, "Your money is not enough", Toast.LENGTH_SHORT).show();
@@ -122,14 +122,14 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     public void payCard(View view) {
-        String cardnumber=editTextNumber.getText().toString().trim();
-        String cardcvc=editTextCvc.getText().toString().trim();
-        String cardexpireddate=editTextExpiredDate.getText().toString().trim();
-        if (cardnumber.length() == 0 || cardexpireddate.length() >7 || editTextCvc.length() != 3) {
+        String cardNumber=editTextNumber.getText().toString().trim();
+        String cardCvc=editTextCvc.getText().toString().trim();
+        String cardExpiredDate=editTextExpiredDate.getText().toString().trim();
+        if (cardNumber.length() == 0 || cardExpiredDate.length() >7 || cardCvc.length() != 3) {
             Toast.makeText(this, "Please fill with valid format", Toast.LENGTH_SHORT).show();
             return;
         }
-        String message = payment.pay(new CardPayment(cardnumber,cardcvc,cardexpireddate));
+        String message = payment.pay(new CardPayment(cardNumber,cardCvc,cardExpiredDate));
         switch (message){
             case StaticKeys.CARD_EXPIRED:
                 Toast.makeText(this, "Card reach expired date", Toast.LENGTH_SHORT).show();

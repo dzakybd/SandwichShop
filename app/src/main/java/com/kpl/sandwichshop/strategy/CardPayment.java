@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Ilham Aulia Majid on 28-Nov-17.
@@ -13,40 +14,39 @@ import java.util.Date;
 
 public class CardPayment implements PaymentMethod {
 
-    String cardnumber;
-    String cvccode;
-    String expireddate;
+    private String cardNumber;
+    private String cvcCode;
+    private String expiredDate;
 
     public CardPayment(String cardnumber, String cvccode, String expireddate){
-        this.cardnumber=cardnumber;
-        this.cvccode=cvccode;
-        this.expireddate=expireddate;
+        this.cardNumber=cardnumber;
+        this.cvcCode=cvccode;
+        this.expiredDate=expireddate;
     }
 
     @Override
     public String processPayment(int price) {
 
-        if(cardnumber.length() != 16){
+        if(cardNumber.length() != 16){
             return StaticKeys.CARD_INVALID;
         }
 
-        if(!cvccode.contentEquals(cardnumber.substring(cardnumber.length() - 3))){
+        if(!cvcCode.contentEquals(cardNumber.substring(cardNumber.length() - 3))){
             return StaticKeys.CARD_WRONG_CVC;
         }
 
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy", Locale.US);
         Date dateexp = null;
         Date datenow = null;
         try {
-            dateexp = sdf.parse(expireddate);
+            dateexp = sdf.parse(expiredDate);
             datenow = sdf.parse(cal.get(Calendar.MONTH)+"/"+(cal.get(Calendar.YEAR)));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        assert dateexp != null;
-        if(dateexp.compareTo(datenow) < 0){
+        if(dateexp != null && dateexp.compareTo(datenow) < 0){
             return StaticKeys.CARD_EXPIRED;
         }
 

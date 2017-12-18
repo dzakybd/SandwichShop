@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.kpl.sandwichshop.Order;
 import com.kpl.sandwichshop.R;
 import com.kpl.sandwichshop.StaticKeys;
-import com.kpl.sandwichshop.Sandwich;
 import com.kpl.sandwichshop.decorator.CheeseDecorator;
 import com.kpl.sandwichshop.decorator.MayoDecorator;
 import com.kpl.sandwichshop.decorator.SauceDecorator;
@@ -25,14 +23,14 @@ import org.parceler.Parcels;
 
 public class ToppingActivity extends AppCompatActivity {
 
-    TextView textViewPriceTopping;
-    TextView textViewPriceTotal;
-    TextView textViewPriceSandwich;
-    CheckBox checkBoxMayonaise;
-    CheckBox checkBoxCheese;
-    CheckBox checkBoxSauce;
+    private TextView textViewPriceTopping;
+    private TextView textViewPriceTotal;
+    private TextView textViewPriceSandwich;
+    private CheckBox checkBoxMayonaise;
+    private CheckBox checkBoxCheese;
+    private CheckBox checkBoxSauce;
 
-    Order order;
+    private Order order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

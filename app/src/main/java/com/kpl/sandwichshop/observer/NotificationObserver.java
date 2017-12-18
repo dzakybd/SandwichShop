@@ -1,6 +1,5 @@
 package com.kpl.sandwichshop.observer;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -16,8 +15,8 @@ import com.kpl.sandwichshop.R;
 
 public class NotificationObserver implements Observer {
 
-    Context context;
-    int notificationId;
+    private Context context;
+    private int notificationId;
 
     public NotificationObserver(Context context) {
         this.context = context;
@@ -26,8 +25,7 @@ public class NotificationObserver implements Observer {
     @Override
     public void update(Order order) {
         NotificationCompat.Builder builder =
-                (NotificationCompat.Builder)
-                        new NotificationCompat.Builder(context)
+                        new NotificationCompat.Builder(context, "M_CH_ID")
                                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher))
                                 .setSmallIcon(R.mipmap.ic_launcher)
                                 .setContentTitle("Sandwich ready")
@@ -37,7 +35,9 @@ public class NotificationObserver implements Observer {
                                 .setStyle(new NotificationCompat.BigTextStyle().bigText(order.toString()));
         NotificationManager manager = (NotificationManager)
                 context.getSystemService(context.NOTIFICATION_SERVICE);
-        manager.notify(notificationId, builder.build());
+        if (manager != null) {
+            manager.notify(notificationId, builder.build());
+        }
         notificationId += 1;
     }
 }

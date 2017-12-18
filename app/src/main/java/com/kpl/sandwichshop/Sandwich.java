@@ -15,8 +15,8 @@ import java.util.List;
 @Parcel
 public class Sandwich extends Decorator {
 
-    public Bread bread;
-    public List<Filling> fillings = new ArrayList<>();
+    Bread bread;
+    List<Filling> fillings = new ArrayList<>();
 
     public Sandwich() {
         this(null);

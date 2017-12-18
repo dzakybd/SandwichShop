@@ -10,8 +10,8 @@ import java.util.List;
 
 public class OrCriteria implements FilterFilling {
 
-    FilterFilling criteria;
-    FilterFilling otherCriteria;
+    private FilterFilling criteria;
+    private FilterFilling otherCriteria;
 
     public OrCriteria(FilterFilling criteria, FilterFilling otherCriteria) {
         this.criteria = criteria;
