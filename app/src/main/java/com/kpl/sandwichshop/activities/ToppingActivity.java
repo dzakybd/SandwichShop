@@ -23,19 +23,17 @@ import org.parceler.Parcels;
  * Created by Ilham Aulia Majid on 01-Dec-17.
  */
 
-public class ToppingActivity extends AppCompatActivity implements View.OnClickListener {
+public class ToppingActivity extends AppCompatActivity {
 
 
     private TextView textViewPriceTopping;
     private TextView textViewPriceTotal;
     private TextView textViewPriceSandwich;
-    private Button buttonNext;
     private CheckBox checkBoxMayonaise;
     private CheckBox checkBoxCheese;
     private CheckBox checkBoxSauce;
 
     Order order;
-    Sandwich sandwich;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,58 +42,43 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         order = Parcels.unwrap(getIntent().getParcelableExtra(StaticKeys.ORDER));
-        sandwich = order.getSandwich();
 
         textViewPriceTopping = findViewById(R.id.textview_price_topping);
         textViewPriceSandwich = findViewById(R.id.textview_price_sandwich);
         textViewPriceTotal = findViewById(R.id.textview_price_total);
-        buttonNext = findViewById(R.id.button_next_additional);
         checkBoxMayonaise = findViewById(R.id.checkbox_mayonaise);
         checkBoxCheese = findViewById(R.id.checkbox_cheese);
         checkBoxSauce = findViewById(R.id.checkbox_sauce);
 
-        buttonNext.setOnClickListener(this);
-
         updatePrice();
-
     }
 
     public void onCheckboxClicked(View view) {
-        sandwich.removeDecorator();
+        order.getSandwich().removeDecorator();
         if (checkBoxMayonaise.isChecked()) {
-            sandwich.addDecorator(new MayoDecorator());
+            order.getSandwich().addDecorator(new MayoDecorator());
         }
         if (checkBoxCheese.isChecked()) {
-            sandwich.addDecorator(new CheeseDecorator());
+            order.getSandwich().addDecorator(new CheeseDecorator());
         }
         if (checkBoxSauce.isChecked()) {
-            sandwich.addDecorator(new SauceDecorator());
+            order.getSandwich().addDecorator(new SauceDecorator());
         }
         updatePrice();
     }
 
     private void updatePrice() {
-        int priceSandwich = sandwich.getSandwichPrice();
-        int priceTopping = sandwich.getToppingPrice();
-        int total = sandwich.getPrice();
+        int priceSandwich = order.getSandwich().getSandwichPrice();
+        int priceTopping = order.getSandwich().getToppingPrice();
+        int total = order.getSandwich().getPrice();
 
         textViewPriceSandwich.setText(Integer.toString(priceSandwich));
         textViewPriceTopping.setText(Integer.toString(priceTopping));
         textViewPriceTotal.setText(Integer.toString(total));
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_next_additional:
-                Intent intent = new Intent(this, BonusActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
-                intent.putExtras(bundle);
-                startActivity(intent);
-                break;
-        }
-    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,5 +95,13 @@ public class ToppingActivity extends AppCompatActivity implements View.OnClickLi
     public void onBackPressed() {
         finish();
         super.onBackPressed();
+    }
+
+    public void goToBonus(View view) {
+        Intent intent = new Intent(this, BonusActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(StaticKeys.ORDER, Parcels.wrap(Order.class, order));
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
