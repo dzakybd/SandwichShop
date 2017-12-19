@@ -71,6 +71,10 @@ public class Sandwich extends Decorator {
         return bread;
     }
 
+    public List<Filling> getFillings() {
+        return fillings;
+    }
+
     public void setBread(Bread bread) {
         this.bread = bread;
     }
